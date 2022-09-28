@@ -6,21 +6,44 @@ editor: visual
 
 ## The R computing language
 
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+1.  Explanation of what R is. What do we use R for, what will you use R for. Other non-science examples of what R is.
+2.  What is a library?
+3.  Examples of how we use R
 
-## Running Code
+Some exampled of 'executed code' and an output.
 
-When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+```{r}
+1 + 4
+```
+
+```{r}
+x <- (4 + 5)
+
+x - 2
+```
+
+
+## What about other computing languages?
+
+Discussion of coding examples, python, julia, and others..
 
 ```{r}
 1 + 1
 ```
 
-You can add options to executable code like this
+Transferable skill
 
 ```{r}
 #| echo: false
 2 * 2
 ```
 
-The `echo: false` option disables the printing of code (only output is displayed).
+## Thoughts & recommendations
+
+Amount of time spent may seem not useful. 
+
+## Common themes moving forward
+
+1. Documentation: have current you write notes from past you to future you
+2. Google it: no matter how you learned R or how advanced you are, you will ultimately be looking things up online. A part of this course will include 'how to learn R'.
+3. 

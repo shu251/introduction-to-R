@@ -1,0 +1,100 @@
+[
+  {
+    "objectID": "r-overview.html",
+    "href": "r-overview.html",
+    "title": "What is ‘R’?",
+    "section": "",
+    "text": "Explanation of what R is. What do we use R for, what will you use R for. Other non-science examples of what R is.\nWhat is a library?\nExamples of how we use R\n\nSome exampled of ‘executed code’ and an output.\n\n1 + 4\n\n[1] 5\n\n\n\nx <- (4 + 5)\n\nx - 2\n\n[1] 7"
+  },
+  {
+    "objectID": "r-overview.html#running-code",
+    "href": "r-overview.html#running-code",
+    "title": "What is ‘R’?",
+    "section": "Running Code",
+    "text": "Running Code\nWhen you click the Render button a document will be generated that includes both content and the output of embedded code. You can embed code like this:\n\n1 + 1\n\n[1] 2\n\n\nYou can add options to executable code like this\n\n\n[1] 4\n\n\nThe echo: false option disables the printing of code (only output is displayed)."
+  },
+  {
+    "objectID": "file-location.html",
+    "href": "file-location.html",
+    "title": "File structure & location",
+    "section": "",
+    "text": "Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
+  },
+  {
+    "objectID": "file-location.html#basics-of-the-terminal",
+    "href": "file-location.html#basics-of-the-terminal",
+    "title": "File structure & location",
+    "section": "Basics of the terminal",
+    "text": "Basics of the terminal\nWhen you click the Render button a document will be generated that includes both content and the output of embedded code. You can embed code like this:\n\n1 + 1\n\n[1] 2\n\n\nYou can add options to executable code like this"
+  },
+  {
+    "objectID": "file-location.html#organizing-naming-files",
+    "href": "file-location.html#organizing-naming-files",
+    "title": "File structure & location",
+    "section": "Organizing & naming files",
+    "text": "Organizing & naming files"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "introduction-to-R",
+    "section": "",
+    "text": "To learn more about Quarto websites visit https://quarto.org/docs/websites."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "r-overview.html#what-about-other-computing-languages",
+    "href": "r-overview.html#what-about-other-computing-languages",
+    "title": "What is ‘R’?",
+    "section": "What about other computing languages?",
+    "text": "What about other computing languages?\nDiscussion of coding examples, python, julia, and others..\n\n1 + 1\n\n[1] 2\n\n\nTransferable skill\n\n\n[1] 4"
+  },
+  {
+    "objectID": "r-overview.html#thoughts-recommendations",
+    "href": "r-overview.html#thoughts-recommendations",
+    "title": "What is ‘R’?",
+    "section": "Thoughts & recommendations",
+    "text": "Thoughts & recommendations\nAmount of time spent may seem not useful."
+  },
+  {
+    "objectID": "r-overview.html#common-themes-moving-forward",
+    "href": "r-overview.html#common-themes-moving-forward",
+    "title": "What is ‘R’?",
+    "section": "Common themes moving forward",
+    "text": "Common themes moving forward\n\nDocumentation: have current you write notes from past you to future you\nGoogle it: no matter how you learned R or how advanced you are, you will ultimately be looking things up online. A part of this course will include ‘how to learn R’."
+  },
+  {
+    "objectID": "install.html",
+    "href": "install.html",
+    "title": "Installing R",
+    "section": "",
+    "text": "Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org.\n\n\nmac specific\n\n\n\nmac specific\n\n\n\nmac specific Show example of executing code"
+  },
+  {
+    "objectID": "install.html#instructions-for-pc",
+    "href": "install.html#instructions-for-pc",
+    "title": "Installing R",
+    "section": "Instructions for PC",
+    "text": "Instructions for PC\nWhen you click the Render button a document will be generated that includes both content and the output of embedded code. You can embed code like this:\n\nR install\npc specific\n\n\nRStudio\npc specific\n\n\nOpening R with RStudio\npc specific Show example of executing code"
+  },
+  {
+    "objectID": "rstudio-orientation.html",
+    "href": "rstudio-orientation.html",
+    "title": "RStudio",
+    "section": "",
+    "text": "Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
+  },
+  {
+    "objectID": "rstudio-orientation.html#running-code",
+    "href": "rstudio-orientation.html#running-code",
+    "title": "RStudio",
+    "section": "Running Code",
+    "text": "Running Code\nWhen you click the Render button a document will be generated that includes both content and the output of embedded code. You can embed code like this:\n\n1 + 1\n\n[1] 2\n\n\nYou can add options to executable code like this\n\n\n[1] 4\n\n\nThe echo: false option disables the printing of code (only output is displayed)."
+  }
+]

@@ -1,0 +1,35 @@
+---
+title: "Installing R"
+format: html
+editor: visual
+---
+
+## Instructions for Mac
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+
+#### R install
+mac specific 
+
+#### RStudio
+
+mac specific 
+
+#### Opening R with RStudio
+mac specific 
+Show example of executing code
+
+## Instructions for PC
+
+When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+#### R install
+pc specific 
+
+#### RStudio
+pc specific 
+
+#### Opening R with RStudio
+pc specific 
+Show example of executing code
+

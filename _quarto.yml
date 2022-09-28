@@ -4,6 +4,7 @@ project:
 
 website:
   title: "introduction-to-R"
+  page-navigation: true
   sidebar:
     style: "docked"
     search: true
@@ -14,9 +15,8 @@ website:
           - r-overview.qmd
       - section: "Install & prepare to work in R"
         contents:
-          - layout.qmd
-          - layout-knitr.qmd
-          - layout-jupyter.qmd
+          - install.qmd
+          - rstudio-orientation.qmd
       - section: "Working in RStudio"
         contents:
           - layout.qmd
@@ -44,7 +44,7 @@ website:
           - layout-jupyter.qmd
 format:
   html:
-    theme: cosmo
+    theme: simplex
     css: styles.css
     toc: true
 
