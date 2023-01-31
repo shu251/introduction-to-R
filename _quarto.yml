@@ -3,45 +3,45 @@ project:
   output-dir: docs
 
 website:
-  title: "introduction-to-R"
+  title: "Intro to R"
   page-navigation: true
   sidebar:
     style: "docked"
     search: true
+    number-sections: true
     contents:
-      - section: "Before we start"
+      - section: "Introduction"
         contents:
           - file-location.qmd
           - r-overview.qmd
-      - section: "Install & prepare to work in R"
+      - section: "Install & prepare to work in RStudio"
         contents:
           - install.qmd
           - rstudio-orientation.qmd
-      - section: "Working in RStudio"
+      - section: "Coding in R"
         contents:
-          - layout.qmd
-          - layout-knitr.qmd
-          - layout-jupyter.qmd
+          - basic-syntax.qmd
+          - data-types.qmd
+          - packages-libraries.qmd
       - section: "Importing datasets"
         contents:
-          - layout.qmd
-          - layout-knitr.qmd
-          - layout-jupyter.qmd
+          - importing-data.qmd
+          - exporting-data.qmd
       - section: "Manipulations of data"
         contents:
-          - layout.qmd
-          - layout-knitr.qmd
-          - layout-jupyter.qmd
+          - tidyverse-intro.qmd
+          - StarWars.qmd
+          - Penguins.qmd
       - section: "Data visualization"
         contents:
-          - layout.qmd
-          - layout-knitr.qmd
-          - layout-jupyter.qmd
+          - basic-plots.qmd
+          - customizatioms.qmd
+          - advanced-dataviz.qmd
       - section: "Analysis of complete datasets"
         contents:
-          - layout.qmd
-          - layout-knitr.qmd
-          - layout-jupyter.qmd
+          - lab-microbiology.qmd
+          - lab-oceanographic.qmd
+          - lab-qualitativetable.qmd
 format:
   html:
     theme: simplex

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Intro to R - Course organization &amp; file structure</title>
+<title>Intro to R - Data classes &amp; data frames</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,69 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -30,7 +93,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./r-overview.html" rel="next">
+<link href="./packages-libraries.html" rel="next">
+<link href="./basic-syntax.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -70,7 +134,7 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Course organization &amp; file structure</h1>
+      <h1 class="quarto-secondary-nav-title">Data classes &amp; data frames</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -103,7 +167,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./file-location.html" class="sidebar-item-text sidebar-link active">Course organization &amp; file structure</a>
+  <a href="./file-location.html" class="sidebar-item-text sidebar-link">Course organization &amp; file structure</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -148,12 +212,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./data-types.html" class="sidebar-item-text sidebar-link">Data classes &amp; data frames</a>
+  <a href="./data-types.html" class="sidebar-item-text sidebar-link active">Data classes &amp; data frames</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tidyverse-intro.html" class="sidebar-item-text sidebar-link">Tidyverse introduction</a>
+  <a href="./packages-libraries.html" class="sidebar-item-text sidebar-link">packages-libraries</a>
   </div>
 </li>
       </ul>
@@ -167,14 +231,15 @@ ul.task-list li input[type="checkbox"] {
       </div>
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
-  layout.qmd
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="./importing-data.html" class="sidebar-item-text sidebar-link">importing-data</a>
+  </div>
+</li>
           <li class="sidebar-item">
-  layout-knitr.qmd
-  </li>
-          <li class="sidebar-item">
-  layout-jupyter.qmd
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="./exporting-data.html" class="sidebar-item-text sidebar-link">exporting-data</a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -186,14 +251,20 @@ ul.task-list li input[type="checkbox"] {
       </div>
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
-  layout.qmd
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="./tidyverse-intro.html" class="sidebar-item-text sidebar-link">Tidyverse</a>
+  </div>
+</li>
           <li class="sidebar-item">
-  layout-knitr.qmd
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="./StarWars.html" class="sidebar-item-text sidebar-link">Star Wars data</a>
+  </div>
+</li>
           <li class="sidebar-item">
-  layout-jupyter.qmd
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="./Penguins.html" class="sidebar-item-text sidebar-link">Palmer penguins</a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -243,16 +314,15 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#organization-of-course" id="toc-organization-of-course" class="nav-link active" data-scroll-target="#organization-of-course"><span class="toc-section-number">1</span>  Organization of course</a></li>
-  <li><a href="#computer-file-structure" id="toc-computer-file-structure" class="nav-link" data-scroll-target="#computer-file-structure"><span class="toc-section-number">2</span>  Computer file structure</a>
+  <li><a href="#data-classes" id="toc-data-classes" class="nav-link active" data-scroll-target="#data-classes"><span class="toc-section-number">1</span>  Data classes</a></li>
+  <li><a href="#data-frames" id="toc-data-frames" class="nav-link" data-scroll-target="#data-frames"><span class="toc-section-number">2</span>  Data frames</a>
   <ul class="collapse">
-  <li><a href="#activity" id="toc-activity" class="nav-link" data-scroll-target="#activity"><span class="toc-section-number">2.1</span>  <strong>Activity</strong></a></li>
+  <li><a href="#select-columns" id="toc-select-columns" class="nav-link" data-scroll-target="#select-columns"><span class="toc-section-number">2.1</span>  Select columns</a></li>
+  <li><a href="#select-rows" id="toc-select-rows" class="nav-link" data-scroll-target="#select-rows"><span class="toc-section-number">2.2</span>  Select rows</a></li>
+  <li><a href="#add-to-your-data-frame" id="toc-add-to-your-data-frame" class="nav-link" data-scroll-target="#add-to-your-data-frame"><span class="toc-section-number">2.3</span>  Add to your data frame</a></li>
+  <li><a href="#activity" id="toc-activity" class="nav-link" data-scroll-target="#activity"><span class="toc-section-number">2.4</span>  Activity</a></li>
+  <li><a href="#activity-1" id="toc-activity-1" class="nav-link" data-scroll-target="#activity-1"><span class="toc-section-number">2.5</span>  Activity</a></li>
   </ul></li>
-  <li><a href="#basics-of-the-terminal" id="toc-basics-of-the-terminal" class="nav-link" data-scroll-target="#basics-of-the-terminal"><span class="toc-section-number">3</span>  Basics of the terminal</a>
-  <ul class="collapse">
-  <li><a href="#activity-1" id="toc-activity-1" class="nav-link" data-scroll-target="#activity-1"><span class="toc-section-number">3.1</span>  <strong>Activity</strong></a></li>
-  </ul></li>
-  <li><a href="#organizing-naming-files" id="toc-organizing-naming-files" class="nav-link" data-scroll-target="#organizing-naming-files"><span class="toc-section-number">4</span>  Organizing &amp; naming files</a></li>
   </ul>
 </nav>
     </div>
@@ -261,7 +331,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Course organization &amp; file structure</h1>
+<h1 class="title d-none d-lg-block">Data classes &amp; data frames</h1>
 </div>
 
 
@@ -275,49 +345,66 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="organization-of-course" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="organization-of-course"><span class="header-section-number">1</span> Organization of course</h2>
-<ul>
-<li>description of course organization. coursework goals. Define “live coding”.</li>
-</ul>
+<section id="data-classes" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="data-classes"><span class="header-section-number">1</span> Data classes</h2>
+<p>Define: list factor numeric integer</p>
 </section>
-<section id="computer-file-structure" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="computer-file-structure"><span class="header-section-number">2</span> Computer file structure</h2>
-<ul>
-<li><p>Your computer files and folders can all be accessed via the ‘Terminal’.</p></li>
-<li><p><strong>Show examples of using the terminal</strong> end goal is that everyone can navigate the terminal and computer (interface) similarly. Show ‘tab complete’</p></li>
-</ul>
-<section id="activity" class="level3" data-number="2.1">
-<h3 data-number="2.1" class="anchored" data-anchor-id="activity"><span class="header-section-number">2.1</span> <strong>Activity</strong></h3>
+<section id="data-frames" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="data-frames"><span class="header-section-number">2</span> Data frames</h2>
+<p>Create a data frame and explore the structure.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>greetings <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Hey"</span>, <span class="st">"Hi"</span>, <span class="st">"Howdy"</span>, <span class="st">"Hello"</span>, <span class="st">"Morning"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">99</span>, <span class="dv">15</span>, <span class="dv">324</span>, <span class="dv">54</span>, <span class="dv">23</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(greetings, n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>View dataframe you put together</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># print (df)</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># df</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># View(df)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Pull out individual rows and columns of the data frame.</p>
+<section id="select-columns" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="select-columns"><span class="header-section-number">2.1</span> Select columns</h3>
+<p>Isolate a single column.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># df$</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="select-rows" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="select-rows"><span class="header-section-number">2.2</span> Select rows</h3>
+<p>Remember the notation <code>[row,column]</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># df[]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="add-to-your-data-frame" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="add-to-your-data-frame"><span class="header-section-number">2.3</span> Add to your data frame</h3>
+<p>Let’s use the command <code>rbind()</code> to add on a row. We forgot to add in the greeting “Afternoon”, let’s say this was observed 18 times.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>addition <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Afternoon"</span>, <span class="dv">18</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>?<span class="fu">rbind</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="activity" class="level3" data-number="2.4">
+<h3 data-number="2.4" class="anchored" data-anchor-id="activity"><span class="header-section-number">2.4</span> Activity</h3>
 <blockquote class="blockquote">
-<p>Pull up the last document you opened on your computer. Repeat this in terminal. What is the path location of that file?</p>
+<p>Isolate the number of times “howdy” was observed. Set this equal to an R object.</p>
 </blockquote>
 </section>
-</section>
-<section id="basics-of-the-terminal" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="basics-of-the-terminal"><span class="header-section-number">3</span> Basics of the terminal</h2>
-<ul>
-<li>Basic commands on the terminal. How to look stuff up. Google as a friend.</li>
-<li>Ensure everyone tries this out</li>
-</ul>
-<p><code>pwd</code> Print working directory</p>
-<p><code>cd</code> Change directories</p>
-<p><code>less</code> Show preview in terminal (quit by hitting “q”)</p>
-<section id="activity-1" class="level3" data-number="3.1">
-<h3 data-number="3.1" class="anchored" data-anchor-id="activity-1"><span class="header-section-number">3.1</span> <strong>Activity</strong></h3>
+<section id="activity-1" class="level3" data-number="2.5">
+<h3 data-number="2.5" class="anchored" data-anchor-id="activity-1"><span class="header-section-number">2.5</span> Activity</h3>
 <blockquote class="blockquote">
-<p>How would you move a file titled “tmp.csv” from your current directory to one called archived-files?</p>
+<p>Set the number of times a greeting occured to a numeric.</p>
 </blockquote>
-</section>
-</section>
-<section id="organizing-naming-files" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="organizing-naming-files"><span class="header-section-number">4</span> Organizing &amp; naming files</h2>
-<ul>
-<li><em>tips for keeping organized with data? data management?</em></li>
-<li>Share how projects are managed here</li>
-</ul>
+<div class="cell">
+
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -421,10 +508,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./basic-syntax.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Basic syntax</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./r-overview.html" class="pagination-link">
-        <span class="nav-page-text">What is ‘R’?</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./packages-libraries.html" class="pagination-link">
+        <span class="nav-page-text">packages-libraries</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>introduction-to-R - What is ‘R’?</title>
+<title>Intro to R - What is ‘R’?</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,69 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -130,6 +67,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <body class="nav-sidebar docked">
 
+
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -147,7 +85,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">introduction-to-R</a> 
+      <a href="./">Intro to R</a> 
     </div>
       </div>
       <div class="mt-2 flex-shrink-0 align-items-center">
@@ -159,7 +97,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Before we start</a>
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Introduction</a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -167,7 +105,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./file-location.html" class="sidebar-item-text sidebar-link">File structure &amp; location</a>
+  <a href="./file-location.html" class="sidebar-item-text sidebar-link">Course organization &amp; file structure</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -179,7 +117,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Install &amp; prepare to work in R</a>
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Install &amp; prepare to work in RStudio</a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -199,21 +137,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">Working in RStudio</a>
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">Coding in R</a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
-  layout.qmd
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="./basic-syntax.html" class="sidebar-item-text sidebar-link">Basic syntax</a>
+  </div>
+</li>
           <li class="sidebar-item">
-  layout-knitr.qmd
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="./data-types.html" class="sidebar-item-text sidebar-link">Data classes &amp; data frames</a>
+  </div>
+</li>
           <li class="sidebar-item">
-  layout-jupyter.qmd
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="./packages-libraries.html" class="sidebar-item-text sidebar-link">packages-libraries</a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -225,14 +169,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       </div>
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
-  layout.qmd
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="./importing-data.html" class="sidebar-item-text sidebar-link">importing-data</a>
+  </div>
+</li>
           <li class="sidebar-item">
-  layout-knitr.qmd
-  </li>
-          <li class="sidebar-item">
-  layout-jupyter.qmd
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="./exporting-data.html" class="sidebar-item-text sidebar-link">exporting-data</a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -244,14 +189,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       </div>
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
-  layout.qmd
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="./tidyverse-intro.html" class="sidebar-item-text sidebar-link">Tidyverse</a>
+  </div>
+</li>
           <li class="sidebar-item">
-  layout-knitr.qmd
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="./StarWars.html" class="sidebar-item-text sidebar-link">Star Wars data</a>
+  </div>
+</li>
           <li class="sidebar-item">
-  layout-jupyter.qmd
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="./Penguins.html" class="sidebar-item-text sidebar-link">Palmer penguins</a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -263,13 +214,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       </div>
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
-  layout.qmd
+  <div class="sidebar-item-container"> 
+  <a href="./basic-plots.html" class="sidebar-item-text sidebar-link">Basic plots</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  customizatioms.qmd
   </li>
           <li class="sidebar-item">
-  layout-knitr.qmd
-  </li>
-          <li class="sidebar-item">
-  layout-jupyter.qmd
+  advanced-dataviz.qmd
   </li>
       </ul>
   </li>
@@ -282,13 +235,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       </div>
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
-  layout.qmd
+  lab-microbiology.qmd
   </li>
           <li class="sidebar-item">
-  layout-knitr.qmd
+  lab-oceanographic.qmd
   </li>
           <li class="sidebar-item">
-  layout-jupyter.qmd
+  lab-qualitativetable.qmd
   </li>
       </ul>
   </li>
@@ -301,10 +254,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#the-r-computing-language" id="toc-the-r-computing-language" class="nav-link active" data-scroll-target="#the-r-computing-language">The R computing language</a></li>
-  <li><a href="#what-about-other-computing-languages" id="toc-what-about-other-computing-languages" class="nav-link" data-scroll-target="#what-about-other-computing-languages">What about other computing languages?</a></li>
-  <li><a href="#thoughts-recommendations" id="toc-thoughts-recommendations" class="nav-link" data-scroll-target="#thoughts-recommendations">Thoughts &amp; recommendations</a></li>
-  <li><a href="#common-themes-moving-forward" id="toc-common-themes-moving-forward" class="nav-link" data-scroll-target="#common-themes-moving-forward">Common themes moving forward</a></li>
+  <li><a href="#the-r-computing-language" id="toc-the-r-computing-language" class="nav-link active" data-scroll-target="#the-r-computing-language"><span class="toc-section-number">1</span>  The R computing language</a></li>
+  <li><a href="#what-about-other-computing-languages" id="toc-what-about-other-computing-languages" class="nav-link" data-scroll-target="#what-about-other-computing-languages"><span class="toc-section-number">2</span>  What about other computing languages?</a></li>
+  <li><a href="#base-r-versus-tidyverse" id="toc-base-r-versus-tidyverse" class="nav-link" data-scroll-target="#base-r-versus-tidyverse"><span class="toc-section-number">3</span>  Base R versus Tidyverse</a></li>
+  <li><a href="#thoughts-recommendations" id="toc-thoughts-recommendations" class="nav-link" data-scroll-target="#thoughts-recommendations"><span class="toc-section-number">4</span>  Thoughts &amp; recommendations</a></li>
+  <li><a href="#common-themes-moving-forward" id="toc-common-themes-moving-forward" class="nav-link" data-scroll-target="#common-themes-moving-forward"><span class="toc-section-number">5</span>  Common themes moving forward</a></li>
   </ul>
 </nav>
     </div>
@@ -327,51 +281,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<section id="the-r-computing-language" class="level2">
-<h2 class="anchored" data-anchor-id="the-r-computing-language">The R computing language</h2>
+<section id="the-r-computing-language" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="the-r-computing-language"><span class="header-section-number">1</span> The R computing language</h2>
 <ol type="1">
 <li>Explanation of what R is. What do we use R for, what will you use R for. Other non-science examples of what R is.</li>
 <li>What is a library?</li>
 <li>Examples of how we use R</li>
 </ol>
-<p>Some exampled of ‘executed code’ and an output.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 5</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> (<span class="dv">4</span> <span class="sc">+</span> <span class="dv">5</span>)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>x <span class="sc">-</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 7</code></pre>
-</div>
-</div>
 </section>
-<section id="what-about-other-computing-languages" class="level2">
-<h2 class="anchored" data-anchor-id="what-about-other-computing-languages">What about other computing languages?</h2>
+<section id="what-about-other-computing-languages" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="what-about-other-computing-languages"><span class="header-section-number">2</span> What about other computing languages?</h2>
 <p>Discussion of coding examples, python, julia, and others..</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-</div>
 <p>Transferable skill</p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 4</code></pre>
-</div>
-</div>
 </section>
-<section id="thoughts-recommendations" class="level2">
-<h2 class="anchored" data-anchor-id="thoughts-recommendations">Thoughts &amp; recommendations</h2>
+<section id="base-r-versus-tidyverse" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="base-r-versus-tidyverse"><span class="header-section-number">3</span> Base R versus Tidyverse</h2>
+</section>
+<section id="thoughts-recommendations" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="thoughts-recommendations"><span class="header-section-number">4</span> Thoughts &amp; recommendations</h2>
 <p>Amount of time spent may seem not useful.</p>
 </section>
-<section id="common-themes-moving-forward" class="level2">
-<h2 class="anchored" data-anchor-id="common-themes-moving-forward">Common themes moving forward</h2>
+<section id="common-themes-moving-forward" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="common-themes-moving-forward"><span class="header-section-number">5</span> Common themes moving forward</h2>
 <ol type="1">
 <li>Documentation: have current you write notes from past you to future you</li>
 <li>Google it: no matter how you learned R or how advanced you are, you will ultimately be looking things up online. A part of this course will include ‘how to learn R’.</li>
@@ -483,7 +414,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./file-location.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">File structure &amp; location</span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Course organization &amp; file structure</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Intro to R - Course organization &amp; file structure</title>
+<title>Intro to R - exporting-data</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./r-overview.html" rel="next">
+<link href="./tidyverse-intro.html" rel="next">
+<link href="./importing-data.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -66,11 +67,12 @@ ul.task-list li input[type="checkbox"] {
 
 <body class="nav-sidebar docked">
 
+
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Course organization &amp; file structure</h1>
+      <h1 class="quarto-secondary-nav-title">exporting-data</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -103,7 +105,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./file-location.html" class="sidebar-item-text sidebar-link active">Course organization &amp; file structure</a>
+  <a href="./file-location.html" class="sidebar-item-text sidebar-link">Course organization &amp; file structure</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -153,7 +155,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tidyverse-intro.html" class="sidebar-item-text sidebar-link">Tidyverse introduction</a>
+  <a href="./packages-libraries.html" class="sidebar-item-text sidebar-link">packages-libraries</a>
   </div>
 </li>
       </ul>
@@ -167,14 +169,15 @@ ul.task-list li input[type="checkbox"] {
       </div>
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
-  layout.qmd
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="./importing-data.html" class="sidebar-item-text sidebar-link">importing-data</a>
+  </div>
+</li>
           <li class="sidebar-item">
-  layout-knitr.qmd
-  </li>
-          <li class="sidebar-item">
-  layout-jupyter.qmd
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="./exporting-data.html" class="sidebar-item-text sidebar-link active">exporting-data</a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -186,14 +189,20 @@ ul.task-list li input[type="checkbox"] {
       </div>
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
-  layout.qmd
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="./tidyverse-intro.html" class="sidebar-item-text sidebar-link">Tidyverse</a>
+  </div>
+</li>
           <li class="sidebar-item">
-  layout-knitr.qmd
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="./StarWars.html" class="sidebar-item-text sidebar-link">Star Wars data</a>
+  </div>
+</li>
           <li class="sidebar-item">
-  layout-jupyter.qmd
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="./Penguins.html" class="sidebar-item-text sidebar-link">Palmer penguins</a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -205,13 +214,15 @@ ul.task-list li input[type="checkbox"] {
       </div>
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
-  layout.qmd
+  <div class="sidebar-item-container"> 
+  <a href="./basic-plots.html" class="sidebar-item-text sidebar-link">Basic plots</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  customizatioms.qmd
   </li>
           <li class="sidebar-item">
-  layout-knitr.qmd
-  </li>
-          <li class="sidebar-item">
-  layout-jupyter.qmd
+  advanced-dataviz.qmd
   </li>
       </ul>
   </li>
@@ -224,13 +235,13 @@ ul.task-list li input[type="checkbox"] {
       </div>
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
-  layout.qmd
+  lab-microbiology.qmd
   </li>
           <li class="sidebar-item">
-  layout-knitr.qmd
+  lab-oceanographic.qmd
   </li>
           <li class="sidebar-item">
-  layout-jupyter.qmd
+  lab-qualitativetable.qmd
   </li>
       </ul>
   </li>
@@ -239,29 +250,14 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#organization-of-course" id="toc-organization-of-course" class="nav-link active" data-scroll-target="#organization-of-course"><span class="toc-section-number">1</span>  Organization of course</a></li>
-  <li><a href="#computer-file-structure" id="toc-computer-file-structure" class="nav-link" data-scroll-target="#computer-file-structure"><span class="toc-section-number">2</span>  Computer file structure</a>
-  <ul class="collapse">
-  <li><a href="#activity" id="toc-activity" class="nav-link" data-scroll-target="#activity"><span class="toc-section-number">2.1</span>  <strong>Activity</strong></a></li>
-  </ul></li>
-  <li><a href="#basics-of-the-terminal" id="toc-basics-of-the-terminal" class="nav-link" data-scroll-target="#basics-of-the-terminal"><span class="toc-section-number">3</span>  Basics of the terminal</a>
-  <ul class="collapse">
-  <li><a href="#activity-1" id="toc-activity-1" class="nav-link" data-scroll-target="#activity-1"><span class="toc-section-number">3.1</span>  <strong>Activity</strong></a></li>
-  </ul></li>
-  <li><a href="#organizing-naming-files" id="toc-organizing-naming-files" class="nav-link" data-scroll-target="#organizing-naming-files"><span class="toc-section-number">4</span>  Organizing &amp; naming files</a></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Course organization &amp; file structure</h1>
+<h1 class="title d-none d-lg-block">exporting-data</h1>
 </div>
 
 
@@ -275,50 +271,8 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="organization-of-course" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="organization-of-course"><span class="header-section-number">1</span> Organization of course</h2>
-<ul>
-<li>description of course organization. coursework goals. Define “live coding”.</li>
-</ul>
-</section>
-<section id="computer-file-structure" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="computer-file-structure"><span class="header-section-number">2</span> Computer file structure</h2>
-<ul>
-<li><p>Your computer files and folders can all be accessed via the ‘Terminal’.</p></li>
-<li><p><strong>Show examples of using the terminal</strong> end goal is that everyone can navigate the terminal and computer (interface) similarly. Show ‘tab complete’</p></li>
-</ul>
-<section id="activity" class="level3" data-number="2.1">
-<h3 data-number="2.1" class="anchored" data-anchor-id="activity"><span class="header-section-number">2.1</span> <strong>Activity</strong></h3>
-<blockquote class="blockquote">
-<p>Pull up the last document you opened on your computer. Repeat this in terminal. What is the path location of that file?</p>
-</blockquote>
-</section>
-</section>
-<section id="basics-of-the-terminal" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="basics-of-the-terminal"><span class="header-section-number">3</span> Basics of the terminal</h2>
-<ul>
-<li>Basic commands on the terminal. How to look stuff up. Google as a friend.</li>
-<li>Ensure everyone tries this out</li>
-</ul>
-<p><code>pwd</code> Print working directory</p>
-<p><code>cd</code> Change directories</p>
-<p><code>less</code> Show preview in terminal (quit by hitting “q”)</p>
-<section id="activity-1" class="level3" data-number="3.1">
-<h3 data-number="3.1" class="anchored" data-anchor-id="activity-1"><span class="header-section-number">3.1</span> <strong>Activity</strong></h3>
-<blockquote class="blockquote">
-<p>How would you move a file titled “tmp.csv” from your current directory to one called archived-files?</p>
-</blockquote>
-</section>
-</section>
-<section id="organizing-naming-files" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="organizing-naming-files"><span class="header-section-number">4</span> Organizing &amp; naming files</h2>
-<ul>
-<li><em>tips for keeping organized with data? data management?</em></li>
-<li>Share how projects are managed here</li>
-</ul>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -421,10 +375,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./importing-data.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">importing-data</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./r-overview.html" class="pagination-link">
-        <span class="nav-page-text">What is ‘R’?</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./tidyverse-intro.html" class="pagination-link">
+        <span class="nav-page-text">Tidyverse</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

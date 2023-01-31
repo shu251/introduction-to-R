@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>introduction-to-R - Installing R</title>
+<title>Intro to R - Installing R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -84,7 +84,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">introduction-to-R</a> 
+      <a href="./">Intro to R</a> 
     </div>
       </div>
       <div class="mt-2 flex-shrink-0 align-items-center">
@@ -96,7 +96,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Before we start</a>
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Introduction</a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -104,7 +104,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./file-location.html" class="sidebar-item-text sidebar-link">File structure &amp; location</a>
+  <a href="./file-location.html" class="sidebar-item-text sidebar-link">Course organization &amp; file structure</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -116,7 +116,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Install &amp; prepare to work in R</a>
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Install &amp; prepare to work in RStudio</a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -136,21 +136,27 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">Working in RStudio</a>
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">Coding in R</a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
-  layout.qmd
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="./basic-syntax.html" class="sidebar-item-text sidebar-link">Basic syntax</a>
+  </div>
+</li>
           <li class="sidebar-item">
-  layout-knitr.qmd
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="./data-types.html" class="sidebar-item-text sidebar-link">Data classes &amp; data frames</a>
+  </div>
+</li>
           <li class="sidebar-item">
-  layout-jupyter.qmd
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="./tidyverse-intro.html" class="sidebar-item-text sidebar-link">Tidyverse introduction</a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -238,8 +244,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#instructions-for-mac" id="toc-instructions-for-mac" class="nav-link active" data-scroll-target="#instructions-for-mac">Instructions for Mac</a></li>
-  <li><a href="#instructions-for-pc" id="toc-instructions-for-pc" class="nav-link" data-scroll-target="#instructions-for-pc">Instructions for PC</a></li>
+  <li><a href="#instructions-for-mac" id="toc-instructions-for-mac" class="nav-link active" data-scroll-target="#instructions-for-mac"><span class="toc-section-number">1</span>  Instructions for Mac</a></li>
+  <li><a href="#instructions-for-pc" id="toc-instructions-for-pc" class="nav-link" data-scroll-target="#instructions-for-pc"><span class="toc-section-number">2</span>  Instructions for PC</a></li>
   </ul>
 </nav>
     </div>
@@ -262,35 +268,40 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="instructions-for-mac" class="level2">
-<h2 class="anchored" data-anchor-id="instructions-for-mac">Instructions for Mac</h2>
-<p>Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <a href="https://quarto.org" class="uri">https://quarto.org</a>.</p>
-<section id="r-install" class="level4">
-<h4 class="anchored" data-anchor-id="r-install">R install</h4>
+<section id="instructions-for-mac" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="instructions-for-mac"><span class="header-section-number">1</span> Instructions for Mac</h2>
+<ul>
+<li>Installation instructions - update later - or guide class through this</li>
+<li>Hold</li>
+</ul>
+<section id="r-install" class="level4" data-number="1.0.1">
+<h4 data-number="1.0.1" class="anchored" data-anchor-id="r-install"><span class="header-section-number">1.0.1</span> R install</h4>
+<ul>
+<li>mac specific: for yourmac, make sure you…</li>
+<li>updating text here</li>
+</ul>
+</section>
+<section id="rstudio" class="level4" data-number="1.0.2">
+<h4 data-number="1.0.2" class="anchored" data-anchor-id="rstudio"><span class="header-section-number">1.0.2</span> RStudio</h4>
 <p>mac specific</p>
 </section>
-<section id="rstudio" class="level4">
-<h4 class="anchored" data-anchor-id="rstudio">RStudio</h4>
-<p>mac specific</p>
-</section>
-<section id="opening-r-with-rstudio" class="level4">
-<h4 class="anchored" data-anchor-id="opening-r-with-rstudio">Opening R with RStudio</h4>
+<section id="opening-r-with-rstudio" class="level4" data-number="1.0.3">
+<h4 data-number="1.0.3" class="anchored" data-anchor-id="opening-r-with-rstudio"><span class="header-section-number">1.0.3</span> Opening R with RStudio</h4>
 <p>mac specific Show example of executing code</p>
 </section>
 </section>
-<section id="instructions-for-pc" class="level2">
-<h2 class="anchored" data-anchor-id="instructions-for-pc">Instructions for PC</h2>
-<p>When you click the <strong>Render</strong> button a document will be generated that includes both content and the output of embedded code. You can embed code like this:</p>
-<section id="r-install-1" class="level4">
-<h4 class="anchored" data-anchor-id="r-install-1">R install</h4>
+<section id="instructions-for-pc" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="instructions-for-pc"><span class="header-section-number">2</span> Instructions for PC</h2>
+<section id="r-install-1" class="level4" data-number="2.0.1">
+<h4 data-number="2.0.1" class="anchored" data-anchor-id="r-install-1"><span class="header-section-number">2.0.1</span> R install</h4>
 <p>pc specific</p>
 </section>
-<section id="rstudio-1" class="level4">
-<h4 class="anchored" data-anchor-id="rstudio-1">RStudio</h4>
+<section id="rstudio-1" class="level4" data-number="2.0.2">
+<h4 data-number="2.0.2" class="anchored" data-anchor-id="rstudio-1"><span class="header-section-number">2.0.2</span> RStudio</h4>
 <p>pc specific</p>
 </section>
-<section id="opening-r-with-rstudio-1" class="level4">
-<h4 class="anchored" data-anchor-id="opening-r-with-rstudio-1">Opening R with RStudio</h4>
+<section id="opening-r-with-rstudio-1" class="level4" data-number="2.0.3">
+<h4 data-number="2.0.3" class="anchored" data-anchor-id="opening-r-with-rstudio-1"><span class="header-section-number">2.0.3</span> Opening R with RStudio</h4>
 <p>pc specific Show example of executing code</p>
 
 

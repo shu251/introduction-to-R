@@ -4,7 +4,7 @@
     "href": "r-overview.html",
     "title": "What is ‘R’?",
     "section": "",
-    "text": "Explanation of what R is. What do we use R for, what will you use R for. Other non-science examples of what R is.\nWhat is a library?\nExamples of how we use R\n\nSome exampled of ‘executed code’ and an output.\n\n1 + 4\n\n[1] 5\n\n\n\nx <- (4 + 5)\n\nx - 2\n\n[1] 7"
+    "text": "Explanation of what R is. What do we use R for, what will you use R for. Other non-science examples of what R is.\nWhat is a library?\nExamples of how we use R"
   },
   {
     "objectID": "r-overview.html#running-code",
@@ -16,30 +16,30 @@
   {
     "objectID": "file-location.html",
     "href": "file-location.html",
-    "title": "File structure & location",
+    "title": "Course organization & file structure",
     "section": "",
-    "text": "Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
+    "text": "description of course organization. coursework goals. Define “live coding”."
   },
   {
     "objectID": "file-location.html#basics-of-the-terminal",
     "href": "file-location.html#basics-of-the-terminal",
-    "title": "File structure & location",
-    "section": "Basics of the terminal",
-    "text": "Basics of the terminal\nWhen you click the Render button a document will be generated that includes both content and the output of embedded code. You can embed code like this:\n\n1 + 1\n\n[1] 2\n\n\nYou can add options to executable code like this"
+    "title": "Course organization & file structure",
+    "section": "3 Basics of the terminal",
+    "text": "3 Basics of the terminal\n\nBasic commands on the terminal. How to look stuff up. Google as a friend.\nEnsure everyone tries this out\n\npwd Print working directory\ncd Change directories\nless Show preview in terminal (quit by hitting “q”)\n\n3.1 Activity\n\nHow would you move a file titled “tmp.csv” from your current directory to one called archived-files?"
   },
   {
     "objectID": "file-location.html#organizing-naming-files",
     "href": "file-location.html#organizing-naming-files",
-    "title": "File structure & location",
-    "section": "Organizing & naming files",
-    "text": "Organizing & naming files"
+    "title": "Course organization & file structure",
+    "section": "4 Organizing & naming files",
+    "text": "4 Organizing & naming files\n\ntips for keeping organized with data? data management?\nShare how projects are managed here"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "introduction-to-R",
+    "title": "Welcome",
     "section": "",
-    "text": "To learn more about Quarto websites visit https://quarto.org/docs/websites."
+    "text": "Welcome to introduction to the R programming language."
   },
   {
     "objectID": "about.html",
@@ -53,7 +53,7 @@
     "href": "r-overview.html#what-about-other-computing-languages",
     "title": "What is ‘R’?",
     "section": "What about other computing languages?",
-    "text": "What about other computing languages?\nDiscussion of coding examples, python, julia, and others..\n\n1 + 1\n\n[1] 2\n\n\nTransferable skill\n\n\n[1] 4"
+    "text": "What about other computing languages?\nDiscussion of coding examples, python, julia, and others..\nTransferable skill"
   },
   {
     "objectID": "r-overview.html#thoughts-recommendations",
@@ -74,21 +74,21 @@
     "href": "install.html",
     "title": "Installing R",
     "section": "",
-    "text": "Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org.\n\n\nmac specific\n\n\n\nmac specific\n\n\n\nmac specific Show example of executing code"
+    "text": "Installation instructions - update later - or guide class through this\nHold\n\n\n\n\nmac specific: for yourmac, make sure you…\nupdating text here\n\n\n\n\nmac specific\n\n\n\nmac specific Show example of executing code"
   },
   {
     "objectID": "install.html#instructions-for-pc",
     "href": "install.html#instructions-for-pc",
     "title": "Installing R",
-    "section": "Instructions for PC",
-    "text": "Instructions for PC\nWhen you click the Render button a document will be generated that includes both content and the output of embedded code. You can embed code like this:\n\nR install\npc specific\n\n\nRStudio\npc specific\n\n\nOpening R with RStudio\npc specific Show example of executing code"
+    "section": "2 Instructions for PC",
+    "text": "2 Instructions for PC\n\n2.0.1 R install\npc specific\n\n\n2.0.2 RStudio\npc specific\n\n\n2.0.3 Opening R with RStudio\npc specific Show example of executing code"
   },
   {
     "objectID": "rstudio-orientation.html",
     "href": "rstudio-orientation.html",
     "title": "RStudio",
     "section": "",
-    "text": "Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
+    "text": "Interface that will help you write code, keep it organized, run code, see outputs, and save your work.\n\n\n\nFiles\nPackages\nEnvironment\nConsole vs. Terminal"
   },
   {
     "objectID": "rstudio-orientation.html#running-code",
@@ -96,5 +96,236 @@
     "title": "RStudio",
     "section": "Running Code",
     "text": "Running Code\nWhen you click the Render button a document will be generated that includes both content and the output of embedded code. You can embed code like this:\n\n1 + 1\n\n[1] 2\n\n\nYou can add options to executable code like this\n\n\n[1] 4\n\n\nThe echo: false option disables the printing of code (only output is displayed)."
+  },
+  {
+    "objectID": "data-types.html",
+    "href": "data-types.html",
+    "title": "Data classes & data frames",
+    "section": "",
+    "text": "Define: list factor numeric integer"
+  },
+  {
+    "objectID": "data-types.html#running-code",
+    "href": "data-types.html#running-code",
+    "title": "Data classes & data frames",
+    "section": "Running Code",
+    "text": "Running Code\nWhen you click the Render button a document will be generated that includes both content and the output of embedded code. You can embed code like this:\n\n1 + 1\n\n[1] 2\n\n\nYou can add options to executable code like this\n\n\n[1] 4\n\n\nThe echo: false option disables the printing of code (only output is displayed)."
+  },
+  {
+    "objectID": "basic-syntax.html",
+    "href": "basic-syntax.html",
+    "title": "Basic syntax",
+    "section": "",
+    "text": "In the R console, type:\n\n3 + 5\n\n[1] 8\n\n\n\n\nAssign an R object called juice to be equal to 4+4. What is the output when you type juice?\n\njuice <- 4 + 4\n\n# juice\n\nCan you describe what you think x indicates below?\n\nx <- c(1,7,9)\nx[2]\n\n[1] 7\n\n\nWhat do you think the R object fruit is?\n\napples <- 5\noranges <- 6\n\nfruit <- apples + oranges"
+  },
+  {
+    "objectID": "tidyverse-intro.html",
+    "href": "tidyverse-intro.html",
+    "title": "Tidyverse",
+    "section": "",
+    "text": "Set up a test input dataset\n\n# ?read_delim()\n\nWhat else do we notice about this table we just imported?\n\n# str()\n# head()\n# class()\n\n\n\ntibble: is a dataframe specific version for tidyverse. It is both an object and a tibble. So it talks well with all of the related packages. Columns in a tibble are character vectors (instead of factors). This is technically easier to deal with.\nmatix:"
+  },
+  {
+    "objectID": "tidyverse-intro.html#running-code",
+    "href": "tidyverse-intro.html#running-code",
+    "title": "Tidyverse introduction",
+    "section": "2 Running Code",
+    "text": "2 Running Code\nWhen you click the Render button a document will be generated that includes both content and the output of embedded code. You can embed code like this:\n\n1 + 1\n\n[1] 2\n\n\nYou can add options to executable code like this\n\n\n[1] 4\n\n\nThe echo: false option disables the printing of code (only output is displayed)."
+  },
+  {
+    "objectID": "rstudio-orientation.html#file-structure-projects",
+    "href": "rstudio-orientation.html#file-structure-projects",
+    "title": "RStudio",
+    "section": "File structure & projects",
+    "text": "File structure & projects\nTo start, save a new directory as r-intro-docs. These are provided input files for R so we can learn the basics."
+  },
+  {
+    "objectID": "rstudio-orientation.html#executing-commands",
+    "href": "rstudio-orientation.html#executing-commands",
+    "title": "RStudio",
+    "section": "Executing commands",
+    "text": "Executing commands\nThe Rscript within Rstudio works like a raw text file, where most shortcut keys like copy/paste and home/end will work. As the course continues we will share what shortcut keys we often use - at any time you can also google “short cut keys RStudio for Mac” to find more.\n\nMac\nTo run a command on a Mac, place cursor on the line you want to execute or highlight the code. Press COMMAND + ENTER.\n\n\nPC\nTo run a command on a PC, place cursor on the line you want to execute or highlight the code. Press CONTROL + ENTER."
+  },
+  {
+    "objectID": "rstudio-orientation.html#getting-help-online-resources",
+    "href": "rstudio-orientation.html#getting-help-online-resources",
+    "title": "RStudio",
+    "section": "Getting help & online resources",
+    "text": "Getting help & online resources"
+  },
+  {
+    "objectID": "file-location.html#computer-file-structure",
+    "href": "file-location.html#computer-file-structure",
+    "title": "Course organization & file structure",
+    "section": "2 Computer file structure",
+    "text": "2 Computer file structure\n\nYour computer files and folders can all be accessed via the ‘Terminal’.\nShow examples of using the terminal end goal is that everyone can navigate the terminal and computer (interface) similarly. Show ‘tab complete’\n\n\n2.1 Activity\n\nPull up the last document you opened on your computer. Repeat this in terminal. What is the path location of that file?"
+  },
+  {
+    "objectID": "index.html#required-pre-requisite",
+    "href": "index.html#required-pre-requisite",
+    "title": "Welcome",
+    "section": "Required pre-requisite",
+    "text": "Required pre-requisite\n\nUpdated laptop (Mac or PC). Instructor will use a Mac\nInternet connection\nAn idea for how you want to use R\nFill out the pre-course survey"
+  },
+  {
+    "objectID": "index.html#recommended-preparation",
+    "href": "index.html#recommended-preparation",
+    "title": "Welcome",
+    "section": "Recommended preparation",
+    "text": "Recommended preparation\n\nMake sure R and RStudio are set up on your computer and working\nDetermine how to open up the Terminal on your computer\nCome with questions on how you want to use R"
+  },
+  {
+    "objectID": "index.html#course-organization",
+    "href": "index.html#course-organization",
+    "title": "Welcome",
+    "section": "Course organization",
+    "text": "Course organization\nThis course is designed as a “crash course” that takes place only over a few days, in longer blocks of time. There will be frequent breaks. At any time raise your hand or use the ‘raise hand’ option remotely to ask a question.\nPlease note that learning R is similar to learning a whole new language. Additionally, we do not expect any prior experience for this course. Together, this means that each learner will have their own pace and experience during the course. Please be respectful of this and if you see how you can help someone, do so!\nFor instruction, we will be live coding the entire time. While most of the code is available on this website, the live coding aspect will help immerse you into coding in R. During each live coding session, the R script for each session will be saved and uploaded so you can access it in the future. This is because the code on this page is meant to be minimal, and during the coding sessions we will expand upon what is shown and document as we go along.\nIn order to keep a pulse on the pace of the class, please use the raising hand acknowledgement or the post it note approach to indicate to the instructor(s) that you need the content to slow down or you are stuck.\nSince we are all learning together, we will also use the term buddy up to take a pause and ask your direct neighbors for help or come together with the people around you to troubleshoot the problem."
+  },
+  {
+    "objectID": "index.html#getting-help",
+    "href": "index.html#getting-help",
+    "title": "Welcome",
+    "section": "Getting help",
+    "text": "Getting help\n\nTAMU data science community"
+  },
+  {
+    "objectID": "index.html#saved-sessions",
+    "href": "index.html#saved-sessions",
+    "title": "Welcome",
+    "section": "Saved sessions",
+    "text": "Saved sessions"
+  },
+  {
+    "objectID": "index.html#code-of-conduct",
+    "href": "index.html#code-of-conduct",
+    "title": "Welcome",
+    "section": "Code of conduct",
+    "text": "Code of conduct"
+  },
+  {
+    "objectID": "index.html#sessions-archive",
+    "href": "index.html#sessions-archive",
+    "title": "Welcome",
+    "section": "Sessions archive",
+    "text": "Sessions archive\nThis course is meant to evolve over time, be re-taught, and referred to in the future. See the directory introduction-to-R/sessions to find the saved code from your session."
+  },
+  {
+    "objectID": "basic-syntax.html#operators",
+    "href": "basic-syntax.html#operators",
+    "title": "Basic syntax",
+    "section": "2 Operators",
+    "text": "2 Operators\nSymbols in R are used in arguments, logical statements, assignments, and more. We will use many of them, but the common ones"
+  },
+  {
+    "objectID": "basic-syntax.html#errors",
+    "href": "basic-syntax.html#errors",
+    "title": "Basic syntax",
+    "section": "3 Errors",
+    "text": "3 Errors\n\n# Errors and improper R object naming\n# 6389/\n\n# 5-6\n\n# 5.6 <- fruit\n\n\n3.1 Activity\n\nThere are several ways to view or look at an R object. Can you figure out what they are?\n\n\n\n3.2 Activity\n\nSolve complex equation.\n\n\n\n3.3 A note on documenting code"
+  },
+  {
+    "objectID": "data-types.html#data-frames",
+    "href": "data-types.html#data-frames",
+    "title": "Data classes & data frames",
+    "section": "2 Data frames",
+    "text": "2 Data frames\nCreate a data frame and explore the structure.\n\ngreetings <- c(\"Hey\", \"Hi\", \"Howdy\", \"Hello\", \"Morning\")\n\nn <- c(99, 15, 324, 54, 23)\n\ndf <- data.frame(greetings, n)\n\nView dataframe you put together\n\n# print (df)\n# df\n# View(df)\n\nPull out individual rows and columns of the data frame.\n\n2.1 Select columns\nIsolate a single column.\n\n# df$\n\n\n\n2.2 Select rows\nRemember the notation [row,column].\n\n# df[]\n\n\n\n2.3 Add to your data frame\nLet’s use the command rbind() to add on a row. We forgot to add in the greeting “Afternoon”, let’s say this was observed 18 times.\n\naddition <- c(\"Afternoon\", 18)\n?rbind()\n\n\n\n2.4 Activity\n\nIsolate the number of times “howdy” was observed. Set this equal to an R object.\n\n\n\n2.5 Activity\n\nSet the number of times a greeting occured to a numeric."
+  },
+  {
+    "objectID": "tidyverse-intro.html#see-bvcn-code-and-re-write-in-similar-fashion",
+    "href": "tidyverse-intro.html#see-bvcn-code-and-re-write-in-similar-fashion",
+    "title": "Tidyverse",
+    "section": "2 See BVCN code and re-write in similar fashion",
+    "text": "2 See BVCN code and re-write in similar fashion"
+  },
+  {
+    "objectID": "tidyverse-intro.html#what-is-tidyverse",
+    "href": "tidyverse-intro.html#what-is-tidyverse",
+    "title": "Tidyverse",
+    "section": "7 What is tidyverse?",
+    "text": "7 What is tidyverse?"
+  },
+  {
+    "objectID": "tidyverse-intro.html#select",
+    "href": "tidyverse-intro.html#select",
+    "title": "Tidyverse",
+    "section": "3 select()",
+    "text": "3 select()"
+  },
+  {
+    "objectID": "tidyverse-intro.html#filter",
+    "href": "tidyverse-intro.html#filter",
+    "title": "Tidyverse",
+    "section": "4 filter()",
+    "text": "4 filter()"
+  },
+  {
+    "objectID": "tidyverse-intro.html#long-vs.-wide-format",
+    "href": "tidyverse-intro.html#long-vs.-wide-format",
+    "title": "Tidyverse",
+    "section": "5 Long vs. wide format",
+    "text": "5 Long vs. wide format"
+  },
+  {
+    "objectID": "tidyverse-intro.html#group_by",
+    "href": "tidyverse-intro.html#group_by",
+    "title": "Tidyverse",
+    "section": "6 group_by()",
+    "text": "6 group_by()\n\n6.1 summarise()\n\n\n6.2 mutate()"
+  },
+  {
+    "objectID": "StarWars.html",
+    "href": "StarWars.html",
+    "title": "Star Wars data",
+    "section": "",
+    "text": "library(tidyverse)\n\n── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──\n✔ ggplot2 3.3.6      ✔ purrr   0.3.5 \n✔ tibble  3.1.8      ✔ dplyr   1.0.10\n✔ tidyr   1.2.1      ✔ stringr 1.4.1 \n✔ readr   2.1.2      ✔ forcats 0.5.2 \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\n\nhead(starwars)\n\n# A tibble: 6 × 14\n  name         height  mass hair_…¹ skin_…² eye_c…³ birth…⁴ sex   gender homew…⁵\n  <chr>         <int> <dbl> <chr>   <chr>   <chr>     <dbl> <chr> <chr>  <chr>  \n1 Luke Skywal…    172    77 blond   fair    blue       19   male  mascu… Tatooi…\n2 C-3PO           167    75 <NA>    gold    yellow    112   none  mascu… Tatooi…\n3 R2-D2            96    32 <NA>    white,… red        33   none  mascu… Naboo  \n4 Darth Vader     202   136 none    white   yellow     41.9 male  mascu… Tatooi…\n5 Leia Organa     150    49 brown   light   brown      19   fema… femin… Aldera…\n6 Owen Lars       178   120 brown,… light   blue       52   male  mascu… Tatooi…\n# … with 4 more variables: species <chr>, films <list>, vehicles <list>,\n#   starships <list>, and abbreviated variable names ¹​hair_color, ²​skin_color,\n#   ³​eye_color, ⁴​birth_year, ⁵​homeworld"
+  },
+  {
+    "objectID": "StarWars.html#section",
+    "href": "StarWars.html#section",
+    "title": "Star Wars data",
+    "section": "2 ",
+    "text": "2"
+  },
+  {
+    "objectID": "packages-libraries.html",
+    "href": "packages-libraries.html",
+    "title": "packages-libraries",
+    "section": "",
+    "text": "2 Keeping track of your session\n\nsessionInfo()\n\nR version 4.2.1 (2022-06-23)\nPlatform: x86_64-apple-darwin17.0 (64-bit)\nRunning under: macOS Big Sur ... 10.16\n\nMatrix products: default\nBLAS:   /Library/Frameworks/R.framework/Versions/4.2/Resources/lib/libRblas.0.dylib\nLAPACK: /Library/Frameworks/R.framework/Versions/4.2/Resources/lib/libRlapack.dylib\n\nlocale:\n[1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8\n\nattached base packages:\n[1] stats     graphics  grDevices utils     datasets  methods   base     \n\nloaded via a namespace (and not attached):\n [1] digest_0.6.30     jsonlite_1.8.0    magrittr_2.0.3    evaluate_0.16    \n [5] rlang_1.0.6       stringi_1.7.8     cli_3.4.1         rstudioapi_0.14  \n [9] rmarkdown_2.16    tools_4.2.1       stringr_1.4.1     htmlwidgets_1.5.4\n[13] xfun_0.33         yaml_2.3.5        fastmap_1.1.0     compiler_4.2.1   \n[17] htmltools_0.5.3   knitr_1.40"
+  },
+  {
+    "objectID": "basic-plots.html#point-line",
+    "href": "basic-plots.html#point-line",
+    "title": "Basic plots",
+    "section": "2 Point & line",
+    "text": "2 Point & line"
+  },
+  {
+    "objectID": "basic-plots.html#boxplot",
+    "href": "basic-plots.html#boxplot",
+    "title": "Basic plots",
+    "section": "3 Boxplot",
+    "text": "3 Boxplot"
+  },
+  {
+    "objectID": "basic-plots.html#bubble",
+    "href": "basic-plots.html#bubble",
+    "title": "Basic plots",
+    "section": "4 Bubble",
+    "text": "4 Bubble"
+  },
+  {
+    "objectID": "basic-plots.html#heat-map",
+    "href": "basic-plots.html#heat-map",
+    "title": "Basic plots",
+    "section": "5 Heat map",
+    "text": "5 Heat map"
+  },
+  {
+    "objectID": "basic-plots.html#section",
+    "href": "basic-plots.html#section",
+    "title": "Basic plots",
+    "section": "6 ",
+    "text": "6"
   }
 ]
