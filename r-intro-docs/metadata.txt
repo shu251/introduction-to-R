@@ -1,0 +1,101 @@
+SAMPLE	VENT	SITE	Sample_or_Control	SAMPLETYPE	DEPTH	temp
+Axial_BSW1500m_BSW1500m_2015	Deep seawater	Axial	Sample	Background	1520	2
+Axial_AnemonePlume_AnemonePlume_2015	Anemone Plume	Axial	Sample	Plume	1500	NA
+Axial_Anemone_FS891_2013	Anemone	Axial	Sample	Vent	1542	28.2
+Axial_Boca_FS905_2013	Boca	Axial	Sample	Vent	1516.9	6.8
+Axial_Dependable_FS900_2013	Dependable	Axial	Sample	Vent	1912.8	50
+Axial_ElGuapo_FS896_2013	El Guapo	Axial	Sample	Vent	1502	25.7
+Axial_Marker113_FS903_2013	Marker113	Axial	Sample	Vent	1520.3	24.8
+Axial_Marker113_FS906_2014	Marker113	Axial	Sample	Vent	1518	24.3
+Axial_Marker113_FS915_2015	Marker113	Axial	Sample	Vent	1520	25.4
+Axial_Marker33_FS904_2013	Marker33	Axial	Sample	Vent	1516	27.3
+Axial_Marker33_FS908_2014	Marker33	Axial	Sample	Vent	1514	18.5
+Axial_N3Area_FS898_2013	N3Area	Axial	Sample	Vent	1523	18.9
+Axial_Skadi_FS902_2013	Skadi	Axial	Sample	Vent	1561.6	35.6
+Axial_Skadi_FS910_2014	Escargot	Axial	Sample	Vent	1517	6.6
+51_AGAGAA_S13	labblank	control	Control	Control	NA	NA
+64_CTRL_control_blank_shipboard_0_0_Jun2021	shipboard	control	Control	Control	NA	NA
+75_CACCCT_S15	shipboard	control	Control	Control	NA	NA
+GordaRidge_BSW020_sterivex_2019_REPa	Deep seawater	GordaRidge	Sample	Background	2010	1.8
+GordaRidge_BSW056_sterivex_2019_REPb	Deep seawater	GordaRidge	Sample	Background	2010	1.8
+GordaRidge_BSW081_sterivex_2019	Shallow seawater	GordaRidge	Sample	Background	150	8.6
+GordaRidge_Plume001_sterivex_2019_REPa	Near vent BW	GordaRidge	Sample	Background	2745	1.7
+GordaRidge_Plume001_sterivex_2019_REPb	Near vent BW	GordaRidge	Sample	Background	2745	1.7
+GordaRidge_Plume001_T0_2019_REP12	Near vent BW	GordaRidge	Sample	Incubation	2745	NA
+GordaRidge_Plume001_T0_2019_REP34	Near vent BW	GordaRidge	Sample	Incubation	2745	NA
+GordaRidge_Plume001_T24_2019_REP12	Near vent BW	GordaRidge	Sample	Incubation	2745	NA
+GordaRidge_Plume001_T36_2019_REP12	Near vent BW	GordaRidge	Sample	Incubation	2745	NA
+GordaRidge_Vent013_T0_2019_REP13	Mt Edwards	GordaRidge	Sample	Incubation	2707	NA
+GordaRidge_Vent013_T36_2019_REP12	Mt Edwards	GordaRidge	Sample	Incubation	2707	NA
+GordaRidge_Vent013_T36_2019_REP34	Mt Edwards	GordaRidge	Sample	Incubation	2707	NA
+GordaRidge_Vent043_T0_2019_REP13	Venti Latte	GordaRidge	Sample	Incubation	2708	NA
+GordaRidge_Vent043_T36_2019_REP13	Venti Latte	GordaRidge	Sample	Incubation	2708	NA
+GordaRidge_Vent090_T24_2019	Candelabra	GordaRidge	Sample	Incubation	2730	NA
+GordaRidge_Vent110_T24_2019	Sir Ventsalot	GordaRidge	Sample	Incubation	2732	NA
+GordaRidge_Plume036_sterivex_2019_REPb	Candelabra Plume	GordaRidge	Sample	Plume	2725	1.7
+GordaRidge_Plume096_sterivex_2019	Mt Edwards Plume	GordaRidge	Sample	Plume	2707	1.8
+GordaRidge_Vent009_SUPRS1_2019	Mt Edwards	GordaRidge	Sample	Vent	2707	40
+GordaRidge_Vent010_SUPRS2_2019	Mt Edwards	GordaRidge	Sample	Vent	2707	40
+GordaRidge_Vent011_SUPRS3_2019	Mt Edwards	GordaRidge	Sample	Vent	2707	40
+GordaRidge_Vent039_SUPRS1_2019	Venti Latte	GordaRidge	Sample	Vent	2708	11
+GordaRidge_Vent040_SUPRS2_2019	Venti Latte	GordaRidge	Sample	Vent	2708	11
+GordaRidge_Vent041_SUPRS3_2019	Venti Latte	GordaRidge	Sample	Vent	2708	11
+GordaRidge_Vent086_SUPRS1_2019	Candelabra	GordaRidge	Sample	Vent	2730	79
+GordaRidge_Vent087_SUPRS2_2019	Candelabra	GordaRidge	Sample	Vent	2730	79
+GordaRidge_Vent088_SUPRS3_2019	Candelabra	GordaRidge	Sample	Vent	2730	79
+GordaRidge_Vent105_SUPRS9_2019	Sir Ventsalot	GordaRidge	Sample	Vent	2732	72
+GordaRidge_Vent106_SUPRS10_2019	Sir Ventsalot	GordaRidge	Sample	Vent	2732	72
+GordaRidge_Vent107_SUPRS11_2019	Sir Ventsalot	GordaRidge	Sample	Vent	2732	72
+Axial_ExtractControl_CTRL_2019	Control	Laboratory	Control	Control	Control	NA
+GordaRidge_Shipblank_CTRL_2019_S31	Control	Laboratory	Control	Control	Control	NA
+GordaRidge_Shipblank_CTRL_2019_S32	Control	Laboratory	Control	Control	Control	NA
+GordaRidge_Shipblank_CTRL_2019_S33	Control	Laboratory	Control	Control	Control	NA
+62_TAACAC_S14	Quakeplume	Piccard	Sample	Background	4200	4.34
+73_MCR_Piccard_CTD_BSW_CTD005_0_Jun2021	BSW	Piccard	Sample	Background	4776	4.46
+52_MCR_Piccard_expTf_LotsOShrimp_A_0_Jun2021	LotsOShrimp	Piccard	Sample	Incubation	NA	NA
+53_MCR_Piccard_expTf_LotsOShrimp_B_0_Jun2021	LotsOShrimp	Piccard	Sample	Incubation	NA	NA
+56_MCR_Piccard_expTf_Plume_0_5_Jun2021	Plume	Piccard	Sample	Incubation	NA	NA
+57_MCR_Piccard_expTf_Shrimpocalypse_0_0_Jun2021	Shrimpocalypse	Piccard	Sample	Incubation	NA	NA
+74_MCR_Piccard_CTD_Plume_CTD004_5_Jun2021	Plume	Piccard	Sample	Plume	4944	4.46
+68_MCR_Piccard_HOG_LotsOShrimp_J21242HOG14_0_Jun2021	LotsOShrimp	Piccard	Sample	Vent	4967	19
+77_MCR_Piccard_HOG_Shrimpocalypse_J21240HOG14_0_Jun2021	Shrimpocalypse	Piccard	Sample	Vent	4945	85
+78_MCR_Piccard_HOG_LotsOShrimp_J21241HOG14_0_Jun2021	LotsOShrimp	Piccard	Sample	Vent	4967	36
+100_GR_substrate_MC3_Quartz2_6_0_Jun2021	Quartz2	substrate	Sample	Microcolonizer	NA	NA
+101_GR_substrate_MC3_Riftia_6_0_Jun2021	Riftia	substrate	Sample	Microcolonizer	NA	NA
+102_GR_substrate_MC3_Shell_6_5_Jun2021	Shell	substrate	Sample	Microcolonizer	NA	NA
+81_AAAGTT_S16	Quartz2	substrate	Control	Microcolonizer	NA	NA
+82_CGTGCA_S17	Riftia	substrate	Control	Microcolonizer	NA	NA
+83_CCGAAC_S18	Shell	substrate	Control	Microcolonizer	NA	NA
+84_GR_substrate_MC1_Quartz2_7_0_Jun2021	Quartz2	substrate	Sample	Microcolonizer	NA	NA
+85_GR_substrate_MC1_Riftia_7_0_Jun2021	Riftia	substrate	Sample	Microcolonizer	NA	NA
+86_GR_substrate_MC1_Shell_7_5_Jun2021	Shell	substrate	Sample	Microcolonizer	NA	NA
+87_GR_substrate_MC4_Quartz2_7_0_Jun2021	Quartz2	substrate	Sample	Microcolonizer	NA	NA
+88_GR_substrate_MC4_Riftia_7_0_Jun2021	Riftia	substrate	Sample	Microcolonizer	NA	NA
+89_GR_substrate_MC4_Shell_7_5_Jun2021	Shell	substrate	Sample	Microcolonizer	NA	NA
+90_GR_substrate_MC5_Quartz2_8_0_Jun2021	Quartz2	substrate	Sample	Microcolonizer	NA	NA
+91_GR_substrate_MC5_Riftia_8_0_Jun2021	Riftia	substrate	Sample	Microcolonizer	NA	NA
+92_GR_substrate_MC5_Shell_8_5_Jun2021	Shell	substrate	Sample	Microcolonizer	NA	NA
+93_GR_substrate_MC6_Quartz2_8_0_Jun2021	Quartz2	substrate	Sample	Microcolonizer	NA	NA
+94_GR_substrate_MC6_Riftia_8_0_Jun2021	Riftia	substrate	Sample	Microcolonizer	NA	NA
+95_GR_substrate_MC6_Shell_8_5_Jun2021	Shell	substrate	Sample	Microcolonizer	NA	NA
+96_GGCGAC_S19	blank	substrate	Control	Microcolonizer	NA	NA
+97_GR_substrate_MC2_Quartz2_6_0_Jun2021	Quartz2	substrate	Sample	Microcolonizer	NA	NA
+98_GR_substrate_MC2_Riftia_6_0_Jun2021	Riftia	substrate	Sample	Microcolonizer	NA	NA
+99_GR_substrate_MC2_Shell_6_5_Jun2021	Shell	substrate	Sample	Microcolonizer	NA	NA
+63_MCR_VonDamm_CTD_BSW_CTD002_0_Jun2021	BSW	VonDamm	Sample	Background	2400	4.181
+54_MCR_VonDamm_expTf_MustardStand_0_0_Jun2021	MustardStand	VonDamm	Sample	Incubation	NA	NA
+55_MCR_VonDamm_expTf_ShrimpHole_0_0_Jun2021	ShrimpHole	VonDamm	Sample	Incubation	NA	NA
+58_MCR_VonDamm_expTf_Plume_0_0_Jun2021	Plume	VonDamm	Sample	Incubation	NA	NA
+59_MCR_VonDamm_expTf_X18_0_0_Jun2021	X18	VonDamm	Sample	Incubation	NA	NA
+60_MCR_VonDamm_expTf_BSW_0_0_Jun2021	BSW	VonDamm	Sample	Incubation	NA	NA
+61_MCR_VonDamm_expTf_Rav2_0_0_Jun2021	Rav2	VonDamm	Sample	Incubation	NA	NA
+65_MCR_VonDamm_CTD_Plume_CTD003_0_Jun2021	Plume	VonDamm	Sample	Plume	1979	4.208
+66_MCR_VonDamm_HOG_ArrowLoop_J21243HOG18_5_Jun2021	ArrowLoop	VonDamm	Sample	Vent	2309	137
+67_MCR_VonDamm_HOG_WhiteCastle_J21235HOG12_5_Jun2021	WhiteCastle	VonDamm	Sample	Vent	2307	108
+69_MCR_VonDamm_HOG_MustardStand_J21243HOG14_5_Jun2021	MustardStand	VonDamm	Sample	Vent	2374	108
+70_MCR_VonDamm_HOG_Rav2_J21238HOG14_5_Jun2021	Rav2	VonDamm	Sample	Vent	2389.6	94
+71_MCR_VonDamm_HOG_OldManTree_J21238HOG20_5_Jun2021	OldManTree	VonDamm	Sample	Vent	2375.8	121.6
+72_MCR_VonDamm_HOG_ShrimpHole_J21244HOG18_0_Jun2021	ShrimpHole	VonDamm	Sample	Vent	2376	21
+76_MCR_VonDamm_HOG_X18_J21235HOG20_0_Jun2021	X18	VonDamm	Sample	Vent	2377	48
+79_MCR_VonDamm_HOG_Bartizan_J21244HOG12_5_Jun2021	Bartizan	VonDamm	Sample	Vent	2307	129
+80_MCR_VonDamm_HOG_Rav2_J21244HOG20_0_Jun2021	Rav2	VonDamm	Sample	Vent	2388.9	98.2

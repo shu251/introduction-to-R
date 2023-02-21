@@ -6,42 +6,46 @@ website:
   title: "Intro to R"
   page-navigation: true
   sidebar:
-    style: "docked"
+    style: "floating"
     search: true
     number-sections: true
+    collapse-level: 1
     contents:
-      - section: "Introduction"
+      - section: "1. To do ahead of time"
+        contents: 
+          - install.qmd
+          - code-of-conduct.qmd
+      - section: "2. Introduction"
         contents:
           - file-location.qmd
           - r-overview.qmd
-      - section: "Install & prepare to work in RStudio"
-        contents:
-          - install.qmd
           - rstudio-orientation.qmd
-      - section: "Coding in R"
+      - section: "3. Coding in R"
         contents:
           - basic-syntax.qmd
           - data-types.qmd
           - packages-libraries.qmd
-      - section: "Importing datasets"
+      - section: "4. Manipulations of data"
         contents:
           - importing-data.qmd
           - exporting-data.qmd
-      - section: "Manipulations of data"
-        contents:
           - tidyverse-intro.qmd
+      - section: "5. Data wrangling"
+        contents:
           - StarWars.qmd
-          - Penguins.qmd
-      - section: "Data visualization"
+          - asvdata.qmd
+      - section: "6. Data visualization"
         contents:
           - basic-plots.qmd
-          - customizatioms.qmd
-          - advanced-dataviz.qmd
-      - section: "Analysis of complete datasets"
-        contents:
-          - lab-microbiology.qmd
-          - lab-oceanographic.qmd
-          - lab-qualitativetable.qmd
+          - customize-plots.qmd
+#      - section: "7. Analysis of complete datasets"
+#        contents:
+#          - lab-microbiology.qmd # growth curve
+#          - lab-oceanographic.qmd # depth profiles - nutrient
+#          - lab-qualitativetable.qmd
+#      - section: "8. What's next?"
+#        contents:
+
 format:
   html:
     theme: simplex

@@ -4,7 +4,7 @@
     "href": "r-overview.html",
     "title": "What is ‘R’?",
     "section": "",
-    "text": "Explanation of what R is. What do we use R for, what will you use R for. Other non-science examples of what R is.\nWhat is a library?\nExamples of how we use R"
+    "text": "R is a computer programming language. The R language is leading in statistical analyses and is considered a field standard for data science.\nPowerful for creating figures and data exploration. I’d recommend browsing these wesites for data visualization in R: R Graph Gallery top 50 ggplot ext\nR is a language and users have contributed R “packages” or “libraries”. These are collections of specific commands and protocols. Examples: Seabird, single-cell RNA-seq.\nHighly transferable skill."
   },
   {
     "objectID": "r-overview.html#running-code",
@@ -16,30 +16,30 @@
   {
     "objectID": "file-location.html",
     "href": "file-location.html",
-    "title": "Course organization & file structure",
+    "title": "File structure",
     "section": "",
-    "text": "description of course organization. coursework goals. Define “live coding”."
+    "text": "Your computer files and folders can all be accessed via the ‘Terminal’.\nThis is the location of a file called greeting.txt on my computer.\n\nThe exact same file can be found via the terminal."
   },
   {
     "objectID": "file-location.html#basics-of-the-terminal",
     "href": "file-location.html#basics-of-the-terminal",
-    "title": "Course organization & file structure",
-    "section": "3 Basics of the terminal",
-    "text": "3 Basics of the terminal\n\nBasic commands on the terminal. How to look stuff up. Google as a friend.\nEnsure everyone tries this out\n\npwd Print working directory\ncd Change directories\nless Show preview in terminal (quit by hitting “q”)\n\n3.1 Activity\n\nHow would you move a file titled “tmp.csv” from your current directory to one called archived-files?"
+    "title": "File structure",
+    "section": "2 Basics of the terminal",
+    "text": "2 Basics of the terminal\nls List files\npwd Print working directory\ncd Change directories\nless Show preview in terminal (quit by hitting “q”)\nmv Move file\nmkdir Make a new folder or directory\n\n2.1 Activity\n\nPull up the last document you opened on your computer. Repeat this in terminal. What is the path location of that file?\n\nless Desktop/secret_folder/topsecret/greetings.txt\n\n\n2.2 Activity\n\nHow would you move a file titled “tmp.csv” from your current directory to one called archived-files?\n\n# mv [file] [location]\n\n\n2.3 Activity\n\nCreate a new directory in r-intro-docs called HELLO. Move greeting.txt to that new directory. What is the full path of greeting.txt?"
   },
   {
     "objectID": "file-location.html#organizing-naming-files",
     "href": "file-location.html#organizing-naming-files",
-    "title": "Course organization & file structure",
-    "section": "4 Organizing & naming files",
-    "text": "4 Organizing & naming files\n\ntips for keeping organized with data? data management?\nShare how projects are managed here"
+    "title": "File structure",
+    "section": "3 Organizing & naming files",
+    "text": "3 Organizing & naming files\n\nThemes in file naming\nDo not use spaces or special symbols. Dashes and underscores are helpful!\nCapitalization matters"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Welcome",
     "section": "",
-    "text": "Welcome to introduction to the R programming language."
+    "text": "Introduction to the R programming language workshop.\nApril 7th, 2023 9am-4:30pm\nlocation"
   },
   {
     "objectID": "about.html",
@@ -52,29 +52,29 @@
     "objectID": "r-overview.html#what-about-other-computing-languages",
     "href": "r-overview.html#what-about-other-computing-languages",
     "title": "What is ‘R’?",
-    "section": "What about other computing languages?",
-    "text": "What about other computing languages?\nDiscussion of coding examples, python, julia, and others..\nTransferable skill"
+    "section": "2 What about other computing languages?",
+    "text": "2 What about other computing languages?\nDiscussion of coding examples, python, julia, and others..\nTransferable skill"
   },
   {
     "objectID": "r-overview.html#thoughts-recommendations",
     "href": "r-overview.html#thoughts-recommendations",
     "title": "What is ‘R’?",
-    "section": "Thoughts & recommendations",
-    "text": "Thoughts & recommendations\nAmount of time spent may seem not useful."
+    "section": "4 Thoughts & recommendations",
+    "text": "4 Thoughts & recommendations\nAmount of time spent may seem not useful."
   },
   {
     "objectID": "r-overview.html#common-themes-moving-forward",
     "href": "r-overview.html#common-themes-moving-forward",
     "title": "What is ‘R’?",
-    "section": "Common themes moving forward",
-    "text": "Common themes moving forward\n\nDocumentation: have current you write notes from past you to future you\nGoogle it: no matter how you learned R or how advanced you are, you will ultimately be looking things up online. A part of this course will include ‘how to learn R’."
+    "section": "2 Common themes moving forward",
+    "text": "2 Common themes moving forward\n\nDocumentation: have current you write notes from past you to future you\nGoogle it: no matter how you learned R or how advanced you are, you will ultimately be looking things up online. A part of this course will include ‘how to learn R’.\nPatience: Amount of time spent may seem not useful.\n\n More from Allison Horst"
   },
   {
     "objectID": "install.html",
     "href": "install.html",
     "title": "Installing R",
     "section": "",
-    "text": "Installation instructions - update later - or guide class through this\nHold\n\n\n\n\nmac specific: for yourmac, make sure you…\nupdating text here\n\n\n\n\nmac specific\n\n\n\nmac specific Show example of executing code"
+    "text": "There will be office hours or a specific opportunity to follow the below instructions on your own time and seek help. Please do this before the course begins."
   },
   {
     "objectID": "install.html#instructions-for-pc",
@@ -102,7 +102,7 @@
     "href": "data-types.html",
     "title": "Data classes & data frames",
     "section": "",
-    "text": "Define: list factor numeric integer"
+    "text": "There are different data classes we will work with in R. Definitions of them and how to determine what data type you are working with is a key foundation of R. See Table 1.\nLet’s start elaborating on what we’ve already used. Use class() and str() to explore data types.\n\n\nUse class() and str() to see how x is defined in this table.\n\n\nTable 1: Definitions of data types in R.\n\n\n\n\n\n\n\n\nTerm\nExample\nCode (x)\nDescription\n\n\n\n\nLogical\nTRUE, FALSE\nx <- TRUE\nTwo data values, also called boolean\n\n\nNumeric\n243, 92.1, or 3.459\nx <- 3.14\nNumbers, including those with decimals. Standard input for most statistical tools.\n\n\nInteger\n10L, 65L, or 0L\nx <- 314L\nNumbers without decimals. Needs to be specified as an integer.\n\n\nCharacter\n“seven”, “hello world”, “FALSE”, ‘63.354’, “600”\nx <- \"150\"\nRepresents a string of values as a variable. Use '' for character variables and \"\" for string variables.\n\n\nComplex\n6 + 5i\nx <- 6 + 8i\nData type with an imaginary part, in this case i.\n\n\n\n\nThe data classes above represent the core basic “data types”. Vectors are comprised of elements of different classes.\n\n\n\nUse the below examples to understand how R interprets different data classes and how they are elements within a vector.\nWhat is “juice”?\n\njuice <- 4 + 4\nclass(juice)\nclass(4)\nclass(8.3)\nclass(4L)\n\nWhat about x?\n\nx <- c(1, 7, 9)\nclass(x)\n\napples <- 5\noranges <- 6\nfruit <- apples + oranges\n\nHow is the below vector different from above?\n\nx <- c(\"1\", \"7\", \"9\")\nclass(x)\n\nLet’s write over x, and set it equal to types of fruit.\n\nx <- c(\"banana\", \"grapefruit\")\nclass(x)\n\nInstead of a numeric value, a character is a string type. Let’s experiment with the numeric vs. character data type. Lets combine our character list of fruit with the earlier defined “apples”.\n\nx\napples\n\nnew_x <- c(x, apples)\n\nWhat happened to the data class of new_x when we combined character and numeric?\nCreate another vector\n\nnumeric_vector <- c(1, 10, 49, 5)\ncharacter_vector <- c(\"a\", \"b\", \"c\", \"d\")\n\nnames(numeric_vector) <- character_vector\n\nWhat does names() do above?\n\nnumeric_vector\n\n# Isolate a numeric within the vector\nq <- numeric_vector[4]\n\n# Modify elements within a vector\nq + numeric_vector\n\n# Evaluate vector based on value\nans <- q > numeric_vector\nans"
   },
   {
     "objectID": "data-types.html#running-code",
@@ -116,14 +116,14 @@
     "href": "basic-syntax.html",
     "title": "Basic syntax",
     "section": "",
-    "text": "In the R console, type:\n\n3 + 5\n\n[1] 8\n\n\n\n\nAssign an R object called juice to be equal to 4+4. What is the output when you type juice?\n\njuice <- 4 + 4\n\n# juice\n\nCan you describe what you think x indicates below?\n\nx <- c(1,7,9)\nx[2]\n\n[1] 7\n\n\nWhat do you think the R object fruit is?\n\napples <- 5\noranges <- 6\n\nfruit <- apples + oranges"
+    "text": "Keep the intro.R script open, but now type directly into the R console below.\n\n3 + 5\n\n[1] 8\n\n\nWhat happens to the output?\n\n\nAssign an R object called juice to be equal to 4+4. What is the output when you type juice?\n\njuice <- 4 + 4\n\n# juice\n\nCan you describe what you think x indicates below?\n\nx <- c(1,7,9)\nx[2]\n\n[1] 7\n\n\nThe notation c() in R stands for combine. We used this a lot in R because we are often combining data and comparing it with another dataset.\nWhat do you think the R object fruit is?\n\napples <- 5\noranges <- 6\n\nfruit <- apples + oranges"
   },
   {
     "objectID": "tidyverse-intro.html",
     "href": "tidyverse-intro.html",
     "title": "Tidyverse",
     "section": "",
-    "text": "Set up a test input dataset\n\n# ?read_delim()\n\nWhat else do we notice about this table we just imported?\n\n# str()\n# head()\n# class()\n\n\n\ntibble: is a dataframe specific version for tidyverse. It is both an object and a tibble. So it talks well with all of the related packages. Columns in a tibble are character vectors (instead of factors). This is technically easier to deal with.\nmatix:"
+    "text": "Lets use tidyverse to modify the pizza data.\n\nhead(pizza)\n\nIntroducing the pipe operator. A key for working in tidyverse. Some fun background it.\n\npizza %>% select(type)\ntypes_of_pizza <- pizza %>% select(type)\ntypes_of_pizza_char <- as.character(pizza %>% select(type))\n\nSelect can also be used to re-name a column or remove a column.\n\npizza_new <- pizza %>% \n  select(style = type, everything(), -X)"
   },
   {
     "objectID": "tidyverse-intro.html#running-code",
@@ -136,22 +136,22 @@
     "objectID": "rstudio-orientation.html#file-structure-projects",
     "href": "rstudio-orientation.html#file-structure-projects",
     "title": "RStudio",
-    "section": "File structure & projects",
-    "text": "File structure & projects\nTo start, save a new directory as r-intro-docs. These are provided input files for R so we can learn the basics."
+    "section": "2 File structure & projects",
+    "text": "2 File structure & projects\n\nFind where you have downloaded and sorted the r-intro-docs directory. Navigate under Files in RStudio. See how the path is illustrated?\nSave a new R project as introduction-to-R in this directory.\nClose RStudio.\nNavigate to where your R project is saved and open this file, introduction-to-R.Rproj. This should automatically open RStudio and the files panel will open to this project directory.\nOpen r-intro-docs/intro.R. This is an R script. It looks like a text file. This is your primary workspace, where you can edit, document, and modify code. You execute each line by running the code."
   },
   {
     "objectID": "rstudio-orientation.html#executing-commands",
     "href": "rstudio-orientation.html#executing-commands",
     "title": "RStudio",
-    "section": "Executing commands",
-    "text": "Executing commands\nThe Rscript within Rstudio works like a raw text file, where most shortcut keys like copy/paste and home/end will work. As the course continues we will share what shortcut keys we often use - at any time you can also google “short cut keys RStudio for Mac” to find more.\n\nMac\nTo run a command on a Mac, place cursor on the line you want to execute or highlight the code. Press COMMAND + ENTER.\n\n\nPC\nTo run a command on a PC, place cursor on the line you want to execute or highlight the code. Press CONTROL + ENTER."
+    "section": "3 Executing commands",
+    "text": "3 Executing commands\nThe Rscript within Rstudio works like a raw text file, where most shortcut keys like copy/paste and home/end will work. As the course continues we will share what shortcut keys we often use - at any time you can also google “short cut keys RStudio for Mac” to find more.\nIn the script intro.R, place cursor next to one of the lines of code and run the command.\n\n3.1 Mac\nTo run a command on a Mac, place cursor on the line you want to execute or highlight the code. Press COMMAND + ENTER.\n\n\n3.2 PC\nTo run a command on a PC, place cursor on the line you want to execute or highlight the code. Press CONTROL + ENTER.\n\n3.2.1 Activity\n\nPractice executing the lines of code below. Document your code with information on what happens each time you execute a line.\n\n\n?sort()\n\n10^10\n\nx <- c(\"hello\", \"hey\", howdy)\n\nx <- c(\"hello\", \"hey\", \"howdy\")\n\nstr(x)\n\nprint(hello world)\n\ny <- print(\"hello world\")\n\ndata.frame(x, x)"
   },
   {
     "objectID": "rstudio-orientation.html#getting-help-online-resources",
     "href": "rstudio-orientation.html#getting-help-online-resources",
     "title": "RStudio",
-    "section": "Getting help & online resources",
-    "text": "Getting help & online resources"
+    "section": "4 Getting help & online resources",
+    "text": "4 Getting help & online resources\nRStudio has a lot of built in help options.\n\n?sort()"
   },
   {
     "objectID": "file-location.html#computer-file-structure",
@@ -165,7 +165,7 @@
     "href": "index.html#required-pre-requisite",
     "title": "Welcome",
     "section": "Required pre-requisite",
-    "text": "Required pre-requisite\n\nUpdated laptop (Mac or PC). Instructor will use a Mac\nInternet connection\nAn idea for how you want to use R\nFill out the pre-course survey"
+    "text": "Required pre-requisite\n\nUpdated laptop (Mac or PC). Instructor will use a Mac\nInternet connection\nFill out the pre-course survey\nReview the Code of Conduct"
   },
   {
     "objectID": "index.html#recommended-preparation",
@@ -200,7 +200,7 @@
     "href": "index.html#code-of-conduct",
     "title": "Welcome",
     "section": "Code of conduct",
-    "text": "Code of conduct"
+    "text": "Code of conduct\nBy participating in this course all participants are required to follow the Code of Conduct.\nThis text is adapted from guidelines written for The Carpentries Handbook. Additional language was added under a CC BY 3.0 license"
   },
   {
     "objectID": "index.html#sessions-archive",
@@ -214,21 +214,21 @@
     "href": "basic-syntax.html#operators",
     "title": "Basic syntax",
     "section": "2 Operators",
-    "text": "2 Operators\nSymbols in R are used in arguments, logical statements, assignments, and more. We will use many of them, but the common ones"
+    "text": "2 Operators\nSymbols in R are used in arguments, logical statements, assignments, and more. We will use many of them, but the common ones\n\n# <- vs. =\na = 3 + 4\na <- 3 + 4"
   },
   {
     "objectID": "basic-syntax.html#errors",
     "href": "basic-syntax.html#errors",
     "title": "Basic syntax",
     "section": "3 Errors",
-    "text": "3 Errors\n\n# Errors and improper R object naming\n# 6389/\n\n# 5-6\n\n# 5.6 <- fruit\n\n\n3.1 Activity\n\nThere are several ways to view or look at an R object. Can you figure out what they are?\n\n\n\n3.2 Activity\n\nSolve complex equation.\n\n\n\n3.3 A note on documenting code"
+    "text": "3 Errors\n\n# Errors and improper R object naming\n# 6389/\n\n# 5-6\n\n# 5.6 <- fruit\n\n\n3.1 Activity\n\nThere are several ways to view or look at an R object. Can you figure out what they are?\n\n\n\n3.2 Activity\n\nCalculate the volume of a sphere, where the diameter is 20 meters.\n\n\n\n3.3 A note on documenting code\nMake sure current you keeps track of everything. Future you will Thank past you.\nAlso use the pound symbol or hashtag mark, “#” to comment out code.\n# This code adds the values x and y, creating an R object called 'answer'\n\nanswer <- x + y\n\nx <- 5\ny <- x^2\n\n## We can set x equal a specific value to define x, y, and answer."
   },
   {
     "objectID": "data-types.html#data-frames",
     "href": "data-types.html#data-frames",
     "title": "Data classes & data frames",
-    "section": "2 Data frames",
-    "text": "2 Data frames\nCreate a data frame and explore the structure.\n\ngreetings <- c(\"Hey\", \"Hi\", \"Howdy\", \"Hello\", \"Morning\")\n\nn <- c(99, 15, 324, 54, 23)\n\ndf <- data.frame(greetings, n)\n\nView dataframe you put together\n\n# print (df)\n# df\n# View(df)\n\nPull out individual rows and columns of the data frame.\n\n2.1 Select columns\nIsolate a single column.\n\n# df$\n\n\n\n2.2 Select rows\nRemember the notation [row,column].\n\n# df[]\n\n\n\n2.3 Add to your data frame\nLet’s use the command rbind() to add on a row. We forgot to add in the greeting “Afternoon”, let’s say this was observed 18 times.\n\naddition <- c(\"Afternoon\", 18)\n?rbind()\n\n\n\n2.4 Activity\n\nIsolate the number of times “howdy” was observed. Set this equal to an R object.\n\n\n\n2.5 Activity\n\nSet the number of times a greeting occured to a numeric."
+    "section": "4 Data frames",
+    "text": "4 Data frames\nCreate a data frame and explore the structure. Data frames are the most common way to view datasets that you eventually want to modify and/or make plots from. They can also include different types of data.\n\ngreetings <- c(\"Hey\", \"Hi\", \"Howdy\", \"Hello\", \"Morning\")\n\nn <- c(99, 15, 324, 54, 23)\n\ndf <- data.frame(greetings, n)\n\nView the data frame you put together and what types of data are in your data frame?\n\n# print (df)\n# df\n# View(df)\n\nData are representative of a type of greeting in the first column, and the number of times the greeting was observed (n).\n\n4.1 Isolating elements of a data frame\nWe need to use specific R syntax to pull out individual rows and columns of a data frame. Isolate a single column.\nWe will use this [row, column]\n\n# df$\n\n\n# df[]\n\n\n\n4.2 Modify the data frame\nLet’s use the command rbind() to add on a row. We forgot to add in the greeting “Afternoon”, let’s say this was observed 18 times.\n\naddition <- c(\"Afternoon\", 18)\n# ?rbind()\n\n\ndf <- rbind(df, addition) # writing over the original df\n\nAnd let’s change the headers so they are more meaningful.\n\ncolnames(df)\nnames(df)\n\ncolnames(df)[1:2]\n\ncolnames(df)[1:2] <- c(\"Greeting\", \"Observed\")\n\n\n\n4.3 Activity\n\nIsolate the number of times “howdy” was observed. Set this equal to an R object.\n\n\n\n\n\n\n4.4 Activity\n\nSet the number of times a greeting occured to a numeric."
   },
   {
     "objectID": "tidyverse-intro.html#see-bvcn-code-and-re-write-in-similar-fashion",
@@ -241,43 +241,43 @@
     "objectID": "tidyverse-intro.html#what-is-tidyverse",
     "href": "tidyverse-intro.html#what-is-tidyverse",
     "title": "Tidyverse",
-    "section": "7 What is tidyverse?",
-    "text": "7 What is tidyverse?"
+    "section": "5 What is tidyverse?",
+    "text": "5 What is tidyverse?"
   },
   {
     "objectID": "tidyverse-intro.html#select",
     "href": "tidyverse-intro.html#select",
     "title": "Tidyverse",
-    "section": "3 select()",
-    "text": "3 select()"
+    "section": "2 select()",
+    "text": "2 select()"
   },
   {
     "objectID": "tidyverse-intro.html#filter",
     "href": "tidyverse-intro.html#filter",
     "title": "Tidyverse",
-    "section": "4 filter()",
-    "text": "4 filter()"
+    "section": "2 filter()",
+    "text": "2 filter()\n\npizza %>% \n  select(style = type, everything(), -X) %>% \n  filter(num_toppings > 2)\n\nNote the change to output the information, rather than save it as a new R object. Also see how the pipe stitches everything together in a tidy way?\n\npizza %>% \n  select(style = type, everything(), -X) %>% \n  filter(num_toppings > 2) %>% \n  filter(red_sauce == TRUE)\n\n\n2.0.1 Activity\n\nTry the commented out lines below. Describe the difference.\n\n\npizza %>% \n  select(style = type, everything(), -X) %>% \n  # filter(num_toppings > 2 | red_sauce == TRUE) #\n  # filter(num_toppings > 2 & red_sauce == TRUE)"
   },
   {
     "objectID": "tidyverse-intro.html#long-vs.-wide-format",
     "href": "tidyverse-intro.html#long-vs.-wide-format",
     "title": "Tidyverse",
-    "section": "5 Long vs. wide format",
-    "text": "5 Long vs. wide format"
+    "section": "3 Long vs. wide format",
+    "text": "3 Long vs. wide format\ntibble: is a dataframe specific version for tidyverse. It is both an object and a tibble. So it talks well with all of the related packages. Columns in a tibble are character vectors (instead of factors). This is technically easier to deal with."
   },
   {
     "objectID": "tidyverse-intro.html#group_by",
     "href": "tidyverse-intro.html#group_by",
     "title": "Tidyverse",
-    "section": "6 group_by()",
-    "text": "6 group_by()\n\n6.1 summarise()\n\n\n6.2 mutate()"
+    "section": "4 group_by()",
+    "text": "4 group_by()\n\n4.1 summarise()"
   },
   {
     "objectID": "StarWars.html",
     "href": "StarWars.html",
     "title": "Star Wars data",
     "section": "",
-    "text": "library(tidyverse)\n\n── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──\n✔ ggplot2 3.3.6      ✔ purrr   0.3.5 \n✔ tibble  3.1.8      ✔ dplyr   1.0.10\n✔ tidyr   1.2.1      ✔ stringr 1.4.1 \n✔ readr   2.1.2      ✔ forcats 0.5.2 \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\n\nhead(starwars)\n\n# A tibble: 6 × 14\n  name         height  mass hair_…¹ skin_…² eye_c…³ birth…⁴ sex   gender homew…⁵\n  <chr>         <int> <dbl> <chr>   <chr>   <chr>     <dbl> <chr> <chr>  <chr>  \n1 Luke Skywal…    172    77 blond   fair    blue       19   male  mascu… Tatooi…\n2 C-3PO           167    75 <NA>    gold    yellow    112   none  mascu… Tatooi…\n3 R2-D2            96    32 <NA>    white,… red        33   none  mascu… Naboo  \n4 Darth Vader     202   136 none    white   yellow     41.9 male  mascu… Tatooi…\n5 Leia Organa     150    49 brown   light   brown      19   fema… femin… Aldera…\n6 Owen Lars       178   120 brown,… light   blue       52   male  mascu… Tatooi…\n# … with 4 more variables: species <chr>, films <list>, vehicles <list>,\n#   starships <list>, and abbreviated variable names ¹​hair_color, ²​skin_color,\n#   ³​eye_color, ⁴​birth_year, ⁵​homeworld"
+    "text": "library(tidyverse)\nhead(starwars)"
   },
   {
     "objectID": "StarWars.html#section",
@@ -289,9 +289,9 @@
   {
     "objectID": "packages-libraries.html",
     "href": "packages-libraries.html",
-    "title": "packages-libraries",
+    "title": "R packages",
     "section": "",
-    "text": "2 Keeping track of your session\n\nsessionInfo()\n\nR version 4.2.1 (2022-06-23)\nPlatform: x86_64-apple-darwin17.0 (64-bit)\nRunning under: macOS Big Sur ... 10.16\n\nMatrix products: default\nBLAS:   /Library/Frameworks/R.framework/Versions/4.2/Resources/lib/libRblas.0.dylib\nLAPACK: /Library/Frameworks/R.framework/Versions/4.2/Resources/lib/libRlapack.dylib\n\nlocale:\n[1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8\n\nattached base packages:\n[1] stats     graphics  grDevices utils     datasets  methods   base     \n\nloaded via a namespace (and not attached):\n [1] digest_0.6.30     jsonlite_1.8.0    magrittr_2.0.3    evaluate_0.16    \n [5] rlang_1.0.6       stringi_1.7.8     cli_3.4.1         rstudioapi_0.14  \n [9] rmarkdown_2.16    tools_4.2.1       stringr_1.4.1     htmlwidgets_1.5.4\n[13] xfun_0.33         yaml_2.3.5        fastmap_1.1.0     compiler_4.2.1   \n[17] htmltools_0.5.3   knitr_1.40"
+    "text": "2 Keeping track of your session\nA part of code documentation is so that someone else can run your code later. If you have specific versions of libraries and R installed, I recommend running the command below to print out information on your R session.\n\nsessionInfo()\n\nR version 4.2.2 (2022-10-31)\nPlatform: aarch64-apple-darwin20 (64-bit)\nRunning under: macOS Ventura 13.2\n\nMatrix products: default\nBLAS:   /Library/Frameworks/R.framework/Versions/4.2-arm64/Resources/lib/libRblas.0.dylib\nLAPACK: /Library/Frameworks/R.framework/Versions/4.2-arm64/Resources/lib/libRlapack.dylib\n\nlocale:\n[1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8\n\nattached base packages:\n[1] stats     graphics  grDevices utils     datasets  methods   base     \n\nloaded via a namespace (and not attached):\n [1] compiler_4.2.2  fastmap_1.1.0   cli_3.6.0       tools_4.2.2    \n [5] htmltools_0.5.4 yaml_2.3.7      rmarkdown_2.20  knitr_1.42     \n [9] xfun_0.37       digest_0.6.31   jsonlite_1.8.4  rlang_1.0.6    \n[13] evaluate_0.20"
   },
   {
     "objectID": "basic-plots.html#point-line",
@@ -327,5 +327,201 @@
     "title": "Basic plots",
     "section": "6 ",
     "text": "6"
+  },
+  {
+    "objectID": "install.html#download-rstudio",
+    "href": "install.html#download-rstudio",
+    "title": "Installing R",
+    "section": "2 Download RStudio",
+    "text": "2 Download RStudio\nAbove, you’ve installed the R programming language to your computer. If you’re in a terminal, you can interact/engage R by typing “R” anywhere. This will launch R, but this is only the consol to type in code. RStudio is a user interface that makes using R more comprehensive.\nDownload RStudio from posit.\nYou should have RStudio version 2022.12.0.\n\n2.1 Alternative instructions for installing R and RStudio\n\nVideo\nSoftware Carpentry intro to R course\nAdditional written instructions\nconda install *Please note that this option has additional steps required and the version currently available through conda is not recent. Try something like this conda install -c conda-forge r-base=4.1.2"
+  },
+  {
+    "objectID": "install.html#open-rstudio",
+    "href": "install.html#open-rstudio",
+    "title": "Installing R",
+    "section": "3 Open RStudio",
+    "text": "3 Open RStudio\nRStudio will be added to your computers Applications or Programs. Open it as you would any other application. You should see a page that looks like this:"
+  },
+  {
+    "objectID": "install.html#download-r",
+    "href": "install.html#download-r",
+    "title": "Installing R",
+    "section": "1 Download R",
+    "text": "1 Download R\nYou can install from the R CRAN page directly. Or visit the PC or Mac specific pages below.\nPC: For installing on a PC computer, visit this page.\nMac: For a Mac, visit this page to download to your computer.\nThe most recent version is 4.2.2, please have any version over 4.0 for this course."
+  },
+  {
+    "objectID": "r-overview.html#base-r-versus-tidyverse",
+    "href": "r-overview.html#base-r-versus-tidyverse",
+    "title": "What is ‘R’?",
+    "section": "3 Base R versus Tidyverse",
+    "text": "3 Base R versus Tidyverse"
+  },
+  {
+    "objectID": "code-of-conduct.html",
+    "href": "code-of-conduct.html",
+    "title": "Code of conduct",
+    "section": "",
+    "text": "TO DO: revise and update for TAMU work?\nWe are dedicated to providing a welcoming and supportive environment for all people, regardless of background or identity. By participating in this community, participants accept to abide by The Carpentries’ Code of Conduct and accept the procedures by which any Code of Conduct incidents are resolved. Any form of behaviour to exclude, intimidate, or cause discomfort is a violation of the Code of Conduct. In order to foster a positive and professional learning environment we encourage the following kinds of behaviours in all platforms and events:\nUse welcoming and inclusive language\nBe respectful of different viewpoints and experiences\nGracefully accept constructive criticism\nFocus on what is best for the community\nShow courtesy and respect towards other community members\nIf you believe someone is violating the Code of Conduct, we ask that you report it to The Carpentries Code of Conduct Committee completing this form, who will take the appropriate action to address the situation.\nCode of Conduct (Detailed View) Part 1. Introduction\nThe Carpentries is a community-led project. We value the involvement of everyone in the community. We are committed to creating a friendly and respectful place for learning, teaching and contributing. All participants in our events and communications are expected to show respect and courtesy to others.\nTo make clear what is expected, everyone participating in The Carpentries activities is required to conform to the Code of Conduct. This Code of Conduct applies to all spaces managed by The Carpentries including, but not limited to, workshops, email lists, and online forums such as GitHub, Slack and Twitter. Workshop hosts are expected to assist with the enforcement of the Code of Conduct.\nThe Carpentries Code of Conduct Committee is responsible for enforcing the Code of Conduct. It can be contacted by emailing coc@carpentries.org. All reports will be reviewed by the Code of Conduct Committee and will be kept confidential.\nPart 2. The Carpentries Code of Conduct\nThe Carpentries is dedicated to providing a welcoming and supportive environment for all people, regardless of background or identity. As such, we do not tolerate behaviour that is disrespectful to our teachers or learners or that excludes, intimidates, or causes discomfort to others. We do not tolerate discrimination or harassment based on characteristics that include, but are not limited to, gender identity and expression, sexual orientation, disability, physical appearance, body size, citizenship, nationality, ethnic or social origin, pregnancy, familial status, veteran status, genetic information, religion or belief (or lack thereof), membership of a national minority, property, age, education, socio-economic status, technical choices, and experience level.\nEveryone who participates in Carpentries activities is required to conform to this Code of Conduct. It applies to all spaces managed by The Carpentries including, but not limited to, workshops, email lists, and online forums such as GitHub, Slack and Twitter. Workshop hosts are expected to assist with the enforcement of the Code of Conduct. By participating, participants indicate their acceptance of the procedures by which The Carpentries resolves any Code of Conduct incidents, which may include storage and processing of their personal information.\nPart 2.1 Expected behaviour\nAll participants in our events and communications are expected to show respect and courtesy to others. All interactions should be professional regardless of platform: either online or in-person. In order to foster a positive and professional learning environment we encourage the following kinds of behaviours in all Carpentries events and platforms:\nUse welcoming and inclusive language\nBe respectful of different viewpoints and experiences\nGracefully accept constructive criticism\nFocus on what is best for the community\nShow courtesy and respect towards other community members\nNote: See the four social rules for further recommendations.\nPart 2.2 Unacceptable behaviour\nExamples of unacceptable behaviour by participants at any Carpentries event/platform include:\nwritten or verbal comments which have the effect of excluding people on the basis of membership of any specific group\ncausing someone to fear for their safety, such as through stalking, following, or intimidation\nviolent threats or language directed against another person\nthe display of sexual or violent images\nunwelcome sexual attention\nnonconsensual or unwelcome physical contact\nsustained disruption of talks, events or communications\ninsults or put downs\nsexist, racist, homophobic, transphobic, ableist, or exclusionary jokes\nexcessive swearing\nincitement to violence, suicide, or self-harm\ncontinuing to initiate interaction (including photography or recording) with someone after being asked to stop\npublication of private communication without consent\nPart 2.3 Consequences of Unacceptable behaviour\nParticipants who are asked to stop any inappropriate behaviour are expected to comply immediately. This applies to any Carpentries events and platforms, either online or in-person. If a participant engages in behaviour that violates this code of conduct, the organisers may warn the offender, ask them to leave the event or platform (without refund), or engage The Carpentries Code of Conduct Committee to investigate the Code of Conduct violation and impose appropriate sanctions.\nProcess Flow Diagram The diagram below illustrates the following steps in following a Code of Conduct report.\nFirst report -> assess if there is a CoC report and clear breach\nNo report or breach -> respond with an explanation to the reporter\nBreach identified -> set up a first meeting with the CoCc (Read about Incident Response Group in CoCc Governance) to collectively identify specific issues and breaches\nIf a specific breach/issue was not identified -> reply to the reporter\nIf a specific breach/issue was identified -> email the reporter/reportee as explained in CoC report handling and enforcement process\nIf it was undecided that a breach/issue occurred -> hold a meeting with the reporter/reportee as explained in CoC report handling and enforcement process -> Hold a second meeting with the CoCc to identify consequence/next steps as explained in CoC report handling and enforcement process"
+  },
+  {
+    "objectID": "exporting-data.html",
+    "href": "exporting-data.html",
+    "title": "Export data",
+    "section": "",
+    "text": "This is where pulling up the help menu and/or using the RStudio auto complete will help ensure you’ve included all the elements you need.\n\n?write_delim()\n\n?write.csv()\n\n?write.table()\n\nLets practice exporting pizza in a variety of ways. Open each one up to see how it imports into Excel.\n\npizza\nwrite_delim(pizza, file = \"pizza-withtab-quotes.txt\", delim = \"\\t\", quote = \"all\")\nwrite_delim(pizza, file = \"pizza-nocols.txt\", quote = \"none\", col_names = FALSE)\nwrite.csv(pizza, file = \"pizza-csv.csv\", row.names = TRUE) # Try changing this to FALSE"
+  },
+  {
+    "objectID": "index.html#references-sources-for-course-material",
+    "href": "index.html#references-sources-for-course-material",
+    "title": "Welcome",
+    "section": "References & sources for course material",
+    "text": "References & sources for course material\n\nR for Reproducible Scientific Analysis from Software Carpentry\nBioinformatics Virtual Coordination Network - R section (also see youtube channel)\nRiffomonas"
+  },
+  {
+    "objectID": "importing-data.html",
+    "href": "importing-data.html",
+    "title": "Data import",
+    "section": "",
+    "text": "In the files section of your RStudio, click on the r-intro-docs directory. You should see a list of files.\nLets save the greetings R object as a csv file in the r-intro-docs directory.\n\n# First re-create if needed\ngreetings <- c(\"Hey\", \"Hi\", \"Howdy\", \"Hello\", \"Morning\")\nn <- c(99, 15, 324, 54, 23)\ndf <- data.frame(greetings, n)\naddition <- c(\"Afternoon\", 18)\n\ngreetings <- rbind(df, addition)\n\nDiscuss tab completion!\n\nwrite.csv(greetings, \"r-intro-docs/greetings.csv\")\n\nOpen up greetings.csv locally. What does it look like in Excel?\n\n?write.csv()\n?write.table()\n\n\n\nImport pizza using read.csv().\n\n\n\n\npizza <- read.csv(\"r-intro-docs/pizza.csv\") \n\n\n\n\nWithin the Tidyverse there is a Star Wars dataset we will use to explore data manipulation and wrangling in R.\nEnsure Tidyverse is installed.\n\nlibrary(tidyverse)\n\ndata(\"starwars\")\n\nView(starwars)\n\n\n\n\n\nChoose Star Wars or Pizza and describe the data types.\n\n\n\n\n\n\n\nData is from an ASV table from Hu et al. 2022.\n\n\n\nImport the ASV table and associated metadata table that are in the r-intro-docs directory. Set them equal to asv_table and metadata, respectively.\n\nasv_table <- \n\nmetadata <-\n\nUse the command summary() to learn more about the data frames we’ve imported above."
+  },
+  {
+    "objectID": "install.html#download-access-workshop-content",
+    "href": "install.html#download-access-workshop-content",
+    "title": "Installing R",
+    "section": "4 Download & access workshop content",
+    "text": "4 Download & access workshop content\n\n4.1 Access via terminal\n\nNavigate to the GitHub associated with this workshop HERE.\nRight click r-intro-docs and select Copy link.\nNavigate to where you want to work via the Terminal and use wget to download the directory.\nMake sure this can be viewed and opened in the ‘files / directory’ pane in RStudio.\n\n\nwget https://github.com/shu251/introduction-to-R\n\n\n4.2 Via workshop email\n\nDownload attached folder called r-intro-docs.\nMove this to where on your computer you want to work.\nUse the files/directory pane in RStudio to find that folder."
+  },
+  {
+    "objectID": "file-location.html#pro-tips-for-organizing-naming-files",
+    "href": "file-location.html#pro-tips-for-organizing-naming-files",
+    "title": "File structure",
+    "section": "3 Pro tips for organizing & naming files",
+    "text": "3 Pro tips for organizing & naming files\n\nUse a consistent theme in file naming\nDo not use spaces or special symbols. Dashes and underscores are helpful! (avoid using periods in file names too)\nCapitalization matters (and can be helpful)\nWhat else?"
+  },
+  {
+    "objectID": "r-overview.html#integrationg-across-languages",
+    "href": "r-overview.html#integrationg-across-languages",
+    "title": "What is ‘R’?",
+    "section": "3 Integrationg across languages",
+    "text": "3 Integrationg across languages\nA major pro to using RStudio, is how the new Posit system integrates with other computer languages (python, julia, etc.). This is ideal for projects where collaborators use a variety of R and python. Additionally, the GUI of RStudio is helpful for new learners and a great way to keep files and analyses on your computer organized.\nI’ve actually created this entire website using RStudio (and Quarto within RStudio). As an example, I also use this feature to create websites for showing preliminary data and publishing alongside articles."
+  },
+  {
+    "objectID": "data-types.html#lists",
+    "href": "data-types.html#lists",
+    "title": "Data classes & data frames",
+    "section": "2 Lists",
+    "text": "2 Lists\nA list can be a list of anything. But everything in the list does NOT need to be the same data type (in contrast to the vector, above). Because lists can include different data types and data sets, they can be used to store information, like a dictionary.\n\nlist_example <- list(2^4, \"cabbage\", TRUE, 1+5i)\n\n\nlist_example_2 <- list(2E2, \"lettuce\", VALUES = 1:25, VALUES_BINARY = FALSE)\n\n\nlist_example_2$VALUES\n\ntypeof(list_example_2$VALUES)\n\ntypeof(list_example_2$VALUES_BINARY)"
+  },
+  {
+    "objectID": "data-types.html#matrices",
+    "href": "data-types.html#matrices",
+    "title": "Data classes & data frames",
+    "section": "3 Matrices",
+    "text": "3 Matrices\nWhen do you use one over the other? It depends on what kind of data you’re working with. If you’re working with different types of information in the same table, you likely need a data frame. But if you’re working with a single data type, a matrix may be better for you. Additionally, matrices are more efficient with respect to memory. Therefore, a lot of statistical tools/methods require a matrix as input.\nCreate a matrix.\n\nmatrix(1:9, byrow = FALSE, nrow = 3)\n\n     [,1] [,2] [,3]\n[1,]    1    4    7\n[2,]    2    5    8\n[3,]    3    6    9\n\n\n\nq <- c(460, 314)\nr <- c(290, 247)\nw <- c(309, 165)\n\nc(q, r, w)\n\n[1] 460 314 290 247 309 165\n\nmydataset <- matrix(c(q, r, w), byrow = TRUE, nrow = 3)\nmydataset\n\n     [,1] [,2]\n[1,]  460  314\n[2,]  290  247\n[3,]  309  165\n\n\n\nregion <- c(\"one\", \"two\")\ncategory <- c(\"A\",\"B\",\"C\")\n\nrownames(mydataset) <- category\ncolnames(mydataset) <- region\n\n\nrowSums(mydataset)\n\n  A   B   C \n774 537 474 \n\ntotals <- rowSums(mydataset)\n\ncbind(mydataset,totals)\n\n  one two totals\nA 460 314    774\nB 290 247    537\nC 309 165    474"
+  },
+  {
+    "objectID": "tidyverse-intro.html#explore-the-tidyverse.",
+    "href": "tidyverse-intro.html#explore-the-tidyverse.",
+    "title": "Tidyverse",
+    "section": "5 Explore the tidyverse.",
+    "text": "5 Explore the tidyverse."
+  },
+  {
+    "objectID": "tidyverse-intro.html#mutate",
+    "href": "tidyverse-intro.html#mutate",
+    "title": "Tidyverse",
+    "section": "3 mutate()",
+    "text": "3 mutate()\nWe can also start to introduce math. Mutate adds to the data frame.\nThis pizza data frame has the cost and the amount of that we want to order. Lets calculate our total order.\n\npizza$cost\npizza$num_order\n\npizza %>% \n  select(style = type, everything(), -X) %>% \n  mutate()"
+  },
+  {
+    "objectID": "tidyverse-intro.html#wide-vs.-long-format",
+    "href": "tidyverse-intro.html#wide-vs.-long-format",
+    "title": "Tidyverse",
+    "section": "4 Wide vs. long format",
+    "text": "4 Wide vs. long format\nConvert the ASV table to a long format.\n\nhead(asv_table)\nnames(asv_table)\n\n\n# Compare these two approaches\nasv_long <- asv_table %>% \n  pivot_longer(cols = 3:20)\n\nasv_long <- asv_table %>% \n  pivot_longer(starts_with(\"Gorda\"))\n\nTypically data in long format is much more useful for downstream plotting and wrangling."
+  },
+  {
+    "objectID": "StarWars.html#long-vs.-wide-format",
+    "href": "StarWars.html#long-vs.-wide-format",
+    "title": "Star Wars data",
+    "section": "2 Long vs. wide format",
+    "text": "2 Long vs. wide format\n\ntatooine <- starwars %>% \n  filter(homeworld == \"Tatooine\") # select only those from Tatooine\n\ntibble: is a dataframe specific version for tidyverse. It is both an object and a tibble. So it talks well with all of the related packages. Columns in a tibble are character vectors (instead of factors). This is technically easier to deal with.\n\n2.0.1 Activity\n\nHow many species on Tatooine?\n\n\nunique(starwars$species)\nlength(unique(starwars$species))\n\nUse your tidyverse cheatsheets and google!\n\n\n2.0.2 Activity\n\nCreate a table of droids that are equal to or greater than 96 inches in height."
+  },
+  {
+    "objectID": "StarWars.html#summarizing-data",
+    "href": "StarWars.html#summarizing-data",
+    "title": "Star Wars data",
+    "section": "3 Summarizing data",
+    "text": "3 Summarizing data\nWhat are the average masses of humans versus ewoks?\nUse group_by() and summarize().\n\nstarwars %>% \n  filter(species == \"Human\" | species == \"Ewok\") %>% \n  group_by(species) %>% \n  summarise(MEAN_mass = mean(mass))\n# Modify the above to remove NAs and get a values for Humans.\n\nWhat about the average mass of humans and Ewoks on different planets?\n\nstarwars %>% \n  filter(species == \"Human\" | species == \"Ewok\") %>% \n  group_by(species, homeworld) %>% \n  summarise(MEAN_mass = mean(mass))\n\nsummarize() creates a smaller output table, or a summary. This is dictated by group_by(). Mutate() adds a column to the data.\n\n3.0.1 Activity\n\nAdd a column to star wars that classifies tall versus short, based on the height of each species.\n\n\nAdd a column that defines if the species is Human versus non-human.\n\n\nWhat are the mean masses of humans versus non-humans? And how many examples are included in this table.\n\n\nWhat are the max and min heights of humans and non-humans by planet?"
+  },
+  {
+    "objectID": "asvdata.html#review-long-vs.-wide-format",
+    "href": "asvdata.html#review-long-vs.-wide-format",
+    "title": "ASV data",
+    "section": "2 Review long vs. wide format",
+    "text": "2 Review long vs. wide format"
+  },
+  {
+    "objectID": "asvdata.html#combine-based-on-sample",
+    "href": "asvdata.html#combine-based-on-sample",
+    "title": "ASV data",
+    "section": "3 Combine based on SAMPLE",
+    "text": "3 Combine based on SAMPLE\nIsolate samples that have a temperature greater than 15 C.\nWhat are the average temperatures at the vent, plume, versus background samples?"
+  },
+  {
+    "objectID": "asvdata.html#parse-taxon-names",
+    "href": "asvdata.html#parse-taxon-names",
+    "title": "ASV data",
+    "section": "4 Parse taxon names",
+    "text": "4 Parse taxon names"
+  },
+  {
+    "objectID": "asvdata.html#calculate-relative-abundance",
+    "href": "asvdata.html#calculate-relative-abundance",
+    "title": "ASV data",
+    "section": "5 Calculate relative abundance",
+    "text": "5 Calculate relative abundance\nCreate a table with sequence counts and ASV counts by supergroup."
+  },
+  {
+    "objectID": "asvdata.html",
+    "href": "asvdata.html",
+    "title": "ASV data",
+    "section": "",
+    "text": "Below we will use the provided ASV data to combine two data frames and perform some typical calculations."
+  },
+  {
+    "objectID": "asvdata.html#look-asv-and-metadata",
+    "href": "asvdata.html#look-asv-and-metadata",
+    "title": "ASV data",
+    "section": "1 Look ASV and metadata",
+    "text": "1 Look ASV and metadata"
+  },
+  {
+    "objectID": "basic-plots.html",
+    "href": "basic-plots.html",
+    "title": "Basic plots",
+    "section": "",
+    "text": "see: https://github.com/biovcnet/topic-R/blob/master/Lesson-6/lesson-06-bvcn-full.R"
+  },
+  {
+    "objectID": "basic-plots.html#bar",
+    "href": "basic-plots.html#bar",
+    "title": "Basic plots",
+    "section": "1 Bar",
+    "text": "1 Bar"
+  },
+  {
+    "objectID": "basic-plots.html#go-to-learn-r-section-on-website-from-here.",
+    "href": "basic-plots.html#go-to-learn-r-section-on-website-from-here.",
+    "title": "Basic plots",
+    "section": "4 go to Learn R section on website from here.",
+    "text": "4 go to Learn R section on website from here."
+  },
+  {
+    "objectID": "index.html#tentative-schedule",
+    "href": "index.html#tentative-schedule",
+    "title": "Welcome",
+    "section": "Tentative schedule",
+    "text": "Tentative schedule\n\n9:00 AM\n\nOrientation in RStudio & introduction to R\nBasic syntax\nData classes & data frames\n\n9:55 - 10:00 AM 5 min break\n10:00 AM\n\nData classes & data frames\nR packages\nData import/export\n\n11:00-11:10 AM 10 min break\n11:15 AM\n\nIntroduction to tidyverse\nContinued tidyverse introduction\n\n12:00 - 1:00 PM lunch break (1 hour) & course check in\n1:00 PM\n\nTidyverse & Star Wars\nWorking with microbiome data\nIntro to plotting\n*Data visualization practices\n\n2:00 - 2:05 PM 5 min break\n2:05\n\nIntro to plotting\n*Ordination & clustering\n*Incorporate metadata\n\n3:05 - 3:15 PM 10 min break\n4:15 PM\n\n*Data visualization practices\n*Data management practices\n\n*tentative topic"
   }
 ]
