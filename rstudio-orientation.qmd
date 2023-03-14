@@ -2,25 +2,69 @@
 title: "RStudio"
 format: html
 editor: visual
+number-sections: true
 ---
 
-## Quarto
+## RStudio navigation
 
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+Interface that will help you write code, keep it organized, run code, see outputs, and save your work.
 
-## Running Code
+### What are each of these panes?
 
-When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+-   Files
 
-```{r}
-1 + 1
+-   Packages
+
+-   Environment
+
+-   Console vs. Terminal
+
+![](images/RStudio-window.png){fig-align="center"}
+
+## File structure & projects
+
+1.  Find where you have downloaded and sorted the `r-intro-docs` directory. Navigate under **Files** in RStudio. See how the path is illustrated?
+
+2.  Save a new R project as `introduction-to-R` in this directory.
+
+3.  Close RStudio.
+
+4.  Navigate to where your R project is saved and open this file, `introduction-to-R.Rproj`. This should automatically open RStudio and the files panel will open to this project directory.
+
+5.  Open `r-intro-docs/intro.R`. This is an R script. It looks like a text file. This is your primary workspace, where you can edit, document, and modify code. You execute each line by running the code.
+
+## Executing commands
+
+The Rscript within Rstudio works like a raw text file, where most shortcut keys like copy/paste and home/end will work. As the course continues we will share what shortcut keys we often use - at any time you can also google "short cut keys RStudio for Mac" to find more.
+
+In the script `intro.R`, place cursor next to one of the lines of code and run the command.
+
+### Mac
+
+To run a command on a Mac, place cursor on the line you want to execute or highlight the code. Press `COMMAND` + `ENTER`.
+
+### PC
+
+To run a command on a PC, place cursor on the line you want to execute or highlight the code. Press `CONTROL` + `ENTER`.
+
+#### Activity
+
+> Practice executing the lines of code below. Document your code with information on what happens each time you execute a line.
+
+```{r, echo=TRUE, eval=FALSE}
+?sort()
+
+10^10
+
+x <- c("hello", "hey", howdy)
+
+x <- c("hello", "hey", "howdy")
+
+str(x)
+
+print(hello world)
+
+y <- print("hello world")
+
+data.frame(x, x)
 ```
-
-You can add options to executable code like this
-
-```{r}
-#| echo: false
-2 * 2
-```
-
-The `echo: false` option disables the printing of code (only output is displayed).

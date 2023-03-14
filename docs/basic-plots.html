@@ -20,6 +20,69 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -238,10 +301,22 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#bar" id="toc-bar" class="nav-link active" data-scroll-target="#bar"><span class="toc-section-number">1</span>  Bar</a></li>
-  <li><a href="#point-line" id="toc-point-line" class="nav-link" data-scroll-target="#point-line"><span class="toc-section-number">2</span>  Point &amp; line</a></li>
-  <li><a href="#boxplot" id="toc-boxplot" class="nav-link" data-scroll-target="#boxplot"><span class="toc-section-number">3</span>  Boxplot</a></li>
-  <li><a href="#go-to-learn-r-section-on-website-from-here." id="toc-go-to-learn-r-section-on-website-from-here." class="nav-link" data-scroll-target="#go-to-learn-r-section-on-website-from-here."><span class="toc-section-number">4</span>  go to Learn R section on website from here.</a></li>
+  <li><a href="#bar" id="toc-bar" class="nav-link active" data-scroll-target="#bar"><span class="toc-section-number">0.1</span>  Bar</a>
+  <ul class="collapse">
+  <li><a href="#star-wars-visuals" id="toc-star-wars-visuals" class="nav-link" data-scroll-target="#star-wars-visuals"><span class="toc-section-number">0.1.1</span>  Star Wars visuals</a></li>
+  </ul></li>
+  <li><a href="#point-line" id="toc-point-line" class="nav-link" data-scroll-target="#point-line"><span class="toc-section-number">0.2</span>  Point &amp; line</a></li>
+  <li><a href="#boxplot" id="toc-boxplot" class="nav-link" data-scroll-target="#boxplot"><span class="toc-section-number">0.3</span>  Boxplot</a></li>
+  <li><a href="#first-what-is-the-data-im-looking-at-on-tatooine" id="toc-first-what-is-the-data-im-looking-at-on-tatooine" class="nav-link" data-scroll-target="#first-what-is-the-data-im-looking-at-on-tatooine"><span class="toc-section-number">1</span>  First what is the data I’m looking at on Tatooine</a></li>
+  <li><a href="#how-many-species-on-tatooine" id="toc-how-many-species-on-tatooine" class="nav-link" data-scroll-target="#how-many-species-on-tatooine"><span class="toc-section-number">2</span>  How many species on Tatooine?</a></li>
+  <li><a href="#bar-chart-example" id="toc-bar-chart-example" class="nav-link" data-scroll-target="#bar-chart-example"><span class="toc-section-number">3</span>  Bar chart example</a>
+  <ul class="collapse">
+  <li><a href="#first-example-of-a-bar-chart-but-something-isnt-right" id="toc-first-example-of-a-bar-chart-but-something-isnt-right" class="nav-link" data-scroll-target="#first-example-of-a-bar-chart-but-something-isnt-right"><span class="toc-section-number">3.1</span>  First, example of a bar chart <strong>but something isn’t right</strong></a></li>
+  </ul></li>
+  <li><a href="#whats-wrong-with-this" id="toc-whats-wrong-with-this" class="nav-link" data-scroll-target="#whats-wrong-with-this"><span class="toc-section-number">4</span>  What’s wrong with this?</a>
+  <ul class="collapse">
+  <li><a href="#boxplots-in-ggplot" id="toc-boxplots-in-ggplot" class="nav-link" data-scroll-target="#boxplots-in-ggplot"><span class="toc-section-number">4.0.1</span>  Boxplots in ggplot:</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -264,20 +339,162 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>see: https://github.com/biovcnet/topic-R/blob/master/Lesson-6/lesson-06-bvcn-full.R</p>
-<section id="bar" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="bar"><span class="header-section-number">1</span> Bar</h2>
+<p>Also see: https://github.com/biovcnet/topic-R/blob/master/Lesson-6/lesson-06-bvcn-full.R</p>
+<section id="bar" class="level2" data-number="0.1">
+<h2 data-number="0.1" class="anchored" data-anchor-id="bar"><span class="header-section-number">0.1</span> Bar</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(starwars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 14
+  name         height  mass hair_…¹ skin_…² eye_c…³ birth…⁴ sex   gender homew…⁵
+  &lt;chr&gt;         &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  
+1 Luke Skywal…    172    77 blond   fair    blue       19   male  mascu… Tatooi…
+2 C-3PO           167    75 &lt;NA&gt;    gold    yellow    112   none  mascu… Tatooi…
+3 R2-D2            96    32 &lt;NA&gt;    white,… red        33   none  mascu… Naboo  
+4 Darth Vader     202   136 none    white   yellow     41.9 male  mascu… Tatooi…
+5 Leia Organa     150    49 brown   light   brown      19   fema… femin… Aldera…
+6 Owen Lars       178   120 brown,… light   blue       52   male  mascu… Tatooi…
+# … with 4 more variables: species &lt;chr&gt;, films &lt;list&gt;, vehicles &lt;list&gt;,
+#   starships &lt;list&gt;, and abbreviated variable names ¹​hair_color, ²​skin_color,
+#   ³​eye_color, ⁴​birth_year, ⁵​homeworld</code></pre>
+</div>
+</div>
+<section id="star-wars-visuals" class="level3" data-number="0.1.1">
+<h3 data-number="0.1.1" class="anchored" data-anchor-id="star-wars-visuals"><span class="header-section-number">0.1.1</span> Star Wars visuals</h3>
+<p>What species are present on each planet?</p>
+<p>Create a bar plot where the x axis equals homeworlds and the y axis show the number of different species on each planet.</p>
+<div class="cell">
+
+</div>
 </section>
-<section id="point-line" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="point-line"><span class="header-section-number">2</span> Point &amp; line</h2>
 </section>
-<section id="boxplot" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="boxplot"><span class="header-section-number">3</span> Boxplot</h2>
+<section id="point-line" class="level2" data-number="0.2">
+<h2 data-number="0.2" class="anchored" data-anchor-id="point-line"><span class="header-section-number">0.2</span> Point &amp; line</h2>
+<p>For all humans in Star Wars, what is their relationship between height and weight? and is it impacted by their planet of origin?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>starwars <span class="sc">%&gt;%</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+
+</div>
+<div class="cell">
+
+</div>
 </section>
-<section id="go-to-learn-r-section-on-website-from-here." class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="go-to-learn-r-section-on-website-from-here."><span class="header-section-number">4</span> go to Learn R section on website from here.</h2>
+<section id="boxplot" class="level2" data-number="0.3">
+<h2 data-number="0.3" class="anchored" data-anchor-id="boxplot"><span class="header-section-number">0.3</span> Boxplot</h2>
+</section>
+<section id="first-what-is-the-data-im-looking-at-on-tatooine" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> First what is the data I’m looking at on Tatooine</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># View(starwars)</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>tatooine <span class="ot">&lt;-</span> starwars <span class="sc">%&gt;%</span> </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(homeworld <span class="sc">==</span> <span class="st">"Tatooine"</span>) <span class="sc">%&gt;%</span> <span class="co"># select only those from Tatooine</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  data.frame</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="how-many-species-on-tatooine" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> How many species on Tatooine?</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(starwars<span class="sc">$</span>species); <span class="fu">length</span>(<span class="fu">unique</span>(starwars<span class="sc">$</span>species))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "Human"          "Droid"          "Wookiee"        "Rodian"        
+ [5] "Hutt"           "Yoda's species" "Trandoshan"     "Mon Calamari"  
+ [9] "Ewok"           "Sullustan"      "Neimodian"      "Gungan"        
+[13] NA               "Toydarian"      "Dug"            "Zabrak"        
+[17] "Twi'lek"        "Vulptereen"     "Xexto"          "Toong"         
+[21] "Cerean"         "Nautolan"       "Tholothian"     "Iktotchi"      
+[25] "Quermian"       "Kel Dor"        "Chagrian"       "Geonosian"     
+[29] "Mirialan"       "Clawdite"       "Besalisk"       "Kaminoan"      
+[33] "Aleena"         "Skakoan"        "Muun"           "Togruta"       
+[37] "Kaleesh"        "Pau'an"        </code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 38</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(tatooine<span class="sc">$</span>species); <span class="fu">length</span>(<span class="fu">unique</span>(tatooine<span class="sc">$</span>species))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Human" "Droid"</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2</code></pre>
+</div>
+</div>
+</section>
+<section id="bar-chart-example" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Bar chart example</h1>
+<section id="first-example-of-a-bar-chart-but-something-isnt-right" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="first-example-of-a-bar-chart-but-something-isnt-right"><span class="header-section-number">3.1</span> First, example of a bar chart <strong>but something isn’t right</strong></h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(tatooine, <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> height)) <span class="sc">+</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="basic-plots_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+</section>
+<section id="whats-wrong-with-this" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> What’s wrong with this?</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>starwars <span class="sc">%&gt;%</span> </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(homeworld <span class="sc">==</span> <span class="st">"Tatooine"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(species, homeworld) <span class="sc">%&gt;%</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">MEAN_height =</span> <span class="fu">mean</span>(height), <span class="at">MEDIAN_height =</span> <span class="fu">median</span>(height),</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">MAX_height =</span> <span class="fu">max</span>(height), <span class="at">MIN_height =</span> <span class="fu">min</span>(height),</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">MEAN_mass =</span> <span class="fu">mean</span>(mass), <span class="at">MEDIAN_mass =</span> <span class="fu">median</span>(mass))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`summarise()` has grouped output by 'species'. You can override using the
+`.groups` argument.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 8
+# Groups:   species [2]
+  species homeworld MEAN_height MEDIAN_height MAX_height MIN_h…¹ MEAN_…² MEDIA…³
+  &lt;chr&gt;   &lt;chr&gt;           &lt;dbl&gt;         &lt;dbl&gt;      &lt;int&gt;   &lt;int&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+1 Droid   Tatooine         132           132         167      97    53.5    53.5
+2 Human   Tatooine         179.          180.        202     163    NA      NA  
+# … with abbreviated variable names ¹​MIN_height, ²​MEAN_mass, ³​MEDIAN_mass</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>((<span class="fu">filter</span>(tatooine, species <span class="sc">==</span> <span class="st">"Human"</span>))<span class="sc">$</span>height)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="basic-plots_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>((<span class="fu">filter</span>(tatooine, species <span class="sc">==</span> <span class="st">"Droid"</span>))<span class="sc">$</span>mass) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="basic-plots_files/figure-html/unnamed-chunk-9-2.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>A better way to show this data is via box plot! Let’s address that question now, but with a better graphical representation</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(tatooine, <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> height)) <span class="sc">+</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="basic-plots_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<section id="boxplots-in-ggplot" class="level3" data-number="4.0.1">
+<h3 data-number="4.0.1" class="anchored" data-anchor-id="boxplots-in-ggplot"><span class="header-section-number">4.0.1</span> Boxplots in ggplot:</h3>
+<ul>
+<li>median at middle</li>
+<li>upper/lower hinges = 1st and 3rd quartiles (25th and 75th percentiles)</li>
+<li>whiskers = largest/lowest value, but maxes at 1.5 * inter-quartile range (distance from upper/lower hinges)</li>
+<li>Outliers are shown as points</li>
+<li>NOTE: varies from base R ‘boxplot()’</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(tatooine, <span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> height)) <span class="sc">+</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="basic-plots_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

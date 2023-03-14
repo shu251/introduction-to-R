@@ -1,22 +1,58 @@
 ---
-title: "File structure & location"
+title: "File structure"
 format: html
 editor: visual
+number-sections: true
 ---
 
 ## Computer file structure
 
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+-   Your computer files and folders can all be accessed via the 'Terminal'.
+
+-   This is the location of a file called `greeting.txt` on my computer.
+
+    ![](images/mac_folder.png)
+
+-   The exact same file can be found via the terminal.
+
+    ![](images/terminal_ls.png){width="376"}
 
 ## Basics of the terminal
 
-When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+`ls` List files
 
-```{r}
-1 + 1
-```
+`pwd` Print working directory
 
-You can add options to executable code like this
+`cd` Change directories
 
-## Organizing & naming files
+`less` Show preview in terminal (quit by hitting "q")
 
+`mv` Move file
+
+`mkdir` Make a new folder or directory
+
+### **Activity**
+
+> Pull up the last document you opened on your computer. Repeat this in terminal. What is the path location of that file?
+
+    less Desktop/secret_folder/topsecret/greetings.txt
+
+### **Activity**
+
+> How would you move a file titled "tmp.csv" from your current directory to one called archived-files?
+
+    # mv [file] [location]
+
+### **Activity**
+
+> Create a new directory in `r-intro-docs` called _HELLO_. Move `greeting.txt` to that new directory. What is the full path of `greeting.txt`?
+
+## Pro tips for organizing & naming files
+
+-   Use a consistent theme in file naming
+
+-   Do not use spaces or special symbols. Dashes and underscores are helpful! (avoid using periods in file names too)
+
+-   Capitalization matters (and can be helpful)
+
+-   _What else?_

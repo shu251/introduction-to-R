@@ -304,6 +304,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#explore-the-star-wars-data-in-tidyverse" id="toc-explore-the-star-wars-data-in-tidyverse" class="nav-link active" data-scroll-target="#explore-the-star-wars-data-in-tidyverse"><span class="toc-section-number">1</span>  Explore the Star Wars data in tidyverse</a></li>
   <li><a href="#long-vs.-wide-format" id="toc-long-vs.-wide-format" class="nav-link" data-scroll-target="#long-vs.-wide-format"><span class="toc-section-number">2</span>  Long vs.&nbsp;wide format</a></li>
   <li><a href="#summarizing-data" id="toc-summarizing-data" class="nav-link" data-scroll-target="#summarizing-data"><span class="toc-section-number">3</span>  Summarizing data</a></li>
+  <li><a href="#star-wars-data-wrangling" id="toc-star-wars-data-wrangling" class="nav-link" data-scroll-target="#star-wars-data-wrangling"><span class="toc-section-number">4</span>  Star wars data wrangling</a></li>
   </ul>
 </nav>
     </div>
@@ -331,13 +332,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(starwars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 14
+  name         height  mass hair_…¹ skin_…² eye_c…³ birth…⁴ sex   gender homew…⁵
+  &lt;chr&gt;         &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  
+1 Luke Skywal…    172    77 blond   fair    blue       19   male  mascu… Tatooi…
+2 C-3PO           167    75 &lt;NA&gt;    gold    yellow    112   none  mascu… Tatooi…
+3 R2-D2            96    32 &lt;NA&gt;    white,… red        33   none  mascu… Naboo  
+4 Darth Vader     202   136 none    white   yellow     41.9 male  mascu… Tatooi…
+5 Leia Organa     150    49 brown   light   brown      19   fema… femin… Aldera…
+6 Owen Lars       178   120 brown,… light   blue       52   male  mascu… Tatooi…
+# … with 4 more variables: species &lt;chr&gt;, films &lt;list&gt;, vehicles &lt;list&gt;,
+#   starships &lt;list&gt;, and abbreviated variable names ¹​hair_color, ²​skin_color,
+#   ³​eye_color, ⁴​birth_year, ⁵​homeworld</code></pre>
+</div>
 </div>
 </section>
 <section id="long-vs.-wide-format" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="long-vs.-wide-format"><span class="header-section-number">2</span> Long vs.&nbsp;wide format</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>tatooine <span class="ot">&lt;-</span> starwars <span class="sc">%&gt;%</span> </span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(homeworld <span class="sc">==</span> <span class="st">"Tatooine"</span>) <span class="co"># select only those from Tatooine</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>tatooine <span class="ot">&lt;-</span> starwars <span class="sc">%&gt;%</span> </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(homeworld <span class="sc">==</span> <span class="st">"Tatooine"</span>) <span class="co"># select only those from Tatooine</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><em>tibble</em>: is a dataframe specific version for tidyverse. It is both an object and a tibble. So it talks well with all of the related packages. Columns in a tibble are character vectors (instead of factors). This is technically easier to deal with.</p>
 <section id="activity" class="level4" data-number="2.0.1">
@@ -346,8 +361,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>How many species on Tatooine?</p>
 </blockquote>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(starwars<span class="sc">$</span>species)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">unique</span>(starwars<span class="sc">$</span>species))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(starwars<span class="sc">$</span>species)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">unique</span>(starwars<span class="sc">$</span>species))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Use your tidyverse cheatsheets and google!</p>
 </section>
@@ -366,18 +381,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>What are the average masses of humans versus ewoks?</p>
 <p>Use <code>group_by()</code> and <code>summarize()</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>starwars <span class="sc">%&gt;%</span> </span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">"Human"</span> <span class="sc">|</span> species <span class="sc">==</span> <span class="st">"Ewok"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(species) <span class="sc">%&gt;%</span> </span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">MEAN_mass =</span> <span class="fu">mean</span>(mass))</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Modify the above to remove NAs and get a values for Humans.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>starwars <span class="sc">%&gt;%</span> </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">"Human"</span> <span class="sc">|</span> species <span class="sc">==</span> <span class="st">"Ewok"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(species) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">MEAN_mass =</span> <span class="fu">mean</span>(mass))</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Modify the above to remove NAs and get a values for Humans.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>What about the average mass of humans and Ewoks on different planets?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>starwars <span class="sc">%&gt;%</span> </span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">"Human"</span> <span class="sc">|</span> species <span class="sc">==</span> <span class="st">"Ewok"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(species, homeworld) <span class="sc">%&gt;%</span> </span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">MEAN_mass =</span> <span class="fu">mean</span>(mass))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>starwars <span class="sc">%&gt;%</span> </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">"Human"</span> <span class="sc">|</span> species <span class="sc">==</span> <span class="st">"Ewok"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(species, homeworld) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">MEAN_mass =</span> <span class="fu">mean</span>(mass))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>summarize()</code> creates a smaller output table, or a summary. This is dictated by <code>group_by()</code>. <code>Mutate()</code> adds a column to the data.</p>
 <section id="activity-2" class="level4" data-number="3.0.1">
@@ -394,9 +409,58 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <blockquote class="blockquote">
 <p>What are the max and min heights of humans and non-humans by planet?</p>
 </blockquote>
-
-
 </section>
+</section>
+<section id="star-wars-data-wrangling" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="star-wars-data-wrangling"><span class="header-section-number">4</span> Star wars data wrangling</h2>
+<p>Isolate non-droids on Alderaan, Naboo, Endor, Kamino, and Coruscant. Based on their reported sex, is there a relationship between their heigh, planet, and species?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(starwars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 14
+  name         height  mass hair_…¹ skin_…² eye_c…³ birth…⁴ sex   gender homew…⁵
+  &lt;chr&gt;         &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  
+1 Luke Skywal…    172    77 blond   fair    blue       19   male  mascu… Tatooi…
+2 C-3PO           167    75 &lt;NA&gt;    gold    yellow    112   none  mascu… Tatooi…
+3 R2-D2            96    32 &lt;NA&gt;    white,… red        33   none  mascu… Naboo  
+4 Darth Vader     202   136 none    white   yellow     41.9 male  mascu… Tatooi…
+5 Leia Organa     150    49 brown   light   brown      19   fema… femin… Aldera…
+6 Owen Lars       178   120 brown,… light   blue       52   male  mascu… Tatooi…
+# … with 4 more variables: species &lt;chr&gt;, films &lt;list&gt;, vehicles &lt;list&gt;,
+#   starships &lt;list&gt;, and abbreviated variable names ¹​hair_color, ²​skin_color,
+#   ³​eye_color, ⁴​birth_year, ⁵​homeworld</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(starwars<span class="sc">$</span>homeworld)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "Tatooine"       "Naboo"          "Alderaan"       "Stewjon"       
+ [5] "Eriadu"         "Kashyyyk"       "Corellia"       "Rodia"         
+ [9] "Nal Hutta"      "Bestine IV"     NA               "Kamino"        
+[13] "Trandosha"      "Socorro"        "Bespin"         "Mon Cala"      
+[17] "Chandrila"      "Endor"          "Sullust"        "Cato Neimoidia"
+[21] "Coruscant"      "Toydaria"       "Malastare"      "Dathomir"      
+[25] "Ryloth"         "Vulpter"        "Troiken"        "Tund"          
+[29] "Haruun Kal"     "Cerea"          "Glee Anselm"    "Iridonia"      
+[33] "Iktotch"        "Quermia"        "Dorin"          "Champala"      
+[37] "Geonosis"       "Mirial"         "Serenno"        "Concord Dawn"  
+[41] "Zolan"          "Ojom"           "Aleen Minor"    "Skako"         
+[45] "Muunilinst"     "Shili"          "Kalee"          "Umbara"        
+[49] "Utapau"        </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>homes <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Alderaan"</span>, <span class="st">"Naboo"</span>, <span class="st">"Endor"</span>, <span class="st">"Kamino"</span>, <span class="st">"Coruscant"</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>starwars <span class="sc">%&gt;%</span> </span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(homeworld <span class="sc">%in%</span> homes) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(species <span class="sc">!=</span> <span class="st">"Droid"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> species, <span class="at">y =</span> height, <span class="at">fill =</span> sex)) <span class="sc">+</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># geom_bar(stat = "identity", aes(fill = sex)) +</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">position =</span> <span class="st">"dodge"</span>, <span class="fu">aes</span>(<span class="at">fill =</span> sex)) <span class="sc">+</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_grid</span>(homeworld <span class="sc">~</span> .)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="StarWars_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+
+
 </section>
 
 </main> <!-- /main -->

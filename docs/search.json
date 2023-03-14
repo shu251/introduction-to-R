@@ -39,7 +39,7 @@
     "href": "index.html",
     "title": "Welcome",
     "section": "",
-    "text": "Introduction to the R programming language workshop.\nApril 7th, 2023 9am-4:30pm\nlocation"
+    "text": "Introduction to the R programming language workshop.\nApril 7th, 2023 9am-4:30pm\nEller O&M 602 & hybrid (email instructor for Zoom link)."
   },
   {
     "objectID": "about.html",
@@ -74,7 +74,7 @@
     "href": "install.html",
     "title": "Installing R",
     "section": "",
-    "text": "There will be office hours or a specific opportunity to follow the below instructions on your own time and seek help. Please do this before the course begins."
+    "text": "There will be office hours or a specific opportunity to follow the below instructions on your own time and seek help. Please do this before the course begins.\nYou will be emailed the schedule for these office hours."
   },
   {
     "objectID": "install.html#instructions-for-pc",
@@ -277,7 +277,7 @@
     "href": "StarWars.html",
     "title": "Star Wars data",
     "section": "",
-    "text": "library(tidyverse)\nhead(starwars)"
+    "text": "library(tidyverse)\nhead(starwars)\n\n# A tibble: 6 × 14\n  name         height  mass hair_…¹ skin_…² eye_c…³ birth…⁴ sex   gender homew…⁵\n  <chr>         <int> <dbl> <chr>   <chr>   <chr>     <dbl> <chr> <chr>  <chr>  \n1 Luke Skywal…    172    77 blond   fair    blue       19   male  mascu… Tatooi…\n2 C-3PO           167    75 <NA>    gold    yellow    112   none  mascu… Tatooi…\n3 R2-D2            96    32 <NA>    white,… red        33   none  mascu… Naboo  \n4 Darth Vader     202   136 none    white   yellow     41.9 male  mascu… Tatooi…\n5 Leia Organa     150    49 brown   light   brown      19   fema… femin… Aldera…\n6 Owen Lars       178   120 brown,… light   blue       52   male  mascu… Tatooi…\n# … with 4 more variables: species <chr>, films <list>, vehicles <list>,\n#   starships <list>, and abbreviated variable names ¹​hair_color, ²​skin_color,\n#   ³​eye_color, ⁴​birth_year, ⁵​homeworld"
   },
   {
     "objectID": "StarWars.html#section",
@@ -297,15 +297,15 @@
     "objectID": "basic-plots.html#point-line",
     "href": "basic-plots.html#point-line",
     "title": "Basic plots",
-    "section": "2 Point & line",
-    "text": "2 Point & line"
+    "section": "0.2 Point & line",
+    "text": "0.2 Point & line\nFor all humans in Star Wars, what is their relationship between height and weight? and is it impacted by their planet of origin?\n\nstarwars %>%"
   },
   {
     "objectID": "basic-plots.html#boxplot",
     "href": "basic-plots.html#boxplot",
     "title": "Basic plots",
-    "section": "3 Boxplot",
-    "text": "3 Boxplot"
+    "section": "0.3 Boxplot",
+    "text": "0.3 Boxplot"
   },
   {
     "objectID": "basic-plots.html#bubble",
@@ -361,7 +361,7 @@
     "href": "code-of-conduct.html",
     "title": "Code of conduct",
     "section": "",
-    "text": "TO DO: revise and update for TAMU work?\nWe are dedicated to providing a welcoming and supportive environment for all people, regardless of background or identity. By participating in this community, participants accept to abide by The Carpentries’ Code of Conduct and accept the procedures by which any Code of Conduct incidents are resolved. Any form of behaviour to exclude, intimidate, or cause discomfort is a violation of the Code of Conduct. In order to foster a positive and professional learning environment we encourage the following kinds of behaviours in all platforms and events:\nUse welcoming and inclusive language\nBe respectful of different viewpoints and experiences\nGracefully accept constructive criticism\nFocus on what is best for the community\nShow courtesy and respect towards other community members\nIf you believe someone is violating the Code of Conduct, we ask that you report it to The Carpentries Code of Conduct Committee completing this form, who will take the appropriate action to address the situation.\nCode of Conduct (Detailed View) Part 1. Introduction\nThe Carpentries is a community-led project. We value the involvement of everyone in the community. We are committed to creating a friendly and respectful place for learning, teaching and contributing. All participants in our events and communications are expected to show respect and courtesy to others.\nTo make clear what is expected, everyone participating in The Carpentries activities is required to conform to the Code of Conduct. This Code of Conduct applies to all spaces managed by The Carpentries including, but not limited to, workshops, email lists, and online forums such as GitHub, Slack and Twitter. Workshop hosts are expected to assist with the enforcement of the Code of Conduct.\nThe Carpentries Code of Conduct Committee is responsible for enforcing the Code of Conduct. It can be contacted by emailing coc@carpentries.org. All reports will be reviewed by the Code of Conduct Committee and will be kept confidential.\nPart 2. The Carpentries Code of Conduct\nThe Carpentries is dedicated to providing a welcoming and supportive environment for all people, regardless of background or identity. As such, we do not tolerate behaviour that is disrespectful to our teachers or learners or that excludes, intimidates, or causes discomfort to others. We do not tolerate discrimination or harassment based on characteristics that include, but are not limited to, gender identity and expression, sexual orientation, disability, physical appearance, body size, citizenship, nationality, ethnic or social origin, pregnancy, familial status, veteran status, genetic information, religion or belief (or lack thereof), membership of a national minority, property, age, education, socio-economic status, technical choices, and experience level.\nEveryone who participates in Carpentries activities is required to conform to this Code of Conduct. It applies to all spaces managed by The Carpentries including, but not limited to, workshops, email lists, and online forums such as GitHub, Slack and Twitter. Workshop hosts are expected to assist with the enforcement of the Code of Conduct. By participating, participants indicate their acceptance of the procedures by which The Carpentries resolves any Code of Conduct incidents, which may include storage and processing of their personal information.\nPart 2.1 Expected behaviour\nAll participants in our events and communications are expected to show respect and courtesy to others. All interactions should be professional regardless of platform: either online or in-person. In order to foster a positive and professional learning environment we encourage the following kinds of behaviours in all Carpentries events and platforms:\nUse welcoming and inclusive language\nBe respectful of different viewpoints and experiences\nGracefully accept constructive criticism\nFocus on what is best for the community\nShow courtesy and respect towards other community members\nNote: See the four social rules for further recommendations.\nPart 2.2 Unacceptable behaviour\nExamples of unacceptable behaviour by participants at any Carpentries event/platform include:\nwritten or verbal comments which have the effect of excluding people on the basis of membership of any specific group\ncausing someone to fear for their safety, such as through stalking, following, or intimidation\nviolent threats or language directed against another person\nthe display of sexual or violent images\nunwelcome sexual attention\nnonconsensual or unwelcome physical contact\nsustained disruption of talks, events or communications\ninsults or put downs\nsexist, racist, homophobic, transphobic, ableist, or exclusionary jokes\nexcessive swearing\nincitement to violence, suicide, or self-harm\ncontinuing to initiate interaction (including photography or recording) with someone after being asked to stop\npublication of private communication without consent\nPart 2.3 Consequences of Unacceptable behaviour\nParticipants who are asked to stop any inappropriate behaviour are expected to comply immediately. This applies to any Carpentries events and platforms, either online or in-person. If a participant engages in behaviour that violates this code of conduct, the organisers may warn the offender, ask them to leave the event or platform (without refund), or engage The Carpentries Code of Conduct Committee to investigate the Code of Conduct violation and impose appropriate sanctions.\nProcess Flow Diagram The diagram below illustrates the following steps in following a Code of Conduct report.\nFirst report -> assess if there is a CoC report and clear breach\nNo report or breach -> respond with an explanation to the reporter\nBreach identified -> set up a first meeting with the CoCc (Read about Incident Response Group in CoCc Governance) to collectively identify specific issues and breaches\nIf a specific breach/issue was not identified -> reply to the reporter\nIf a specific breach/issue was identified -> email the reporter/reportee as explained in CoC report handling and enforcement process\nIf it was undecided that a breach/issue occurred -> hold a meeting with the reporter/reportee as explained in CoC report handling and enforcement process -> Hold a second meeting with the CoCc to identify consequence/next steps as explained in CoC report handling and enforcement process"
+    "text": "We are dedicated to providing a welcoming and supportive environment for all people, regardless of background or identity. By participating in this community, participants accept to abide by The Carpentries’ Code of Conduct and accept the procedures by which any Code of Conduct incidents are resolved. Any form of behaviour to exclude, intimidate, or cause discomfort is a violation of the Code of Conduct. In order to foster a positive and professional learning environment we encourage the following kinds of behaviours in all platforms and events:\nUse welcoming and inclusive language\nBe respectful of different viewpoints and experiences\nGracefully accept constructive criticism\nFocus on what is best for the community\nShow courtesy and respect towards other community members\nIf you believe someone is violating the Code of Conduct, we ask that you report it to The Carpentries Code of Conduct Committee completing this form, who will take the appropriate action to address the situation.\nCode of Conduct (Detailed View) Part 1. Introduction\nThe Carpentries is a community-led project. We value the involvement of everyone in the community. We are committed to creating a friendly and respectful place for learning, teaching and contributing. All participants in our events and communications are expected to show respect and courtesy to others.\nTo make clear what is expected, everyone participating in The Carpentries activities is required to conform to the Code of Conduct. This Code of Conduct applies to all spaces managed by The Carpentries including, but not limited to, workshops, email lists, and online forums such as GitHub, Slack and Twitter. Workshop hosts are expected to assist with the enforcement of the Code of Conduct.\nThe Carpentries Code of Conduct Committee is responsible for enforcing the Code of Conduct. It can be contacted by emailing coc@carpentries.org. All reports will be reviewed by the Code of Conduct Committee and will be kept confidential.\nPart 2. The Carpentries Code of Conduct\nThe Carpentries is dedicated to providing a welcoming and supportive environment for all people, regardless of background or identity. As such, we do not tolerate behaviour that is disrespectful to our teachers or learners or that excludes, intimidates, or causes discomfort to others. We do not tolerate discrimination or harassment based on characteristics that include, but are not limited to, gender identity and expression, sexual orientation, disability, physical appearance, body size, citizenship, nationality, ethnic or social origin, pregnancy, familial status, veteran status, genetic information, religion or belief (or lack thereof), membership of a national minority, property, age, education, socio-economic status, technical choices, and experience level.\nEveryone who participates in Carpentries activities is required to conform to this Code of Conduct. It applies to all spaces managed by The Carpentries including, but not limited to, workshops, email lists, and online forums such as GitHub, Slack and Twitter. Workshop hosts are expected to assist with the enforcement of the Code of Conduct. By participating, participants indicate their acceptance of the procedures by which The Carpentries resolves any Code of Conduct incidents, which may include storage and processing of their personal information.\nPart 2.1 Expected behaviour\nAll participants in our events and communications are expected to show respect and courtesy to others. All interactions should be professional regardless of platform: either online or in-person. In order to foster a positive and professional learning environment we encourage the following kinds of behaviours in all Carpentries events and platforms:\nUse welcoming and inclusive language\nBe respectful of different viewpoints and experiences\nGracefully accept constructive criticism\nFocus on what is best for the community\nShow courtesy and respect towards other community members\nNote: See the four social rules for further recommendations.\nPart 2.2 Unacceptable behaviour\nExamples of unacceptable behaviour by participants at any Carpentries event/platform include:\nwritten or verbal comments which have the effect of excluding people on the basis of membership of any specific group\ncausing someone to fear for their safety, such as through stalking, following, or intimidation\nviolent threats or language directed against another person\nthe display of sexual or violent images\nunwelcome sexual attention\nnonconsensual or unwelcome physical contact\nsustained disruption of talks, events or communications\ninsults or put downs\nsexist, racist, homophobic, transphobic, ableist, or exclusionary jokes\nexcessive swearing\nincitement to violence, suicide, or self-harm\ncontinuing to initiate interaction (including photography or recording) with someone after being asked to stop\npublication of private communication without consent\nPart 2.3 Consequences of Unacceptable behaviour\nParticipants who are asked to stop any inappropriate behaviour are expected to comply immediately. This applies to any Carpentries events and platforms, either online or in-person. If a participant engages in behaviour that violates this code of conduct, the organisers may warn the offender, ask them to leave the event or platform (without refund), or engage The Carpentries Code of Conduct Committee to investigate the Code of Conduct violation and impose appropriate sanctions.\nProcess Flow Diagram The diagram below illustrates the following steps in following a Code of Conduct report.\nFirst report -> assess if there is a CoC report and clear breach\nNo report or breach -> respond with an explanation to the reporter\nBreach identified -> set up a first meeting with the CoCc (Read about Incident Response Group in CoCc Governance) to collectively identify specific issues and breaches\nIf a specific breach/issue was not identified -> reply to the reporter\nIf a specific breach/issue was identified -> email the reporter/reportee as explained in CoC report handling and enforcement process\nIf it was undecided that a breach/issue occurred -> hold a meeting with the reporter/reportee as explained in CoC report handling and enforcement process -> Hold a second meeting with the CoCc to identify consequence/next steps as explained in CoC report handling and enforcement process"
   },
   {
     "objectID": "exporting-data.html",
@@ -382,7 +382,7 @@
     "href": "importing-data.html",
     "title": "Data import",
     "section": "",
-    "text": "In the files section of your RStudio, click on the r-intro-docs directory. You should see a list of files.\nLets save the greetings R object as a csv file in the r-intro-docs directory.\n\n# First re-create if needed\ngreetings <- c(\"Hey\", \"Hi\", \"Howdy\", \"Hello\", \"Morning\")\nn <- c(99, 15, 324, 54, 23)\ndf <- data.frame(greetings, n)\naddition <- c(\"Afternoon\", 18)\n\ngreetings <- rbind(df, addition)\n\nDiscuss tab completion!\n\nwrite.csv(greetings, \"r-intro-docs/greetings.csv\")\n\nOpen up greetings.csv locally. What does it look like in Excel?\n\n?write.csv()\n?write.table()\n\n\n\nImport pizza using read.csv().\n\n\n\n\npizza <- read.csv(\"r-intro-docs/pizza.csv\") \n\n\n\n\nWithin the Tidyverse there is a Star Wars dataset we will use to explore data manipulation and wrangling in R.\nEnsure Tidyverse is installed.\n\nlibrary(tidyverse)\n\ndata(\"starwars\")\n\nView(starwars)\n\n\n\n\n\nChoose Star Wars or Pizza and describe the data types.\n\n\n\n\n\n\n\nData is from an ASV table from Hu et al. 2022.\n\n\n\nImport the ASV table and associated metadata table that are in the r-intro-docs directory. Set them equal to asv_table and metadata, respectively.\n\nasv_table <- \n\nmetadata <-\n\nUse the command summary() to learn more about the data frames we’ve imported above."
+    "text": "In the files section of your RStudio, click on the r-intro-docs directory. You should see a list of files.\nLets save the greetings R object as a csv file in the r-intro-docs directory.\n\n# First re-create if needed\ngreetings <- c(\"Hey\", \"Hi\", \"Howdy\", \"Hello\", \"Morning\")\nn <- c(99, 15, 324, 54, 23)\ndf <- data.frame(greetings, n)\naddition <- c(\"Afternoon\", 18)\n\ngreetings <- rbind(df, addition)\n\nDiscuss tab completion!\n\nwrite.csv(greetings, \"r-intro-docs/greetings.csv\")\n\nOpen up greetings.csv locally. What does it look like in Excel?\n\n?write.csv()\n?write.table()\n\n\n\nImport pizza using read.csv().\n\n\n\n\npizza <- read.csv(\"r-intro-docs/pizza.csv\") \n\n\n\n\nWithin the Tidyverse there is a Star Wars dataset we will use to explore data manipulation and wrangling in R.\nEnsure Tidyverse is installed.\n\nlibrary(tidyverse)\n\ndata(\"starwars\")\n\nView(starwars)\n\n\n\n\n\nChoose Star Wars or Pizza and describe the data types.\n\n\n\n\n\n\n\nData is from an ASV table from Hu et al. 2022.\n\n\n\nImport the ASV table and associated metadata table that are in the r-intro-docs directory. Set them equal to asv_table and metadata, respectively.\n\nasv_table <- \n\nmetadata <-\n\nUse the command summary() to learn more about the data frames we’ve imported above.\n\nsummary(asv_table)\nhead(asv_table)\nhead(metadata)\n\nWe will come back to this larger dataset after we explore some tidyverse functions."
   },
   {
     "objectID": "install.html#download-access-workshop-content",
@@ -438,7 +438,7 @@
     "href": "tidyverse-intro.html#wide-vs.-long-format",
     "title": "Tidyverse",
     "section": "4 Wide vs. long format",
-    "text": "4 Wide vs. long format\nConvert the ASV table to a long format.\n\nhead(asv_table)\nnames(asv_table)\n\n\n# Compare these two approaches\nasv_long <- asv_table %>% \n  pivot_longer(cols = 3:20)\n\nasv_long <- asv_table %>% \n  pivot_longer(starts_with(\"Gorda\"))\n\nTypically data in long format is much more useful for downstream plotting and wrangling."
+    "text": "4 Wide vs. long format\nCreate another data frame that is in wide format. For meals and snack throughout the day, how large was each meal and how many dishes does the meal produce?\n\ndf_wide <- data.frame(Meal = c('Morning', 'Mid-morning', 'Lunch', 'Mid-afternoon', 'Dinner'),\n                 Weight = c(9, 0, 12, 10, 6),\n                 Dishes = c(3, 0, 1, 1, 4))\ndf_wide\n\n\ndf_long <- df_wide %>% \n  pivot_longer(cols = c('Weight', 'Dishes'), names_to = \"Attribute\", values_to = \"Value\")\n\ndf_long\n\nFor long format data, we will have a column for each of the things we are measuring/recording in our data. A column equates to a variable. For wide data, each row has all the information with categories as columns. ‘pivot_longer()’ lengthens the rows of data and decreases the number of rows.\n\n4.1 Activity\n\nExport ‘df_wide’ as a .csv file. Open in Excel and manually change to a long format data frame.\n\n\n\n4.2 Convert larger dataset from wide to long\nConvert the ASV table to a long format.\n\nhead(asv_table)\nnames(asv_table)\n\n\n# Compare these two approaches\nasv_long <- asv_table %>% \n  pivot_longer(cols = 3:20)\n\nasv_long <- asv_table %>% \n  pivot_longer(starts_with(\"Gorda\"))\n\nTypically data in long format is much more useful for downstream plotting and wrangling."
   },
   {
     "objectID": "StarWars.html#long-vs.-wide-format",
@@ -472,15 +472,15 @@
     "objectID": "asvdata.html#parse-taxon-names",
     "href": "asvdata.html#parse-taxon-names",
     "title": "ASV data",
-    "section": "4 Parse taxon names",
-    "text": "4 Parse taxon names"
+    "section": "3 Parse taxon names",
+    "text": "3 Parse taxon names\n\nasv_long %>%"
   },
   {
     "objectID": "asvdata.html#calculate-relative-abundance",
     "href": "asvdata.html#calculate-relative-abundance",
     "title": "ASV data",
-    "section": "5 Calculate relative abundance",
-    "text": "5 Calculate relative abundance\nCreate a table with sequence counts and ASV counts by supergroup."
+    "section": "4 Calculate relative abundance",
+    "text": "4 Calculate relative abundance\nCreate a table with sequence counts and ASV counts by supergroup.\n\nasv_long %>% \n\n\n4.1 Make a bar plot\n\nasv_long %>%"
   },
   {
     "objectID": "asvdata.html",
@@ -501,14 +501,14 @@
     "href": "basic-plots.html",
     "title": "Basic plots",
     "section": "",
-    "text": "see: https://github.com/biovcnet/topic-R/blob/master/Lesson-6/lesson-06-bvcn-full.R"
+    "text": "Also see: https://github.com/biovcnet/topic-R/blob/master/Lesson-6/lesson-06-bvcn-full.R"
   },
   {
     "objectID": "basic-plots.html#bar",
     "href": "basic-plots.html#bar",
     "title": "Basic plots",
-    "section": "1 Bar",
-    "text": "1 Bar"
+    "section": "0.1 Bar",
+    "text": "0.1 Bar\n\nlibrary(tidyverse)\nhead(starwars)\n\n# A tibble: 6 × 14\n  name         height  mass hair_…¹ skin_…² eye_c…³ birth…⁴ sex   gender homew…⁵\n  <chr>         <int> <dbl> <chr>   <chr>   <chr>     <dbl> <chr> <chr>  <chr>  \n1 Luke Skywal…    172    77 blond   fair    blue       19   male  mascu… Tatooi…\n2 C-3PO           167    75 <NA>    gold    yellow    112   none  mascu… Tatooi…\n3 R2-D2            96    32 <NA>    white,… red        33   none  mascu… Naboo  \n4 Darth Vader     202   136 none    white   yellow     41.9 male  mascu… Tatooi…\n5 Leia Organa     150    49 brown   light   brown      19   fema… femin… Aldera…\n6 Owen Lars       178   120 brown,… light   blue       52   male  mascu… Tatooi…\n# … with 4 more variables: species <chr>, films <list>, vehicles <list>,\n#   starships <list>, and abbreviated variable names ¹​hair_color, ²​skin_color,\n#   ³​eye_color, ⁴​birth_year, ⁵​homeworld\n\n\n\n0.1.1 Star Wars visuals\nWhat species are present on each planet?\nCreate a bar plot where the x axis equals homeworlds and the y axis show the number of different species on each planet."
   },
   {
     "objectID": "basic-plots.html#go-to-learn-r-section-on-website-from-here.",
@@ -523,5 +523,54 @@
     "title": "Welcome",
     "section": "Tentative schedule",
     "text": "Tentative schedule\n\n9:00 AM\n\nOrientation in RStudio & introduction to R\nBasic syntax\nData classes & data frames\n\n9:55 - 10:00 AM 5 min break\n10:00 AM\n\nData classes & data frames\nR packages\nData import/export\n\n11:00-11:10 AM 10 min break\n11:15 AM\n\nIntroduction to tidyverse\nContinued tidyverse introduction\n\n12:00 - 1:00 PM lunch break (1 hour) & course check in\n1:00 PM\n\nTidyverse & Star Wars\nWorking with microbiome data\nIntro to plotting\n*Data visualization practices\n\n2:00 - 2:05 PM 5 min break\n2:05\n\nIntro to plotting\n*Ordination & clustering\n*Incorporate metadata\n\n3:05 - 3:15 PM 10 min break\n4:15 PM\n\n*Data visualization practices\n*Data management practices\n\n*tentative topic"
+  },
+  {
+    "objectID": "tidyverse-intro.html#use-tidyverse-to-compile-the-asv-data",
+    "href": "tidyverse-intro.html#use-tidyverse-to-compile-the-asv-data",
+    "title": "Tidyverse",
+    "section": "5 Use tidyverse to compile the ASV data",
+    "text": "5 Use tidyverse to compile the ASV data\n\nhead(asv_long)\nhead(metadata)\nunique(metadata$SAMPLETYPE)\n\n# Below, pipe in code that will join the metadata with the ASV data. \n## Then isolate samples that were only from the Vent environment. \n\n# asv_long <- asv_table %>% \n  # pivot_longer(starts_with(\"Gorda\"))\n\n\n5.1 Activity\n\nSubset the ASV data so that each ASV has greater than or equal to 100 sequences."
+  },
+  {
+    "objectID": "asvdata.html#compile-asv-and-metadata",
+    "href": "asvdata.html#compile-asv-and-metadata",
+    "title": "ASV data",
+    "section": "1 Compile ASV and metadata",
+    "text": "1 Compile ASV and metadata\n\n\n\n\nlibrary(tidyverse)\n\n── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──\n✔ ggplot2 3.4.1     ✔ purrr   1.0.1\n✔ tibble  3.1.8     ✔ dplyr   1.1.0\n✔ tidyr   1.3.0     ✔ stringr 1.5.0\n✔ readr   2.1.2     ✔ forcats 0.5.2\n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\n\n# head(metadata)\nasv_long <- asv_table %>%\n  pivot_longer(starts_with(\"Gorda\"), names_to = \"SAMPLEID\") %>% \n  left_join(metadata %>% select(SAMPLEID = SAMPLE, everything()))\n\nJoining with `by = join_by(SAMPLEID)`\n\n# View(asv_long)"
+  },
+  {
+    "objectID": "asvdata.html#get-temperature-data-from-data-frame",
+    "href": "asvdata.html#get-temperature-data-from-data-frame",
+    "title": "ASV data",
+    "section": "2 Get temperature data from data frame",
+    "text": "2 Get temperature data from data frame\nIsolate samples that have a temperature greater than 15 C.\n\nasv_long %>% \n  filter(temp > 15)\n\n# A tibble: 42,039 × 10\n   FeatureID         Taxon SAMPL…¹ value VENT  SITE  Sampl…² SAMPL…³ DEPTH  temp\n   <chr>             <chr> <chr>   <int> <chr> <chr> <chr>   <chr>   <chr> <dbl>\n 1 000562094e0ee78d… Euka… GordaR…     0 Cand… Gord… Sample  Vent    2730     79\n 2 000562094e0ee78d… Euka… GordaR…     0 Sir … Gord… Sample  Vent    2732     72\n 3 000562094e0ee78d… Euka… GordaR…     0 Cand… Gord… Sample  Vent    2730     79\n 4 000562094e0ee78d… Euka… GordaR…     0 Sir … Gord… Sample  Vent    2732     72\n 5 000562094e0ee78d… Euka… GordaR…     0 Mt E… Gord… Sample  Vent    2707     40\n 6 000562094e0ee78d… Euka… GordaR…     0 Mt E… Gord… Sample  Vent    2707     40\n 7 000562094e0ee78d… Euka… GordaR…     0 Sir … Gord… Sample  Vent    2732     72\n 8 000562094e0ee78d… Euka… GordaR…     0 Mt E… Gord… Sample  Vent    2707     40\n 9 000562094e0ee78d… Euka… GordaR…     0 Cand… Gord… Sample  Vent    2730     79\n10 0009645516609bda… Euka… GordaR…     0 Cand… Gord… Sample  Vent    2730     79\n# … with 42,029 more rows, and abbreviated variable names ¹​SAMPLEID,\n#   ²​Sample_or_Control, ³​SAMPLETYPE\n\n# Make a list of vent sites from Gorda Ridge that had a temperature greater than 15 C.\n\nWhat are the average temperatures at the vent, plume, versus background samples? And how many of each sample are there?\n\nasv_long %>%"
+  },
+  {
+    "objectID": "basic-plots.html#first-example-of-a-bar-chart-but-something-isnt-right",
+    "href": "basic-plots.html#first-example-of-a-bar-chart-but-something-isnt-right",
+    "title": "Basic plots",
+    "section": "3.1 First, example of a bar chart but something isn’t right",
+    "text": "3.1 First, example of a bar chart but something isn’t right\n\nggplot(tatooine, aes(x = species, y = height)) +\n  geom_bar(stat = \"identity\")"
+  },
+  {
+    "objectID": "basic-plots.html#lets-address-that-question-now-but-with-a-better-graphical-representation",
+    "href": "basic-plots.html#lets-address-that-question-now-but-with-a-better-graphical-representation",
+    "title": "Basic plots",
+    "section": "5.1 Let’s address that question now, but with a better graphical representation",
+    "text": "5.1 Let’s address that question now, but with a better graphical representation\n\nggplot(tatooine, aes(x = species, y = height)) +\n  geom_boxplot()\n\n\n\n\n\n5.1.1 Boxplots in ggplot:\n\nmedian at middle\nupper/lower hinges = 1st and 3rd quartiles (25th and 75th percentiles)\nwhiskers = largest/lowest value, but maxes at 1.5 * inter-quartile range (distance from upper/lower hinges)\nOutliers are shown as points\nNOTE: varies from base R ‘boxplot()’\n\n\nggplot(tatooine, aes(x = species, y = height)) +\n  geom_boxplot() +\n  geom_point()"
+  },
+  {
+    "objectID": "StarWars.html#star-wars-data-wrangling",
+    "href": "StarWars.html#star-wars-data-wrangling",
+    "title": "Star Wars data",
+    "section": "4 Star wars data wrangling",
+    "text": "4 Star wars data wrangling\nIsolate non-droids on Alderaan, Naboo, Endor, Kamino, and Coruscant. Based on their reported sex, is there a relationship between their heigh, planet, and species?\n\nhead(starwars)\n\n# A tibble: 6 × 14\n  name         height  mass hair_…¹ skin_…² eye_c…³ birth…⁴ sex   gender homew…⁵\n  <chr>         <int> <dbl> <chr>   <chr>   <chr>     <dbl> <chr> <chr>  <chr>  \n1 Luke Skywal…    172    77 blond   fair    blue       19   male  mascu… Tatooi…\n2 C-3PO           167    75 <NA>    gold    yellow    112   none  mascu… Tatooi…\n3 R2-D2            96    32 <NA>    white,… red        33   none  mascu… Naboo  \n4 Darth Vader     202   136 none    white   yellow     41.9 male  mascu… Tatooi…\n5 Leia Organa     150    49 brown   light   brown      19   fema… femin… Aldera…\n6 Owen Lars       178   120 brown,… light   blue       52   male  mascu… Tatooi…\n# … with 4 more variables: species <chr>, films <list>, vehicles <list>,\n#   starships <list>, and abbreviated variable names ¹​hair_color, ²​skin_color,\n#   ³​eye_color, ⁴​birth_year, ⁵​homeworld\n\nunique(starwars$homeworld)\n\n [1] \"Tatooine\"       \"Naboo\"          \"Alderaan\"       \"Stewjon\"       \n [5] \"Eriadu\"         \"Kashyyyk\"       \"Corellia\"       \"Rodia\"         \n [9] \"Nal Hutta\"      \"Bestine IV\"     NA               \"Kamino\"        \n[13] \"Trandosha\"      \"Socorro\"        \"Bespin\"         \"Mon Cala\"      \n[17] \"Chandrila\"      \"Endor\"          \"Sullust\"        \"Cato Neimoidia\"\n[21] \"Coruscant\"      \"Toydaria\"       \"Malastare\"      \"Dathomir\"      \n[25] \"Ryloth\"         \"Vulpter\"        \"Troiken\"        \"Tund\"          \n[29] \"Haruun Kal\"     \"Cerea\"          \"Glee Anselm\"    \"Iridonia\"      \n[33] \"Iktotch\"        \"Quermia\"        \"Dorin\"          \"Champala\"      \n[37] \"Geonosis\"       \"Mirial\"         \"Serenno\"        \"Concord Dawn\"  \n[41] \"Zolan\"          \"Ojom\"           \"Aleen Minor\"    \"Skako\"         \n[45] \"Muunilinst\"     \"Shili\"          \"Kalee\"          \"Umbara\"        \n[49] \"Utapau\"        \n\nhomes <- c(\"Alderaan\", \"Naboo\", \"Endor\", \"Kamino\", \"Coruscant\")\n\nstarwars %>% \n  filter(homeworld %in% homes) %>% \n  filter(species != \"Droid\") %>% \n  ggplot(aes(x = species, y = height, fill = sex)) +\n    # geom_bar(stat = \"identity\", aes(fill = sex)) +\n    geom_bar(stat = \"identity\", position = \"dodge\", aes(fill = sex)) +\n    facet_grid(homeworld ~ .)"
+  },
+  {
+    "objectID": "customize-plots.html",
+    "href": "customize-plots.html",
+    "title": "Customize plots",
+    "section": "",
+    "text": "https://shu251.github.io/r-ventures/#plotting-my-data"
   }
 ]

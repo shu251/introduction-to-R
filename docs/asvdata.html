@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.269">
+<meta name="generator" content="quarto-1.1.251">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -20,6 +20,69 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -66,7 +129,6 @@ ul.task-list li input[type="checkbox"] {
 </head>
 
 <body class="nav-sidebar floating">
-
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -224,34 +286,11 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
           <li class="sidebar-item">
-  customizatioms.qmd
-  </li>
-          <li class="sidebar-item">
-  advanced-dataviz.qmd
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="./customize-plots.html" class="sidebar-item-text sidebar-link">Customize plots</a>
+  </div>
+</li>
       </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false">7. Analysis of complete datasets</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  lab-microbiology.qmd
-  </li>
-          <li class="sidebar-item">
-  lab-oceanographic.qmd
-  </li>
-          <li class="sidebar-item">
-  lab-qualitativetable.qmd
-  </li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">8. What's next?</span>
   </li>
     </ul>
     </div>
@@ -262,11 +301,13 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#look-asv-and-metadata" id="toc-look-asv-and-metadata" class="nav-link active" data-scroll-target="#look-asv-and-metadata"><span class="toc-section-number">1</span>  Look ASV and metadata</a></li>
-  <li><a href="#review-long-vs.-wide-format" id="toc-review-long-vs.-wide-format" class="nav-link" data-scroll-target="#review-long-vs.-wide-format"><span class="toc-section-number">2</span>  Review long vs.&nbsp;wide format</a></li>
-  <li><a href="#combine-based-on-sample" id="toc-combine-based-on-sample" class="nav-link" data-scroll-target="#combine-based-on-sample"><span class="toc-section-number">3</span>  Combine based on SAMPLE</a></li>
-  <li><a href="#parse-taxon-names" id="toc-parse-taxon-names" class="nav-link" data-scroll-target="#parse-taxon-names"><span class="toc-section-number">4</span>  Parse taxon names</a></li>
-  <li><a href="#calculate-relative-abundance" id="toc-calculate-relative-abundance" class="nav-link" data-scroll-target="#calculate-relative-abundance"><span class="toc-section-number">5</span>  Calculate relative abundance</a></li>
+  <li><a href="#compile-asv-and-metadata" id="toc-compile-asv-and-metadata" class="nav-link active" data-scroll-target="#compile-asv-and-metadata"><span class="toc-section-number">1</span>  Compile ASV and metadata</a></li>
+  <li><a href="#get-temperature-data-from-data-frame" id="toc-get-temperature-data-from-data-frame" class="nav-link" data-scroll-target="#get-temperature-data-from-data-frame"><span class="toc-section-number">2</span>  Get temperature data from data frame</a></li>
+  <li><a href="#parse-taxon-names" id="toc-parse-taxon-names" class="nav-link" data-scroll-target="#parse-taxon-names"><span class="toc-section-number">3</span>  Parse taxon names</a></li>
+  <li><a href="#calculate-relative-abundance" id="toc-calculate-relative-abundance" class="nav-link" data-scroll-target="#calculate-relative-abundance"><span class="toc-section-number">4</span>  Calculate relative abundance</a>
+  <ul class="collapse">
+  <li><a href="#make-a-bar-plot" id="toc-make-a-bar-plot" class="nav-link" data-scroll-target="#make-a-bar-plot"><span class="toc-section-number">4.1</span>  Make a bar plot</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -283,7 +324,6 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-title-meta">
 
     
-  
     
   </div>
   
@@ -291,25 +331,86 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <p>Below we will use the provided ASV data to combine two data frames and perform some typical calculations.</p>
-<section id="look-asv-and-metadata" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="look-asv-and-metadata"><span class="header-section-number">1</span> Look ASV and metadata</h2>
+<section id="compile-asv-and-metadata" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="compile-asv-and-metadata"><span class="header-section-number">1</span> Compile ASV and metadata</h2>
+<div class="cell">
+
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──
+✔ ggplot2 3.4.1     ✔ purrr   1.0.1
+✔ tibble  3.1.8     ✔ dplyr   1.1.0
+✔ tidyr   1.3.0     ✔ stringr 1.5.0
+✔ readr   2.1.2     ✔ forcats 0.5.2
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># head(metadata)</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>asv_long <span class="ot">&lt;-</span> asv_table <span class="sc">%&gt;%</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="fu">starts_with</span>(<span class="st">"Gorda"</span>), <span class="at">names_to =</span> <span class="st">"SAMPLEID"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(metadata <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="at">SAMPLEID =</span> SAMPLE, <span class="fu">everything</span>()))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Joining with `by = join_by(SAMPLEID)`</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># View(asv_long)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
-<section id="review-long-vs.-wide-format" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="review-long-vs.-wide-format"><span class="header-section-number">2</span> Review long vs.&nbsp;wide format</h2>
-</section>
-<section id="combine-based-on-sample" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="combine-based-on-sample"><span class="header-section-number">3</span> Combine based on SAMPLE</h2>
+<section id="get-temperature-data-from-data-frame" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="get-temperature-data-from-data-frame"><span class="header-section-number">2</span> Get temperature data from data frame</h2>
 <p>Isolate samples that have a temperature greater than 15 C.</p>
-<p>What are the average temperatures at the vent, plume, versus background samples?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>asv_long <span class="sc">%&gt;%</span> </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(temp <span class="sc">&gt;</span> <span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 42,039 × 10
+   FeatureID         Taxon SAMPL…¹ value VENT  SITE  Sampl…² SAMPL…³ DEPTH  temp
+   &lt;chr&gt;             &lt;chr&gt; &lt;chr&gt;   &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt; &lt;dbl&gt;
+ 1 000562094e0ee78d… Euka… GordaR…     0 Cand… Gord… Sample  Vent    2730     79
+ 2 000562094e0ee78d… Euka… GordaR…     0 Sir … Gord… Sample  Vent    2732     72
+ 3 000562094e0ee78d… Euka… GordaR…     0 Cand… Gord… Sample  Vent    2730     79
+ 4 000562094e0ee78d… Euka… GordaR…     0 Sir … Gord… Sample  Vent    2732     72
+ 5 000562094e0ee78d… Euka… GordaR…     0 Mt E… Gord… Sample  Vent    2707     40
+ 6 000562094e0ee78d… Euka… GordaR…     0 Mt E… Gord… Sample  Vent    2707     40
+ 7 000562094e0ee78d… Euka… GordaR…     0 Sir … Gord… Sample  Vent    2732     72
+ 8 000562094e0ee78d… Euka… GordaR…     0 Mt E… Gord… Sample  Vent    2707     40
+ 9 000562094e0ee78d… Euka… GordaR…     0 Cand… Gord… Sample  Vent    2730     79
+10 0009645516609bda… Euka… GordaR…     0 Cand… Gord… Sample  Vent    2730     79
+# … with 42,029 more rows, and abbreviated variable names ¹​SAMPLEID,
+#   ²​Sample_or_Control, ³​SAMPLETYPE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make a list of vent sites from Gorda Ridge that had a temperature greater than 15 C.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>What are the average temperatures at the vent, plume, versus background samples? And how many of each sample are there?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>asv_long <span class="sc">%&gt;%</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+
+</div>
 </section>
-<section id="parse-taxon-names" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="parse-taxon-names"><span class="header-section-number">4</span> Parse taxon names</h2>
+<section id="parse-taxon-names" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="parse-taxon-names"><span class="header-section-number">3</span> Parse taxon names</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>asv_long <span class="sc">%&gt;%</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
-<section id="calculate-relative-abundance" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="calculate-relative-abundance"><span class="header-section-number">5</span> Calculate relative abundance</h2>
+<section id="calculate-relative-abundance" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="calculate-relative-abundance"><span class="header-section-number">4</span> Calculate relative abundance</h2>
 <p>Create a table with sequence counts and ASV counts by supergroup.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>asv_long <span class="sc">%&gt;%</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="make-a-bar-plot" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="make-a-bar-plot"><span class="header-section-number">4.1</span> Make a bar plot</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>asv_long <span class="sc">%&gt;%</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -354,24 +455,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copied!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
     setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
-      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -407,42 +491,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
-    }
-  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
-          }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
       });
-    }
+      return popup.innerHTML;
+    });
   }
 });
 </script>

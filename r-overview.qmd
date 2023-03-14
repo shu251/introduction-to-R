@@ -2,48 +2,31 @@
 title: "What is 'R'?"
 format: html
 editor: visual
+number-sections: true
 ---
 
 ## The R computing language
 
-1.  Explanation of what R is. What do we use R for, what will you use R for. Other non-science examples of what R is.
-2.  What is a library?
-3.  Examples of how we use R
+1.  R is a computer programming language. The R language is leading in statistical analyses and is considered a field standard for data science.
 
-Some exampled of 'executed code' and an output.
+2.  Powerful for creating figures and data exploration. I'd recommend browsing these wesites for data visualization in R: [R Graph Gallery](https://r-graph-gallery.com) [top 50](http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html) [ggplot ext](https://exts.ggplot2.tidyverse.org/gallery/)
 
-```{r}
-1 + 4
-```
+3.  R is a language and users have contributed R "packages" or "libraries". These are collections of specific commands and protocols. Examples: Seabird, single-cell RNA-seq.
 
-```{r}
-x <- (4 + 5)
-
-x - 2
-```
-
-
-## What about other computing languages?
-
-Discussion of coding examples, python, julia, and others..
-
-```{r}
-1 + 1
-```
-
-Transferable skill
-
-```{r}
-#| echo: false
-2 * 2
-```
-
-## Thoughts & recommendations
-
-Amount of time spent may seem not useful. 
+4.  Highly transferable skill.
 
 ## Common themes moving forward
 
-1. Documentation: have current you write notes from past you to future you
-2. Google it: no matter how you learned R or how advanced you are, you will ultimately be looking things up online. A part of this course will include 'how to learn R'.
-3. 
+1.  *Documentation*: have current you write notes from past you to future you
+
+2.  *Google it*: no matter how you learned R or how advanced you are, you will ultimately be looking things up online. A part of this course will include 'how to learn R'.
+
+3.  *Patience*: Amount of time spent may seem not useful.
+
+![Artwork by ](images/FnryDNlaAAAnhrq.jpeg){fig-align="center" width="1158"} [More from Allison Horst](https://allisonhorst.com/)
+
+## Integrationg across languages
+
+A major pro to using RStudio, is how the new **Posit** system integrates with other computer languages (python, julia, etc.). This is ideal for projects where collaborators use a variety of R and python. Additionally, the GUI of RStudio is helpful for new learners and a great way to keep files and analyses on your computer organized.
+
+I've actually created this entire website using RStudio (and Quarto within RStudio). As an example, I also use this feature to create websites for showing preliminary data and [publishing alongside articles](https://shu251.github.io/microeuk-amplicon-survey/).
