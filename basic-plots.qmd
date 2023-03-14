@@ -1,0 +1,128 @@
+---
+title: "Basic plots"
+format: html
+editor: visual
+number-sections: true
+---
+
+Also see: https://github.com/biovcnet/topic-R/blob/master/Lesson-6/lesson-06-bvcn-full.R
+
+## Bar
+```{r}
+#| message: false
+library(tidyverse)
+head(starwars)
+```
+
+
+### Star Wars visuals
+
+What species are present on each planet?
+
+Create a bar plot where the x axis equals homeworlds and the y axis show the number of different species on each planet.
+```{r}
+#| eval: false
+#| echo: false
+
+starwars %>% 
+  # filter(sex == "female") %>%
+  ggplot(aes(x = homeworld, fill = species)) +
+    geom_bar(stat = "count", position = "stack")
+```
+
+
+## Point & line
+
+For all humans in Star Wars, what is their relationship between height and weight? and is it impacted by their planet of origin?
+
+```{r}
+#| eval: false
+starwars %>%
+```
+
+
+```{r}
+#| eval: false
+#| echo: false
+head(starwars)
+starwars %>% 
+  filter(species == "Human") %>%
+  ggplot(aes(x = mass, y = height, fill = homeworld)) +
+    geom_point(shape = 21, color = "black", size = 4, aes(fill = homeworld))
+```
+```{r}
+#| eval: false
+#| echo: false
+head(starwars)
+starwars %>% 
+  filter(species == "Human") %>%
+  ggplot(aes(x = mass, y = height, fill = homeworld)) +
+    geom_point(shape = 21, color = "black", size = 4, aes(fill = homeworld)) +
+  theme_linedraw() +
+  labs(title = "mass & height of humans in star wars")
+```
+
+## Boxplot
+
+# First what is the data I'm looking at on Tatooine
+```{r}
+# View(starwars)
+
+tatooine <- starwars %>% 
+  filter(homeworld == "Tatooine") %>% # select only those from Tatooine
+  data.frame
+```
+
+
+# How many species on Tatooine?
+
+```{r}
+unique(starwars$species); length(unique(starwars$species))
+unique(tatooine$species); length(unique(tatooine$species))
+```
+
+# Bar chart example
+## First, example of a bar chart **but something isn't right**
+
+```{r}
+ggplot(tatooine, aes(x = species, y = height)) +
+  geom_bar(stat = "identity")
+```
+
+# What's wrong with this?
+
+```{r}
+starwars %>% 
+  filter(homeworld == "Tatooine") %>%
+  group_by(species, homeworld) %>%
+  summarise(MEAN_height = mean(height), MEDIAN_height = median(height),
+            MAX_height = max(height), MIN_height = min(height),
+            MEAN_mass = mean(mass), MEDIAN_mass = median(mass))
+
+hist((filter(tatooine, species == "Human"))$height)  
+
+hist((filter(tatooine, species == "Droid"))$mass) 
+```
+
+A better way to show this data is via box plot!
+Let's address that question now, but with a better graphical representation
+```{r}
+ggplot(tatooine, aes(x = species, y = height)) +
+  geom_boxplot()
+```
+
+
+### Boxplots in ggplot:
+* median at middle
+* upper/lower hinges = 1st and 3rd quartiles (25th and 75th percentiles)
+* whiskers = largest/lowest value, but maxes at 1.5 * inter-quartile range (distance from upper/lower hinges)
+* Outliers are shown as points
+* NOTE: varies from base R 'boxplot()'
+
+```{r}
+ggplot(tatooine, aes(x = species, y = height)) +
+  geom_boxplot() +
+  geom_point()
+```
+
+

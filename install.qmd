@@ -2,34 +2,59 @@
 title: "Installing R"
 format: html
 editor: visual
+number-sections: true
 ---
 
-## Instructions for Mac
+There will be office hours or a specific opportunity to follow the below instructions on your own time and seek help. Please do this before the course begins.
 
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+You will be emailed the schedule for these office hours.
 
-#### R install
-mac specific 
+## Download R
 
-#### RStudio
+You can install [from the R CRAN page](https://cran.rstudio.com) directly. Or visit the PC or Mac specific pages below.
 
-mac specific 
+**PC**: For installing on a PC computer, [visit this page](https://cran.r-project.org/bin/windows/base/).
 
-#### Opening R with RStudio
-mac specific 
-Show example of executing code
+**Mac**: For a Mac, [visit this page](https://cran.r-project.org/bin/macosx/) to download to your computer.
 
-## Instructions for PC
+The most recent version is 4.2.2, please have any version over 4.0 for this course.
 
-When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+## Download RStudio
 
-#### R install
-pc specific 
+Above, you've installed the R programming language to your computer. If you're in a terminal, you can interact/engage R by typing "R" anywhere. This will launch R, but this is only the consol to type in code. RStudio is a user interface that makes using R more comprehensive.
 
-#### RStudio
-pc specific 
+[Download RStudio from posit](https://posit.co/download/rstudio-desktop/).
 
-#### Opening R with RStudio
-pc specific 
-Show example of executing code
+You should have RStudio version 2022.12.0.
 
+### Alternative instructions for installing R and RStudio
+
+-   [Video](https://www.youtube.com/watch?v=TFGYlKvQEQ4)
+-   [Software Carpentry intro to R course](https://swcarpentry.github.io/r-novice-gapminder/01-rstudio-intro/)
+-   [Additional written instructions](https://rstudio-education.github.io/hopr/starting.html)
+-   [conda install](https://anaconda.org/r/r) \*Please note that this option has additional steps required and the version currently available through conda is not recent. Try something like this `conda install -c conda-forge r-base=4.1.2`
+
+## Open RStudio
+
+RStudio will be added to your computers Applications or Programs. Open it as you would any other application. You should see a page that looks like this:
+
+![](images/RStudio-window.png){fig-align="center"}
+
+## Download & access workshop content
+
+### Access via terminal
+
+1.  Navigate to the GitHub associated with this workshop [HERE](https://github.com/shu251/introduction-to-R).
+2.  Right click `r-intro-docs` and select **Copy link**.
+3.  Navigate to where you want to work via the Terminal and use wget to download the directory.
+4.  Make sure this can be viewed and opened in the 'files / directory' pane in RStudio.
+
+<!-- -->
+
+    wget https://github.com/shu251/introduction-to-R
+
+### Via workshop email
+
+1.  Download attached folder called `r-intro-docs`.
+2.  Move this to where on your computer you want to work.
+3.  Use the files/directory pane in RStudio to find that folder.

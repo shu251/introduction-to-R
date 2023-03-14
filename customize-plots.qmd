@@ -1,0 +1,7 @@
+---
+title: "Customize plots"
+format: html
+editor: visual
+number-sections: true
+---
+https://shu251.github.io/r-ventures/#plotting-my-data

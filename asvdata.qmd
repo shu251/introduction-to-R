@@ -1,0 +1,90 @@
+---
+title: "ASV data"
+format: html
+editor: visual
+number-sections: true
+---
+
+Below we will use the provided ASV data to combine two data frames and perform some typical calculations.
+
+## Compile ASV and metadata
+
+```{r}
+#| echo: false
+asv_table <- read.delim(file = "r-intro-docs/asv-table.txt")
+metadata <- read.delim(file = "r-intro-docs/metadata.txt")
+```
+
+
+```{r}
+library(tidyverse)
+# head(metadata)
+asv_long <- asv_table %>%
+  pivot_longer(starts_with("Gorda"), names_to = "SAMPLEID") %>% 
+  left_join(metadata %>% select(SAMPLEID = SAMPLE, everything()))
+
+# View(asv_long)
+```
+
+## Get temperature data from data frame
+
+Isolate samples that have a temperature greater than 15 C.
+
+```{r}
+asv_long %>% 
+  filter(temp > 15)
+
+# Make a list of vent sites from Gorda Ridge that had a temperature greater than 15 C.
+```
+
+What are the average temperatures at the vent, plume, versus background samples? And how many of each sample are there?
+
+```{r}
+#| eval: false
+
+asv_long %>% 
+```
+
+
+```{r}
+#| eval: false
+#| echo: false
+#| message: false
+
+asv_long %>% 
+  select(SAMPLETYPE, temp) %>% 
+  distinct() %>% 
+  group_by(SAMPLETYPE) %>% 
+    summarise(AVG_TEMP = mean(temp),
+              COUNT = n())
+```
+
+
+## Parse taxon names
+
+```{r}
+#| eval: false
+
+asv_long %>% 
+```
+
+
+
+## Calculate relative abundance
+
+Create a table with sequence counts and ASV counts by supergroup.
+
+```{r}
+#| eval: false
+
+asv_long %>% 
+```
+
+
+### Make a bar plot
+```{r}
+#| eval: false
+
+asv_long %>% 
+```
+

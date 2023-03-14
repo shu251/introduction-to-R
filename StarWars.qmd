@@ -1,0 +1,107 @@
+---
+title: "Star Wars data"
+format: html
+editor: visual
+number-sections: true
+---
+
+## Explore the Star Wars data in tidyverse
+
+```{r}
+#| message: false
+library(tidyverse)
+head(starwars)
+```
+
+## Long vs. wide format
+
+```{r}
+#| eval: false
+tatooine <- starwars %>% 
+  filter(homeworld == "Tatooine") # select only those from Tatooine
+```
+
+*tibble*: is a dataframe specific version for tidyverse. It is both an object and a tibble. So it talks well with all of the related packages. Columns in a tibble are character vectors (instead of factors). This is technically easier to deal with.
+
+#### Activity
+
+> How many species on Tatooine?
+
+```{r}
+#| eval: false
+unique(starwars$species)
+length(unique(starwars$species))
+```
+
+Use your tidyverse cheatsheets and google!
+
+#### Activity
+
+> Create a table of droids that are equal to or greater than 96 inches in height.
+
+```{r}
+#| eval: false
+#| echo: false
+starwars %>% 
+  filter(species == "Droid") %>% 
+  filter(height >= 96)
+```
+
+## Summarizing data
+
+What are the average masses of humans versus ewoks?
+
+Use `group_by()` and `summarize()`.
+
+```{r}
+#| eval: false
+starwars %>% 
+  filter(species == "Human" | species == "Ewok") %>% 
+  group_by(species) %>% 
+  summarise(MEAN_mass = mean(mass))
+# Modify the above to remove NAs and get a values for Humans.
+```
+
+What about the average mass of humans and Ewoks on different planets?
+
+```{r}
+#| eval: false
+starwars %>% 
+  filter(species == "Human" | species == "Ewok") %>% 
+  group_by(species, homeworld) %>% 
+  summarise(MEAN_mass = mean(mass))
+```
+
+`summarize()` creates a smaller output table, or a summary. This is dictated by `group_by()`. `Mutate()` adds a column to the data.
+
+#### Activity
+
+> Add a column to star wars that classifies tall versus short, based on the height of each species.
+
+> Add a column that defines if the species is Human versus non-human.
+
+> What are the mean masses of humans versus non-humans? And how many examples are included in this table.
+
+> What are the max and min heights of humans and non-humans by planet?
+
+
+## Star wars data wrangling
+
+Isolate non-droids on Alderaan, Naboo, Endor, Kamino, and Coruscant.
+Based on their reported sex, is there a relationship between their heigh, planet, and species?
+```{r}
+
+head(starwars)
+unique(starwars$homeworld)
+
+homes <- c("Alderaan", "Naboo", "Endor", "Kamino", "Coruscant")
+
+starwars %>% 
+  filter(homeworld %in% homes) %>% 
+  filter(species != "Droid") %>% 
+  ggplot(aes(x = species, y = height, fill = sex)) +
+    # geom_bar(stat = "identity", aes(fill = sex)) +
+    geom_bar(stat = "identity", position = "dodge", aes(fill = sex)) +
+    facet_grid(homeworld ~ .)
+```
+
