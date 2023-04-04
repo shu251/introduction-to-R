@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.1.251">
+<meta name="generator" content="quarto-1.2.335">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -112,6 +112,11 @@ ul.task-list li input[type="checkbox"] {
   <a href="./code-of-conduct.html" class="sidebar-item-text sidebar-link">Code of conduct</a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./benchmarks.html" class="sidebar-item-text sidebar-link">Benchmarks</a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -204,6 +209,11 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./growthcurve.html" class="sidebar-item-text sidebar-link">Growth curve</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./asvdata.html" class="sidebar-item-text sidebar-link">ASV data</a>
   </div>
 </li>
@@ -240,7 +250,7 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#the-r-computing-language" id="toc-the-r-computing-language" class="nav-link active" data-scroll-target="#the-r-computing-language"><span class="toc-section-number">1</span>  The R computing language</a></li>
   <li><a href="#common-themes-moving-forward" id="toc-common-themes-moving-forward" class="nav-link" data-scroll-target="#common-themes-moving-forward"><span class="toc-section-number">2</span>  Common themes moving forward</a></li>
-  <li><a href="#integrationg-across-languages" id="toc-integrationg-across-languages" class="nav-link" data-scroll-target="#integrationg-across-languages"><span class="toc-section-number">3</span>  Integrationg across languages</a></li>
+  <li><a href="#integrating-across-languages" id="toc-integrating-across-languages" class="nav-link" data-scroll-target="#integrating-across-languages"><span class="toc-section-number">3</span>  Integrating across languages</a></li>
   </ul>
 </nav>
     </div>
@@ -257,6 +267,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-title-meta">
 
     
+  
     
   </div>
   
@@ -279,10 +290,10 @@ ul.task-list li input[type="checkbox"] {
 <li><p><em>Google it</em>: no matter how you learned R or how advanced you are, you will ultimately be looking things up online. A part of this course will include ‘how to learn R’.</p></li>
 <li><p><em>Patience</em>: Amount of time spent may seem not useful.</p></li>
 </ol>
-<p><img src="images/FnryDNlaAAAnhrq.jpeg" class="img-fluid" data-fig-align="center" width="1158" alt="Artwork by"> <a href="https://allisonhorst.com/">More from Allison Horst</a></p>
+<p><img src="images/FnryDNlaAAAnhrq.jpeg" class="img-fluid" data-fig-align="center" width="800" alt="Artwork by"> <a href="https://allisonhorst.com/">More from Allison Horst</a></p>
 </section>
-<section id="integrationg-across-languages" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="integrationg-across-languages"><span class="header-section-number">3</span> Integrationg across languages</h2>
+<section id="integrating-across-languages" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="integrating-across-languages"><span class="header-section-number">3</span> Integrating across languages</h2>
 <p>A major pro to using RStudio, is how the new <strong>Posit</strong> system integrates with other computer languages (python, julia, etc.). This is ideal for projects where collaborators use a variety of R and python. Additionally, the GUI of RStudio is helpful for new learners and a great way to keep files and analyses on your computer organized.</p>
 <p>I’ve actually created this entire website using RStudio (and Quarto within RStudio). As an example, I also use this feature to create websites for showing preliminary data and <a href="https://shu251.github.io/microeuk-amplicon-survey/">publishing alongside articles</a>.</p>
 
@@ -331,7 +342,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
     setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -367,24 +395,42 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-    tippyHover(ref, function() {
-      var popup = window.document.createElement('div');
-      cites.forEach(function(cite) {
-        var citeDiv = window.document.createElement('div');
-        citeDiv.classList.add('hanging-indent');
-        citeDiv.classList.add('csl-entry');
-        var biblioDiv = window.document.getElementById('ref-' + cite);
-        if (biblioDiv) {
-          citeDiv.innerHTML = biblioDiv.innerHTML;
-        }
-        popup.appendChild(citeDiv);
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
       });
-      return popup.innerHTML;
-    });
+    }
   }
 });
 </script>

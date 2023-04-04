@@ -15,6 +15,7 @@ website:
         contents: 
           - install.qmd
           - code-of-conduct.qmd
+          - benchmarks.qmd
       - section: "2. Introduction"
         contents:
           - file-location.qmd
@@ -33,6 +34,7 @@ website:
       - section: "5. Data wrangling"
         contents:
           - StarWars.qmd
+          - growthcurve.qmd
           - asvdata.qmd
       - section: "6. Data visualization"
         contents:
