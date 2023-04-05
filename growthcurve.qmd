@@ -1,0 +1,328 @@
+---
+title: "Growth curve"
+format: html
+editor: visual
+number-sections: true
+---
+
+## Import data from lab
+
+**Goal**: Understand how microorganisms are counted and quantified,
+using samples from the natural environment and laboratory cultures.
+
+```{r}
+#| eval: true
+#| message: false
+#| echo: false
+library(tidyverse)
+```
+
+
+## Cell count data
+
+Typical growth curve generation will involve collecting samples over a period of time, fixing them, and then counting them via microscopy. The formula for this:
+
+$$
+Cells/ml = \frac{(MeanCellsFOV)(AreaChamber)}{(AreaFOV)(Volume)(DilutionFactor)}
+$$ $$
+Area = µm^2
+$$ $$
+Volume = ml
+$$ Area of Field of View(FOV) or counting grid will vary depending on
+the microscope you are using and the magnification. When you are
+preparing slides, find information on the area of the filter chamber.
+
+### Import raw cell count data
+
+```{r}
+raw_cell_counts <- read.csv("r-intro-docs/raw-cell-counts.csv")
+```
+
+
+Calculate cells/ml for Sample03. Sample03 was counted at 100x
+magnification. The area of the funnel used to create the slide has a
+radius of 8E3 mm. 2 ml of Sample was fixed with formaldehyde at a final
+concentration of 1%, all of it was filtered onto a 0.2µm filter and
+stained with DAPI. The counting grid used for each FOV has an area of
+1E4 µm\^2.
+
+
+Isolate sample 03 as set of numbers, calculate the average
+```{r}
+sample3 <- raw_cell_counts %>%
+  select(Sample03) %>% 
+  summarise(MEAN = mean(Sample03))
+
+sample3_mean <- sample3[1,1]
+```
+
+Write equation from above in R, define variables as R objects as needed.
+```{r}
+Mean_cells_per_FOV <- sample3_mean # from average calculation above
+```
+
+Define other parameters
+```{r}
+Area_chamber <- (pi)*(((8E3)*(1000))^2) #µm^2
+Volume <- 2 #ml
+Area_FOV <- 1E4 #µm^2 at 100X magnification
+Dilution_factor <- 0.9
+```
+
+Use in equation:
+
+### **Activity**
+
+> Use the above equation and parameters to calculate cells per ml.
+
+```{r}
+#| eval: false
+#| echo: true
+cells_per_ml <- 
+```
+
+```{r}
+#| eval: false
+#| echo: false
+cells_per_ml <- ((Mean_cells_per_FOV)*(Area_chamber))/((Volume)*(Area_FOV)*(Dilution_factor))
+cells_per_ml # raw number
+```
+
+### **Activity**
+
+> Use the internet to figure out how to report the results in scientific format.
+
+```{r}
+#| eval: false
+#| echo: false
+format(cells_per_ml, scientific = TRUE, digits = 3) # formatted as scientific
+```
+
+
+## Apply to all data
+
+Use tidyverse to modify the data frame and make an output table with
+cells per ml for each sample.
+
+```{r}
+raw_cell_counts %>% 
+  # Transform to long format
+  pivot_longer(cols = starts_with("Sample"), names_to = "SAMPLE", values_to = "CELL_per_FOV") %>% 
+  # Estimate average cells per FOV and variance for each count
+  group_by(SAMPLE) %>% 
+  summarise(MEAN = mean(CELL_per_FOV), VAR = var(CELL_per_FOV)) %>% 
+  # use mutate and copy above equation to calculate cells per ml
+  mutate(CELLS_PER_ML = ((MEAN)*(Area_chamber))/((Volume)*(Area_FOV)*(Dilution_factor))) %>% 
+  # Option to add column with same values in scientific
+  mutate(SCI_cells_per_ml = format(CELLS_PER_ML, scientific = TRUE, digits = 3))
+```
+
+### **Activity**
+
+> Export the new table as a .csv file
+
+## Estimate growth rate
+
+Import another set of cell count data and metadata. Combine to make a
+plot of the growth curve.
+
+```{r}
+cell_counts_01 <- read.csv("r-intro-docs/cell-count-data01.csv")
+metadata_01 <- read.csv("r-intro-docs/sample-info-data01.csv")
+```
+
+Apply above code again to calculate cells per ml for each sample
+
+```{r}
+# head(cell_counts_01) # rename some of the variable so it is applicable to these new data.
+cell_counts_01 %>%
+  pivot_longer(cols = starts_with("X"), names_to = "SAMPLE", values_to = "CELL_per_FOV") %>%
+  group_by(SAMPLE) %>%
+  summarise(MEAN = mean(CELL_per_FOV), VAR = var(CELL_per_FOV)) %>%
+  mutate(CELLS_PER_ML = ((MEAN)*(Area_chamber))/((Volume)*(Area_FOV)*(Dilution_factor))) %>%
+  mutate(SCI_cells_per_ml = format(CELLS_PER_ML, scientific = TRUE, digits = 3))
+```
+
+There are a few data wrangling steps we need to take now. The final goal
+though, is to be able to look at the A vs B reps for each sample. And we
+need to fix the error where R places an "X" preceding a numeric (see
+"SAMPLE" above).
+
+```{r}
+head(metadata_01)
+```
+
+```{r}
+cell_counts_01 %>%
+  pivot_longer(cols = starts_with("X"), names_to = "SAMPLE", values_to = "CELL_per_FOV") %>%
+  group_by(SAMPLE) %>%
+  summarise(MEAN = mean(CELL_per_FOV), VAR = var(CELL_per_FOV)) %>%
+  mutate(CELLS_PER_ML = ((MEAN)*(Area_chamber))/((Volume)*(Area_FOV)*(Dilution_factor))) %>%
+  mutate(SCI_cells_per_ml = format(CELLS_PER_ML, scientific = TRUE, digits = 3)) %>% 
+  # Fix SAMPLE names and separate into samples and replicates
+  separate(SAMPLE, into = c("SAMPLE_NAME", "REP"), sep = "_", remove = FALSE) %>% 
+  mutate(SAMPLE = gsub("X","", SAMPLE)) # edits the SAMPLE cell.
+```
+
+Combine with metadata
+
+```{r}
+cell_counts_01 %>%
+  pivot_longer(cols = starts_with("X"), names_to = "SAMPLE", values_to = "CELL_per_FOV") %>%
+  group_by(SAMPLE) %>%
+  summarise(MEAN = mean(CELL_per_FOV), VAR = var(CELL_per_FOV)) %>%
+  mutate(CELLS_PER_ML = ((MEAN)*(Area_chamber))/((Volume)*(Area_FOV)*(Dilution_factor))) %>%
+  mutate(SCI_cells_per_ml = format(CELLS_PER_ML, scientific = TRUE, digits = 3)) %>% 
+  separate(SAMPLE, into = c("SAMPLE_NAME", "REP"), sep = "_", remove = FALSE) %>% 
+  mutate(SAMPLE = gsub("X","", SAMPLE)) %>% 
+  # Use 'left_join' to line up the metadata. SAMPLE column matches "sample_id" in the metadata df
+  left_join(metadata_01, by = c("SAMPLE" = "sample_id"))
+```
+
+Now we have a lot of data in our table! Since these were replicate
+samples, A and B, we should save a summary table with the average across
+replicates and other important information
+
+```{r, fig.height=2, fig.width=3}
+summary_table_01 <- cell_counts_01 %>%
+  pivot_longer(cols = starts_with("X"), names_to = "SAMPLE", values_to = "CELL_per_FOV") %>%
+  group_by(SAMPLE) %>%
+  summarise(MEAN = mean(CELL_per_FOV), VAR = var(CELL_per_FOV)) %>%
+  mutate(CELLS_PER_ML = ((MEAN)*(Area_chamber))/((Volume)*(Area_FOV)*(Dilution_factor))) %>%
+  mutate(SCI_cells_per_ml = format(CELLS_PER_ML, scientific = TRUE, digits = 3)) %>% 
+  separate(SAMPLE, into = c("SAMPLE_NAME", "REP"), sep = "_", remove = FALSE) %>% 
+  mutate(SAMPLE = gsub("X","", SAMPLE)) %>% 
+  left_join(metadata_01, by = c("SAMPLE" = "sample_id")) %>% 
+  select(-REP, -SAMPLE) %>% #remove columns with information on the replicates
+  group_by(SAMPLE_NAME, hour, date) %>% 
+  summarise(CELL_COUNT_sci = format(mean(CELLS_PER_ML), scientific = TRUE, digits = 3),
+            CELL_COUNT = mean(CELLS_PER_ML))
+
+write_csv(summary_table_01, file = "table_01.csv", quote = c("none"))
+```
+
+#### Plot results
+
+```{r, fig.height=2, fig.width=3}
+ggplot(summary_table_01, aes(x = hour, y = CELL_COUNT)) +
+  geom_point()
+```
+
+Repeat cell count
+
+```{r, fig.height=2, fig.width=3}
+cell_counts_01 %>%
+  pivot_longer(cols = starts_with("X"), names_to = "SAMPLE", values_to = "CELL_per_FOV") %>%
+  group_by(SAMPLE) %>%
+  summarise(MEAN = mean(CELL_per_FOV), VAR = var(CELL_per_FOV)) %>%
+  mutate(CELLS_PER_ML = ((MEAN)*(Area_chamber))/((Volume)*(Area_FOV)*(Dilution_factor))) %>%
+  mutate(SCI_cells_per_ml = format(CELLS_PER_ML, scientific = TRUE, digits = 3)) %>% 
+  separate(SAMPLE, into = c("SAMPLE_NAME", "REP"), sep = "_", remove = FALSE) %>% 
+  mutate(SAMPLE = gsub("X","", SAMPLE)) %>% 
+  left_join(metadata_01, by = c("SAMPLE" = "sample_id")) %>% 
+  #
+  ggplot(aes(x = hour, y = CELLS_PER_ML, fill = REP)) +
+  geom_point() +
+  geom_line() +
+  scale_y_log10()
+```
+
+Modify plot theme:
+
+```{r, fig.height=2, fig.width=3}
+## Data wrangling
+cell_counts_01 %>%
+  pivot_longer(cols = starts_with("X"), names_to = "SAMPLE", values_to = "CELL_per_FOV") %>%
+  group_by(SAMPLE) %>%
+  summarise(MEAN = mean(CELL_per_FOV), VAR = var(CELL_per_FOV)) %>%
+  mutate(CELLS_PER_ML = ((MEAN)*(Area_chamber))/((Volume)*(Area_FOV)*(Dilution_factor))) %>%
+  mutate(SCI_cells_per_ml = format(CELLS_PER_ML, scientific = TRUE, digits = 3)) %>% 
+  separate(SAMPLE, into = c("SAMPLE_NAME", "REP"), sep = "_", remove = FALSE) %>% 
+  mutate(SAMPLE = gsub("X","", SAMPLE)) %>% 
+  left_join(metadata_01, by = c("SAMPLE" = "sample_id")) %>% 
+# Ggplot code
+  ggplot(aes(x = hour, y = CELLS_PER_ML, fill = REP)) +
+  geom_line(aes(linetype = REP)) +
+  geom_point(shape = 21, color = "black", size = 3) +
+  theme_bw() +
+  labs(x = "Time (hours)", y = "Cells/ml") +
+  theme(axis.text = element_text(size = 11, color = "black"),
+        legend.title = element_blank()) +
+  scale_y_log10()
+```
+
+```{r, fig.height=2, fig.width=3}
+ggplot(summary_table_01, aes(x = hour, y = CELL_COUNT)) +
+  geom_line() +
+  geom_point(shape = 21, color = "black", size = 3, fill = "lightpink") +
+  theme_bw() +
+  labs(x = "Time (hours)", y = "Cells/ml") +
+  theme(axis.text = element_text(size = 11, color = "black"),
+        legend.title = element_blank()) +
+  scale_y_log10()
+```
+
+#### Growth rate & Generation time
+
+In Excel, calculate growth rate of the monoculture and the generation
+time.
+
+**Generation time**: internal of time required for the cells to divide
+(*G*). *t* = time interval, *B* = cells at T0 and *b* = cells at T1, *n*
+= number of times the cell population doubles during time interval.
+
+$$
+G = \frac{t}{n}
+$$ $$
+b = (B)(2^n)
+$$ $$
+n = \frac{logb - logB}{log2}
+$$ $$
+G = \frac{t}{3.3(log\frac{b}{B})}
+$$ We can assume that the best time points to capture generation time
+during exponential growth are at hour 12 and 30. Calculate the
+generation time in Excel and then repeat it in R here.
+
+```{r}
+b <- summary_table_01 %>% filter(hour == 30)
+b$CELL_COUNT
+
+B <- summary_table_01 %>% filter(hour == 12)
+B$CELL_COUNT
+
+G_min <- ((30-12)*60)/(3.3*(log10(((b$CELL_COUNT)/(B$CELL_COUNT)))))
+G_min
+```
+
+The gradient of the slope if the growth rate. Isolate 3-4 points from
+the exponential growth phase. In this case, it is at hours 12, 18, 24,
+and 30. \> In base R, `log()` calculates the natural logarithm.
+
+```{r}
+exp_hour <- c(12, 18, 24, 30)
+exp_growth <- summary_table_01 %>% 
+  filter(hour %in% exp_hour) %>% 
+  mutate(NAT_LOG = log(CELL_COUNT))
+```
+
+Use linear regression and output thee coefficients to determine growth
+rate.
+
+```{r}
+lm(NAT_LOG ~ hour, exp_growth)
+
+model_output_coefficients <- coef(lm(NAT_LOG ~ hour, exp_growth))
+# model_output_coefficients
+slope = model_output_coefficients[2]
+```
+
+Growth rate (in hours)
+
+```{r}
+slope
+```
+
+
+#### **Activity**
+
+> Does *bacteria 2* grow faster at higher temperatures? Plot growth curves using provided data
