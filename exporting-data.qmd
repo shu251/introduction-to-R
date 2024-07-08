@@ -1,0 +1,31 @@
+---
+title: "Export data"
+editor: visual
+number-sections: true
+---
+
+## Create .txt or .csv files
+
+This is where pulling up the help menu and/or using the RStudio auto complete will help ensure you've included all the elements you need.
+
+```{r}
+#| eval: false
+?write_delim()
+
+?write.csv()
+
+?write.table()
+```
+
+
+Lets practice exporting pizza in a variety of ways. Open each one up to see how it imports into Excel.
+
+```{r}
+#| eval: false
+pizza
+write_delim(pizza, file = "pizza-withtab-quotes.txt", delim = "\t", quote = "all")
+write_delim(pizza, file = "pizza-nocols.txt", quote = "none", col_names = FALSE)
+write.csv(pizza, file = "pizza-csv.csv", row.names = TRUE) # Try changing this to FALSE
+```
+
+

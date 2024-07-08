@@ -389,7 +389,7 @@
     "href": "install.html#download-access-workshop-content",
     "title": "Installing R",
     "section": "4 Download & access workshop content",
-    "text": "4 Download & access workshop content\n\n4.1 Access via terminal\n\nNavigate to the GitHub associated with this workshop HERE.\nRight click r-intro-docs and select Copy link.\nNavigate to where you want to work via the Terminal and use wget to download the directory.\nMake sure this can be viewed and opened in the ‘files / directory’ pane in RStudio.\n\n\nwget https://github.com/shu251/introduction-to-R\n\n\n4.2 Via workshop email\n\nDownload attached folder called r-intro-docs.\nMove this to where on your computer you want to work.\nUse the files/directory pane in RStudio to find that folder."
+    "text": "4 Download & access workshop content\n\n4.1 Access via terminal\n\nNavigate to the GitHub associated with this workshop HERE.\nRight click r-intro-docs and select Copy link.\nNavigate to where you want to work via the Terminal and use wget to download the directory.\nMake sure this can be viewed and opened in the ‘files / directory’ pane in RStudio.\n\nor, copy and paste the below line in terminal.\n\nwget https://github.com/shu251/introduction-to-R/tree/main/r-intro-docs\n\n\n\n4.2 Via workshop email\n\nDownload attached folder called r-intro-docs.\nMove this to where on your computer you want to work.\nUse the files/directory pane in RStudio to find that folder."
   },
   {
     "objectID": "file-location.html#pro-tips-for-organizing-naming-files",

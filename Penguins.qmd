@@ -1,0 +1,11 @@
+---
+title: "Palmer penguins"
+format: html
+editor: visual
+number-sections: true
+---
+
+## Explore the Palmer penguin dataset
+
+
+##

@@ -1,0 +1,147 @@
+---
+title: "Tidyverse"
+format: html
+editor: visual
+number-sections: true
+---
+
+## Import and explore with tidyverse
+
+Lets use tidyverse to modify the pizza data.
+
+```{r}
+#| eval: false
+head(pizza)
+```
+
+Introducing the **pipe** operator. A key for working in tidyverse. [Some fun background it](http://adolfoalvarez.cl/blog/2021-09-16-plumbers-chains-and-famous-painters-the-history-of-the-pipe-operator-in-r/).
+
+```{r}
+#| eval: false
+pizza %>% select(type)
+types_of_pizza <- pizza %>% select(type)
+types_of_pizza_char <- as.character(pizza %>% select(type))
+```
+
+Select can also be used to re-name a column or remove a column.
+
+```{r}
+#| eval: false
+pizza_new <- pizza %>% 
+  select(style = type, everything(), -X)
+```
+
+## filter()
+
+```{r}
+#| eval: false
+pizza %>% 
+  select(style = type, everything(), -X) %>% 
+  filter(num_toppings > 2)
+```
+
+Note the change to output the information, rather than save it as a new R object. Also see how the pipe stitches everything together in a tidy way?
+
+```{r}
+#| eval: false
+pizza %>% 
+  select(style = type, everything(), -X) %>% 
+  filter(num_toppings > 2) %>% 
+  filter(red_sauce == TRUE)
+
+```
+
+#### Activity
+
+> Try the commented out lines below. Describe the difference.
+
+```{r}
+#| eval: false
+pizza %>% 
+  select(style = type, everything(), -X) %>% 
+  # filter(num_toppings > 2 | red_sauce == TRUE) #
+  # filter(num_toppings > 2 & red_sauce == TRUE)
+```
+
+## mutate()
+
+We can also start to introduce math. Mutate adds to the data frame.
+
+This pizza data frame has the cost and the amount of that we want to order. Lets calculate our total order.
+
+```{r}
+#| eval: false
+pizza$cost
+pizza$num_order
+
+pizza %>% 
+  select(style = type, everything(), -X) %>% 
+  mutate()
+
+```
+
+## Wide vs. long format
+
+Create another data frame that is in wide format. For meals and snack throughout the day, how large was each meal and how many dishes does the meal produce?
+
+```{r}
+#| eval: false
+df_wide <- data.frame(Meal = c('Morning', 'Mid-morning', 'Lunch', 'Mid-afternoon', 'Dinner'),
+                 Weight = c(9, 0, 12, 10, 6),
+                 Dishes = c(3, 0, 1, 1, 4))
+df_wide
+```
+
+```{r}
+#| eval: false
+df_long <- df_wide %>% 
+  pivot_longer(cols = c('Weight', 'Dishes'), names_to = "Attribute", values_to = "Value")
+
+df_long
+```
+
+For long format data, we will have a column for each of the things we are measuring/recording in our data. A column equates to a variable. For wide data, each row has all the information with categories as columns. 'pivot_longer()' lengthens the rows of data and decreases the number of rows.
+
+### Activity
+
+> Export 'df_wide' as a .csv file. Open in Excel and manually change to a long format data frame.
+
+### Convert larger dataset from wide to long
+
+Convert the ASV table to a long format.
+
+```{r}
+#| eval: false
+head(asv_table)
+names(asv_table)
+
+
+# Compare these two approaches
+asv_long <- asv_table %>% 
+  pivot_longer(cols = 3:20)
+
+asv_long <- asv_table %>% 
+  pivot_longer(starts_with("Gorda"))
+```
+
+Typically data in long format is much more useful for downstream plotting and wrangling.
+
+## Use tidyverse to compile the ASV data
+
+```{r}
+#| eval: false
+head(asv_long)
+head(metadata)
+unique(metadata$SAMPLETYPE)
+
+# Below, pipe in code that will join the metadata with the ASV data. 
+## Then isolate samples that were only from the Vent environment. 
+
+# asv_long <- asv_table %>% 
+  # pivot_longer(starts_with("Gorda"))
+  
+```
+
+### Activity
+
+> Subset the ASV data so that each ASV has greater than or equal to 100 sequences.

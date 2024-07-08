@@ -1,0 +1,130 @@
+---
+title: "Data import"
+editor: visual
+number-sections: true
+---
+
+## Import data from `r-intro-docs`.
+
+In the files section of your RStudio, click on the `r-intro-docs` directory. You should see a list of files.
+
+Lets save the greetings R object as a csv file in the `r-intro-docs` directory.
+
+```{r}
+# First re-create if needed
+greetings <- c("Hey", "Hi", "Howdy", "Hello", "Morning")
+n <- c(99, 15, 324, 54, 23)
+df <- data.frame(greetings, n)
+addition <- c("Afternoon", 18)
+
+greetings <- rbind(df, addition)
+```
+
+*Discuss tab completion!*
+
+```{r}
+write.csv(greetings, "r-intro-docs/greetings.csv")
+```
+
+Open up `greetings.csv` locally. What does it look like in Excel?
+
+```{r}
+#| eval: false
+?write.csv()
+?write.table()
+```
+
+### Provided datasets
+
+Import pizza using `read.csv()`.
+
+```{r}
+#| eval: false
+#| echo: false
+pizza <- data.frame(type = c("Meat", "BBQ Chicken", "Hawaiian", "Veggie", "Cheese", "Pepperoni", "Margherita", "Three cheese"),
+                    num_toppings = c("3", "2", "3", "5", "0", "1", "2", "3"),
+                    red_sauce = c(1, 1, 1, 1, 1, 1, 1, 0), num_order = c(2, 0, 0, 3, 3, 2, 4, 0), cost = c(7.5, 9, 7.5, 7.5, 6.5, 7.5, 7.5, 8.5))
+
+write.csv(pizza, file = "r-intro-docs/pizza.csv")
+```
+
+```{r}
+pizza <- read.csv("r-intro-docs/pizza.csv") 
+```
+
+### Star Wars data
+
+Within the Tidyverse there is a Star Wars dataset we will use to explore data manipulation and wrangling in R.
+
+Ensure Tidyverse is installed.
+
+```{r}
+#| eval: false
+library(tidyverse)
+
+data("starwars")
+
+View(starwars)
+```
+
+### Activity
+
+> Choose Star Wars or Pizza and describe the data types.
+
+```{r}
+#| echo: false
+#| eval: false
+str(pizza)
+str(starwars)
+```
+
+### Import larger data frames
+
+Data is from an ASV table from [Hu et al. 2022](https://shu251.github.io/microeuk-amplicon-survey/).
+
+```{r}
+#| eval: false
+#| echo: false
+#| message: false
+
+load(file = "../../Projects/microeuks_deepbiosphere_datamine/microeuk-amplicon-survey/data-input/asv-tables-processed-27012022.RData", verbose = TRUE)
+
+# head(asv_insitu)
+asv_table <- asv_insitu_qc %>% 
+  select(FeatureID, SAMPLE, value, Taxon) %>% 
+  filter(grepl("Gorda", SAMPLE)) %>% 
+  pivot_wider(names_from = "SAMPLE", values_from = "value", values_fill = 0)
+# head(asv_table)
+
+write_delim(asv_table, file = "r-intro-docs/asv-table.txt", delim = "\t")
+
+metadata <- read_delim(file = "../../Projects/microeuks_deepbiosphere_datamine/microeuk-amplicon-survey/data-input/samplelist-metadata.txt")
+metadata <- metadata %>% 
+  select(SAMPLE, VENT, SITE, Sample_or_Control, SAMPLETYPE, DEPTH, temp)
+
+write_delim(metadata, file = "r-intro-docs/metadata.txt", delim = "\t")
+
+
+# run for class
+asv_table <- read.delim(file = "r-intro-docs/asv-table.txt")
+metadata <- read.delim(file = "r-intro-docs/metadata.txt")
+```
+
+Import the ASV table and associated metadata table that are in the `r-intro-docs` directory. Set them equal to **asv_table** and **metadata**, respectively.
+
+```{r}
+#| eval: false
+asv_table <- 
+
+metadata <-
+```
+
+Use the command `summary()` to learn more about the data frames we've imported above.
+
+```{r}
+#| eval: false
+summary(asv_table)
+head(asv_table)
+head(metadata)
+```
+We will come back to this larger dataset after we explore some tidyverse functions.

@@ -23,9 +23,9 @@ number-sections: true
 
 3.  *Patience*: Amount of time spent may seem not useful.
 
-![Artwork by ](images/FnryDNlaAAAnhrq.jpeg){fig-align="center" width="1158"} [More from Allison Horst](https://allisonhorst.com/)
+![Artwork by](images/FnryDNlaAAAnhrq.jpeg){fig-align="center" width="800"} [More from Allison Horst](https://allisonhorst.com/)
 
-## Integrationg across languages
+## Integrating across languages
 
 A major pro to using RStudio, is how the new **Posit** system integrates with other computer languages (python, julia, etc.). This is ideal for projects where collaborators use a variety of R and python. Additionally, the GUI of RStudio is helpful for new learners and a great way to keep files and analyses on your computer organized.
 

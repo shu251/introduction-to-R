@@ -1,0 +1,41 @@
+---
+title: "R packages"
+editor: visual
+number-sections: true
+---
+
+# R packages & libraries
+
+Pre-packaged code and commands for you to use. Like opening a specialized program or application on your computer.
+
+```{r}
+#| eval: false
+install.packages("vegan")
+library(vegan)
+```
+
+add in text about finding other R packages and show another example.
+
+
+## Install tidyverse
+
+```{r}
+#| eval: false
+install.packages("tidyverse")
+library(tidyverse)
+```
+
+## Errors and troubleshooting
+
+1.  Read the error
+2.  Google it!
+3.  Typos are actually your friend
+
+
+# Keeping track of your session
+
+A part of code documentation is so that someone else can run your code later. If you have specific versions of libraries and R installed, I recommend running the command below to print out information on your R session.
+
+```{r}
+sessionInfo()
+```

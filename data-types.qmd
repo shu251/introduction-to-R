@@ -1,0 +1,263 @@
+---
+title: "Data classes & data frames"
+format: html
+editor: visual
+number-sections: true
+---
+
+## Data classes
+
+There are different data classes we will work with in R. Definitions of them and how to determine what data type you are working with is a key foundation of R. See @tbl-define.
+
+Let's start elaborating on what we've already used. Use ```class()``` and ```str()``` to explore data types.
+
+
+### Definitions
+
+Use ```class()``` and ```str()``` to see how ```x``` is defined in this table.
+
+
+| Term | Example | Code (_x_) | Description |
+|------|------|------|------|
+| Logical | TRUE, FALSE | ```x <- TRUE```| Two data values, also called boolean |
+| Numeric |  243, 92.1, or 3.459 | ```x <- 3.14```  | Numbers, including those with decimals. Standard input for most statistical tools.|
+| Integer    |  10L, 65L, or 0L   | ```x <- 314L```    | Numbers without decimals. Needs to be specified as an integer. |
+| Character | "seven", "hello world", "FALSE", '63.354', "600" | ```x <- "150"``` | Represents a string of values as a variable. Use ```''``` for character variables and ```""``` for string variables. |
+| Complex | 6 + 5i | ```x <- 6 + 8i``` | Data type with an imaginary part, in this case i. |
+
+: Definitions of data types in R. {#tbl-define}
+
+The data classes above represent the core basic "data types". **Vectors** are comprised of elements of different classes. 
+
+
+### Exploring data types and vectors
+
+Use the below examples to understand how R interprets different data classes and how they are elements within a vector.
+
+
+What is "juice"?
+```{r}
+#| eval: false
+juice <- 4 + 4
+class(juice)
+class(4)
+class(8.3)
+class(4L)
+```
+
+What about ```x```?
+```{r}
+#| eval: false
+x <- c(1, 7, 9)
+class(x)
+
+apples <- 5
+oranges <- 6
+fruit <- apples + oranges
+```
+
+How is the below vector different from above?
+```{r}
+#| eval: false
+x <- c("1", "7", "9")
+class(x)
+```
+
+
+Let's write over ```x```, and set it equal to types of fruit.
+
+```{r}
+#| eval: false
+x <- c("banana", "grapefruit")
+class(x)
+```
+Instead of a numeric value, a **character** is a string type. Let's experiment with the numeric vs. character data type. Lets combine our character list of fruit with the earlier defined "apples". 
+
+```{r}
+#| eval: false
+x
+apples
+
+new_x <- c(x, apples)
+```
+What happened to the data class of ```new_x``` when we combined character and numeric?
+
+
+Create another vector
+```{r}
+#| eval: false
+numeric_vector <- c(1, 10, 49, 5)
+character_vector <- c("a", "b", "c", "d")
+
+names(numeric_vector) <- character_vector
+```
+
+What does ```names()``` do above?
+
+```{r}
+#| eval: false
+numeric_vector
+
+# Isolate a numeric within the vector
+q <- numeric_vector[4]
+
+# Modify elements within a vector
+q + numeric_vector
+
+# Evaluate vector based on value
+ans <- q > numeric_vector
+ans
+```
+
+
+## Lists
+
+A **list** can be a list of anything. But everything in the list does NOT need to be the same data type (in contrast to the vector, above). Because lists can include different data types and data sets, they can be used to store information, like a dictionary.
+
+```{r}
+#| eval: false
+list_example <- list(2^4, "cabbage", TRUE, 1+5i)
+```
+
+
+```{r}
+#| eval: false
+list_example_2 <- list(2E2, "lettuce", VALUES = 1:25, VALUES_BINARY = FALSE)
+```
+
+```{r}
+#| eval: false
+list_example_2$VALUES
+
+typeof(list_example_2$VALUES)
+
+typeof(list_example_2$VALUES_BINARY)
+```
+
+## Matrices
+
+When do you use one over the other? It depends on what kind of data you're working with. If you're working with different types of information in the same table, you likely need a data frame. But if you're working with a single data type, a matrix may be better for you. Additionally, matrices are more efficient with respect to memory. Therefore, a lot of statistical tools/methods require a matrix as input.
+
+Create a matrix.
+```{r}
+matrix(1:9, byrow = FALSE, nrow = 3)
+```
+```{r}
+q <- c(460, 314)
+r <- c(290, 247)
+w <- c(309, 165)
+
+c(q, r, w)
+mydataset <- matrix(c(q, r, w), byrow = TRUE, nrow = 3)
+mydataset
+```
+
+```{r}
+region <- c("one", "two")
+category <- c("A","B","C")
+
+rownames(mydataset) <- category
+colnames(mydataset) <- region
+```
+
+```{r}
+rowSums(mydataset)
+
+totals <- rowSums(mydataset)
+
+cbind(mydataset,totals)
+```
+
+
+
+## Data frames
+
+Create a data frame and explore the structure. Data frames are the most common way to view datasets that you eventually want to modify and/or make plots from. They can also include different types of data.
+
+
+```{r}
+greetings <- c("Hey", "Hi", "Howdy", "Hello", "Morning")
+
+n <- c(99, 15, 324, 54, 23)
+
+df <- data.frame(greetings, n)
+```
+
+View the data frame you put together and what types of data are in your data frame?
+
+```{r}
+# print (df)
+# df
+# View(df)
+```
+
+Data are representative of a type of greeting in the first column, and the number of times the greeting was observed (n).
+
+### Isolating elements of a data frame
+
+We need to use specific R syntax to pull out individual rows and columns of a data frame.
+Isolate a single column.
+
+We will use this ```[row, column]```
+
+```{r}
+# df$
+```
+
+```{r}
+# df[]
+```
+
+### Modify the data frame
+
+Let's use the command `rbind()` to add on a row. We forgot to add in the greeting "Afternoon", let's say this was observed 18 times.
+
+```{r}
+#| eval: false
+addition <- c("Afternoon", 18)
+# ?rbind()
+```
+
+```{r}
+#| eval: false
+df <- rbind(df, addition) # writing over the original df
+```
+
+And let's change the headers so they are more meaningful.
+
+```{r}
+#| eval: false
+colnames(df)
+names(df)
+
+colnames(df)[1:2]
+
+colnames(df)[1:2] <- c("Greeting", "Observed")
+```
+
+
+### Activity
+
+> Isolate the number of times "howdy" was observed. Set this equal to an R object.
+
+```{r}
+#| echo: false
+
+# Option 1
+# new_obj <- df[3,2]
+
+# # Option 2
+# df[df$Greeting == "Howdy", 2]
+ 
+# df$Observed[df$Greeting == "Howdy"]
+```
+
+### Activity
+
+> Set the number of times a greeting occured to a numeric.
+
+```{r}
+#| echo: false
+# df$Observed <- as.numeric(df$Observed)
+# str(df)
+```

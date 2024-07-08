@@ -8,6 +8,8 @@ Introduction to the R programming language workshop.
 
 Eller O&M 602 & hybrid (email instructor for Zoom link).
 
+[![Allison Horst](https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/e4a11b1f-f235-461f-ab73-ce6128c59e49_rw_1200.png?h=e617e05ed1cf89ad73e382c9d4858366){width="750"}](https://allisonhorst.com/everything-else)
+
 ## Tentative schedule
 
 -   9:00 AM
@@ -67,7 +69,7 @@ Eller O&M 602 & hybrid (email instructor for Zoom link).
 
 -   Updated laptop (Mac or PC). Instructor will use a Mac
 -   Internet connection
--   Fill out the [pre-course survey](https://forms.gle/32hw2zo3ukPmZjDd7)
+-   Fill out the [pre-course survey](https://forms.gle/32hw2zo3ukPmZjDd7) - also see the *Benchmarks* section to the left
 -   Review the Code of Conduct
 
 ## Recommended preparation
@@ -75,6 +77,8 @@ Eller O&M 602 & hybrid (email instructor for Zoom link).
 -   Make sure R and RStudio are set up on your computer and working
 -   Determine how to open up the Terminal on your computer
 -   Come with questions on how you want to use R
+
+[![PhD Comics Jorge Cham](http://www.phdcomics.com/comics/archive/phd031214s.gif){fig-align="center"}](https://phdcomics.com/comics/archive.php?comicid=1689)
 
 ## Course organization
 
@@ -87,6 +91,8 @@ For instruction, we will be **live coding** the entire time. While most of the c
 In order to keep a pulse on the pace of the class, please use the **raising hand acknowledgement** or the **post it note approach** to indicate to the instructor(s) that you need the content to slow down or you are stuck.
 
 Since we are all learning together, we will also use the term **buddy up** to take a pause and ask your direct neighbors for help or come together with the people around you to troubleshoot the problem.
+
+![Allison Horst](https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/5ccff989-900e-4f2b-aece-55278b563cfa_rw_1200.png?h=fa02307007638ed86a346e11d74e55eb){width="650"}
 
 ## Sessions archive
 

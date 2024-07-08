@@ -84,11 +84,10 @@ starwars %>%
 
 > What are the max and min heights of humans and non-humans by planet?
 
-
 ## Star wars data wrangling
 
-Isolate non-droids on Alderaan, Naboo, Endor, Kamino, and Coruscant.
-Based on their reported sex, is there a relationship between their heigh, planet, and species?
+Isolate non-droids on Alderaan, Naboo, Endor, Kamino, and Coruscant. Based on their reported sex, is there a relationship between their heigh, planet, and species?
+
 ```{r}
 
 head(starwars)
@@ -104,4 +103,3 @@ starwars %>%
     geom_bar(stat = "identity", position = "dodge", aes(fill = sex)) +
     facet_grid(homeworld ~ .)
 ```
-

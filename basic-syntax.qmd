@@ -1,0 +1,94 @@
+---
+title: "Basic syntax"
+format: html
+editor: visual
+number-sections: true
+---
+
+## Basic Syntax 
+
+Keep the `intro.R` script open, but now type directly into the R console below.
+
+```{r}
+3 + 5
+```
+
+What happens to the output?
+
+### R objects
+
+Assign an R object called `juice` to be equal to `4+4`. What is the output when you type `juice`?
+
+```{r}
+juice <- 4 + 4
+
+# juice
+```
+
+Can you describe what you think `x` indicates below?
+
+```{r}
+x <- c(1,7,9)
+x[2]
+```
+
+
+The notation ```c()``` in R stands for **combine**. We used this a lot in R because we are often combining data and comparing it with another dataset.
+
+
+What do you think the R object `fruit` is?
+
+```{r}
+apples <- 5
+oranges <- 6
+
+fruit <- apples + oranges
+```
+
+## Operators
+
+Symbols in R are used in arguments, logical statements, assignments, and more. We will use many of them, but the common ones
+
+```{r, eval=FALSE}
+# <- vs. =
+a = 3 + 4
+a <- 3 + 4
+
+```
+
+## Errors
+
+```{r}
+# Errors and improper R object naming
+# 6389/
+
+# 5-6
+
+# 5.6 <- fruit
+```
+
+### **Activity**
+
+> There are several ways to view or look at an R object. Can you figure out what they are?
+
+### **Activity**
+
+> Calculate the volume of a sphere, where the diameter is 20 meters.
+
+### A note on documenting code
+
+Make sure current you keeps track of everything. Future you will Thank past you.
+
+
+Also use the pound symbol or hashtag mark, "#" to _comment out_ code.
+
+```
+# This code adds the values x and y, creating an R object called 'answer'
+
+answer <- x + y
+
+x <- 5
+y <- x^2
+
+## We can set x equal a specific value to define x, y, and answer.
+```

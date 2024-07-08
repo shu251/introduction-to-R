@@ -1,0 +1,14 @@
+---
+title: "Benchmarks"
+format: html
+editor: visual
+number-sections: true
+---
+
+[![Allison Horst](https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/e684f0da-13b1-4d00-ab25-37814e79ee1e_rw_1200.png?h=4812a536b27c1674bfd8962b1ce4ea87){width="700"}](https://allisonhorst.com/everything-else)
+
+Please take the pre- and post- course surveys. It helps us improve future iterations of the course content.
+
+### [Pre-course survey](https://forms.gle/e88NWWd3wdvXo7f98)
+
+### [Post-course survey](https://forms.gle/SEJsRhX2RcHvDeX89)

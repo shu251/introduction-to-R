@@ -49,9 +49,13 @@ RStudio will be added to your computers Applications or Programs. Open it as you
 3.  Navigate to where you want to work via the Terminal and use wget to download the directory.
 4.  Make sure this can be viewed and opened in the 'files / directory' pane in RStudio.
 
-<!-- -->
+or, *copy and paste the below line in terminal.*
 
-    wget https://github.com/shu251/introduction-to-R
+```{r}
+#| eval: false
+wget https://github.com/shu251/introduction-to-R/tree/main/r-intro-docs
+```
+
 
 ### Via workshop email
 
