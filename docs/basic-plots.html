@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.335">
+<meta name="generator" content="quarto-1.3.433">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -17,9 +17,10 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -46,43 +47,13 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -120,7 +91,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
@@ -132,11 +104,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Basic plots</h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./basic-plots.html">6. Data visualization</a></li><li class="breadcrumb-item"><a href="./basic-plots.html">Basic plots</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
       </button>
     </div>
   </nav>
@@ -144,160 +121,183 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Intro to R</a> 
     </div>
       </div>
-      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
         </div>
-      </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">1. To do ahead of time</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
+ <span class="menu-text">1. To do ahead of time</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./install.html" class="sidebar-item-text sidebar-link">Installing R</a>
+  <a href="./install.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Installing R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./code-of-conduct.html" class="sidebar-item-text sidebar-link">Code of conduct</a>
+  <a href="./code-of-conduct.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Code of conduct</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./benchmarks.html" class="sidebar-item-text sidebar-link">Benchmarks</a>
+  <a href="./benchmarks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Benchmarks</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">2. Introduction</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+ <span class="menu-text">2. Introduction</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./file-location.html" class="sidebar-item-text sidebar-link">File structure</a>
+  <a href="./file-location.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">File structure</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./r-overview.html" class="sidebar-item-text sidebar-link">What is ‘R’?</a>
+  <a href="./r-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">What is ‘R’?</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./rstudio-orientation.html" class="sidebar-item-text sidebar-link">RStudio</a>
+  <a href="./rstudio-orientation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">RStudio</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">3. Coding in R</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+ <span class="menu-text">3. Coding in R</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./basic-syntax.html" class="sidebar-item-text sidebar-link">Basic syntax</a>
+  <a href="./basic-syntax.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Basic syntax</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./data-types.html" class="sidebar-item-text sidebar-link">Data classes &amp; data frames</a>
+  <a href="./data-types.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data classes &amp; data frames</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./packages-libraries.html" class="sidebar-item-text sidebar-link">R packages</a>
+  <a href="./packages-libraries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R packages</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">4. Manipulations of data</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+ <span class="menu-text">4. Manipulations of data</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./importing-data.html" class="sidebar-item-text sidebar-link">Data import</a>
+  <a href="./importing-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data import</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./exporting-data.html" class="sidebar-item-text sidebar-link">Export data</a>
+  <a href="./exporting-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Export data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tidyverse-intro.html" class="sidebar-item-text sidebar-link">Tidyverse</a>
+  <a href="./tidyverse-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tidyverse</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">5. Data wrangling</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
+ <span class="menu-text">5. Data wrangling</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./StarWars.html" class="sidebar-item-text sidebar-link">Star Wars data</a>
+  <a href="./StarWars.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Star Wars data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./growthcurve.html" class="sidebar-item-text sidebar-link">Growth curve</a>
+  <a href="./growthcurve.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Growth curve</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./asvdata.html" class="sidebar-item-text sidebar-link">ASV data</a>
+  <a href="./asvdata.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ASV data</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">6. Data visualization</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">
+ <span class="menu-text">6. Data visualization</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./basic-plots.html" class="sidebar-item-text sidebar-link active">Basic plots</a>
+  <a href="./basic-plots.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Basic plots</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./customize-plots.html" class="sidebar-item-text sidebar-link">Customize plots</a>
+  <a href="./customize-plots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Customize plots</span></a>
   </div>
 </li>
       </ul>
@@ -305,27 +305,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </ul>
     </div>
 </nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#bar" id="toc-bar" class="nav-link active" data-scroll-target="#bar"><span class="toc-section-number">0.1</span>  Bar</a>
+  <li><a href="#bar" id="toc-bar" class="nav-link active" data-scroll-target="#bar"><span class="header-section-number">0.1</span> Bar</a>
   <ul class="collapse">
-  <li><a href="#star-wars-visuals" id="toc-star-wars-visuals" class="nav-link" data-scroll-target="#star-wars-visuals"><span class="toc-section-number">0.1.1</span>  Star Wars visuals</a></li>
+  <li><a href="#star-wars-visuals" id="toc-star-wars-visuals" class="nav-link" data-scroll-target="#star-wars-visuals"><span class="header-section-number">0.1.1</span> Star Wars visuals</a></li>
   </ul></li>
-  <li><a href="#point-line" id="toc-point-line" class="nav-link" data-scroll-target="#point-line"><span class="toc-section-number">0.2</span>  Point &amp; line</a></li>
-  <li><a href="#boxplot" id="toc-boxplot" class="nav-link" data-scroll-target="#boxplot"><span class="toc-section-number">0.3</span>  Boxplot</a></li>
-  <li><a href="#first-what-is-the-data-im-looking-at-on-tatooine" id="toc-first-what-is-the-data-im-looking-at-on-tatooine" class="nav-link" data-scroll-target="#first-what-is-the-data-im-looking-at-on-tatooine"><span class="toc-section-number">1</span>  First what is the data I’m looking at on Tatooine</a></li>
-  <li><a href="#how-many-species-on-tatooine" id="toc-how-many-species-on-tatooine" class="nav-link" data-scroll-target="#how-many-species-on-tatooine"><span class="toc-section-number">2</span>  How many species on Tatooine?</a></li>
-  <li><a href="#bar-chart-example" id="toc-bar-chart-example" class="nav-link" data-scroll-target="#bar-chart-example"><span class="toc-section-number">3</span>  Bar chart example</a>
+  <li><a href="#point-line" id="toc-point-line" class="nav-link" data-scroll-target="#point-line"><span class="header-section-number">0.2</span> Point &amp; line</a></li>
+  <li><a href="#boxplot" id="toc-boxplot" class="nav-link" data-scroll-target="#boxplot"><span class="header-section-number">0.3</span> Boxplot</a></li>
+  <li><a href="#first-what-is-the-data-im-looking-at-on-tatooine" id="toc-first-what-is-the-data-im-looking-at-on-tatooine" class="nav-link" data-scroll-target="#first-what-is-the-data-im-looking-at-on-tatooine"><span class="header-section-number">1</span> First what is the data I’m looking at on Tatooine</a></li>
+  <li><a href="#how-many-species-on-tatooine" id="toc-how-many-species-on-tatooine" class="nav-link" data-scroll-target="#how-many-species-on-tatooine"><span class="header-section-number">2</span> How many species on Tatooine?</a></li>
+  <li><a href="#bar-chart-example" id="toc-bar-chart-example" class="nav-link" data-scroll-target="#bar-chart-example"><span class="header-section-number">3</span> Bar chart example</a>
   <ul class="collapse">
-  <li><a href="#first-example-of-a-bar-chart-but-something-isnt-right" id="toc-first-example-of-a-bar-chart-but-something-isnt-right" class="nav-link" data-scroll-target="#first-example-of-a-bar-chart-but-something-isnt-right"><span class="toc-section-number">3.1</span>  First, example of a bar chart <strong>but something isn’t right</strong></a></li>
+  <li><a href="#first-example-of-a-bar-chart-but-something-isnt-right" id="toc-first-example-of-a-bar-chart-but-something-isnt-right" class="nav-link" data-scroll-target="#first-example-of-a-bar-chart-but-something-isnt-right"><span class="header-section-number">3.1</span> First, example of a bar chart <strong>but something isn’t right</strong></a></li>
   </ul></li>
-  <li><a href="#whats-wrong-with-this" id="toc-whats-wrong-with-this" class="nav-link" data-scroll-target="#whats-wrong-with-this"><span class="toc-section-number">4</span>  What’s wrong with this?</a>
+  <li><a href="#whats-wrong-with-this" id="toc-whats-wrong-with-this" class="nav-link" data-scroll-target="#whats-wrong-with-this"><span class="header-section-number">4</span> What’s wrong with this?</a>
   <ul class="collapse">
-  <li><a href="#boxplots-in-ggplot" id="toc-boxplots-in-ggplot" class="nav-link" data-scroll-target="#boxplots-in-ggplot"><span class="toc-section-number">4.0.1</span>  Boxplots in ggplot:</a></li>
+  <li><a href="#boxplots-in-ggplot" id="toc-boxplots-in-ggplot" class="nav-link" data-scroll-target="#boxplots-in-ggplot"><span class="header-section-number">4.0.1</span> Boxplots in ggplot:</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -335,7 +336,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Basic plots</h1>
+<h1 class="title">Basic plots</h1>
 </div>
 
 
@@ -358,26 +359,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(starwars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 14
-  name         height  mass hair_…¹ skin_…² eye_c…³ birth…⁴ sex   gender homew…⁵
-  &lt;chr&gt;         &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;  
-1 Luke Skywal…    172    77 blond   fair    blue       19   male  mascu… Tatooi…
-2 C-3PO           167    75 &lt;NA&gt;    gold    yellow    112   none  mascu… Tatooi…
-3 R2-D2            96    32 &lt;NA&gt;    white,… red        33   none  mascu… Naboo  
-4 Darth Vader     202   136 none    white   yellow     41.9 male  mascu… Tatooi…
-5 Leia Organa     150    49 brown   light   brown      19   fema… femin… Aldera…
-6 Owen Lars       178   120 brown,… light   blue       52   male  mascu… Tatooi…
-# … with 4 more variables: species &lt;chr&gt;, films &lt;list&gt;, vehicles &lt;list&gt;,
-#   starships &lt;list&gt;, and abbreviated variable names ¹​hair_color, ²​skin_color,
-#   ³​eye_color, ⁴​birth_year, ⁵​homeworld</code></pre>
+  name      height  mass hair_color skin_color eye_color birth_year sex   gender
+  &lt;chr&gt;      &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
+1 Luke Sky…    172    77 blond      fair       blue            19   male  mascu…
+2 C-3PO        167    75 &lt;NA&gt;       gold       yellow         112   none  mascu…
+3 R2-D2         96    32 &lt;NA&gt;       white, bl… red             33   none  mascu…
+4 Darth Va…    202   136 none       white      yellow          41.9 male  mascu…
+5 Leia Org…    150    49 brown      light      brown           19   fema… femin…
+6 Owen Lars    178   120 brown, gr… light      blue            52   male  mascu…
+# ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
+#   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
 </div>
 </div>
 <section id="star-wars-visuals" class="level3" data-number="0.1.1">
 <h3 data-number="0.1.1" class="anchored" data-anchor-id="star-wars-visuals"><span class="header-section-number">0.1.1</span> Star Wars visuals</h3>
 <p>What species are present on each planet?</p>
 <p>Create a bar plot where the x axis equals homeworlds and the y axis show the number of different species on each planet.</p>
-<div class="cell">
-
-</div>
 </section>
 </section>
 <section id="point-line" class="level2" data-number="0.2">
@@ -385,12 +382,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>For all humans in Star Wars, what is their relationship between height and weight? and is it impacted by their planet of origin?</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>starwars <span class="sc">%&gt;%</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-
-</div>
-<div class="cell">
-
 </div>
 </section>
 <section id="boxplot" class="level2" data-number="0.3">
@@ -412,14 +403,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(starwars<span class="sc">$</span>species); <span class="fu">length</span>(<span class="fu">unique</span>(starwars<span class="sc">$</span>species))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "Human"          "Droid"          "Wookiee"        "Rodian"        
- [5] "Hutt"           "Yoda's species" "Trandoshan"     "Mon Calamari"  
- [9] "Ewok"           "Sullustan"      "Neimodian"      "Gungan"        
-[13] NA               "Toydarian"      "Dug"            "Zabrak"        
-[17] "Twi'lek"        "Vulptereen"     "Xexto"          "Toong"         
-[21] "Cerean"         "Nautolan"       "Tholothian"     "Iktotchi"      
-[25] "Quermian"       "Kel Dor"        "Chagrian"       "Geonosian"     
-[29] "Mirialan"       "Clawdite"       "Besalisk"       "Kaminoan"      
-[33] "Aleena"         "Skakoan"        "Muun"           "Togruta"       
+ [5] "Hutt"           NA               "Yoda's species" "Trandoshan"    
+ [9] "Mon Calamari"   "Ewok"           "Sullustan"      "Neimodian"     
+[13] "Gungan"         "Toydarian"      "Dug"            "Zabrak"        
+[17] "Twi'lek"        "Aleena"         "Vulptereen"     "Xexto"         
+[21] "Toong"          "Cerean"         "Nautolan"       "Tholothian"    
+[25] "Iktotchi"       "Quermian"       "Kel Dor"        "Chagrian"      
+[29] "Geonosian"      "Mirialan"       "Clawdite"       "Besalisk"      
+[33] "Kaminoan"       "Skakoan"        "Muun"           "Togruta"       
 [37] "Kaleesh"        "Pau'an"        </code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
@@ -463,11 +454,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 8
 # Groups:   species [2]
-  species homeworld MEAN_height MEDIAN_height MAX_height MIN_h…¹ MEAN_…² MEDIA…³
-  &lt;chr&gt;   &lt;chr&gt;           &lt;dbl&gt;         &lt;dbl&gt;      &lt;int&gt;   &lt;int&gt;   &lt;dbl&gt;   &lt;dbl&gt;
-1 Droid   Tatooine         132           132         167      97    53.5    53.5
-2 Human   Tatooine         179.          180.        202     163    NA      NA  
-# … with abbreviated variable names ¹​MIN_height, ²​MEAN_mass, ³​MEDIAN_mass</code></pre>
+  species homeworld MEAN_height MEDIAN_height MAX_height MIN_height MEAN_mass
+  &lt;chr&gt;   &lt;chr&gt;           &lt;dbl&gt;         &lt;dbl&gt;      &lt;int&gt;      &lt;int&gt;     &lt;dbl&gt;
+1 Droid   Tatooine         132           132         167         97      53.5
+2 Human   Tatooine         179.          180.        202        163      NA  
+# ℹ 1 more variable: MEDIAN_mass &lt;dbl&gt;</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>((<span class="fu">filter</span>(tatooine, species <span class="sc">==</span> <span class="st">"Human"</span>))<span class="sc">$</span>height)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -536,9 +527,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -603,6 +608,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {

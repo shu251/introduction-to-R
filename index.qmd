@@ -4,9 +4,9 @@ title: "Welcome"
 
 Introduction to the R programming language workshop.
 
-**April 7th, 2023 9am-4:30pm**
+This websites hosts material for live coding instruction from Sarah Hu. Work with Sarah to schedule time for each section. A tentative schedule is available below.
 
-Eller O&M 602 & hybrid (email instructor for Zoom link).
+
 
 [![Allison Horst](https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/e4a11b1f-f235-461f-ab73-ce6128c59e49_rw_1200.png?h=e617e05ed1cf89ad73e382c9d4858366){width="750"}](https://allisonhorst.com/everything-else)
 
