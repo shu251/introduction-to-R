@@ -1,0 +1,352 @@
+---
+title: "Cluster analysis"
+editor: visual
+---
+
+# Why?
+
+1.  Too many dimensions
+
+2.  Need to sort and group
+
+3.  Test a hypothesis \| Explore hypotheses
+
+## Ordinations
+
+*Ordinations* - taking complex data and working to present it in 2-3 dimensions, we are placing a new coordinate system (fitting) in place. Principle Component Analysis (PCA) works to generate this coordinate system that is most appropriate for your data. Evaluated based on the eigen decomposition from sample covariance matrix. (Eigenvectors = principle axes)
+
+## Background
+
+**References / recommended reading:**
+
+1.  THIS TUTORIAL: Coenen AR, Hu SK, Luo E, Muratore D, Weitz JS. A Primer for Microbiome Time-Series Analysis. Front Genet. 2020 Apr 21;11:310.
+
+2.  Gloor, G. B., Macklaim, J. M., Pawlowsky-Glahn, V. & Egozcue, J. J. Microbiome Datasets Are Compositional: And This Is Not Optional. Front. Microbiol. 8, 57--6 (2017).
+
+3.  Weiss, S. et al. Normalization and microbial differential abundance strategies depend upon data characteristics. Microbiome 5, 1--18 (2017).
+
+4.  McMurdie, P. J. & Holmes, S. Waste Not, Want Not: Why Rarefying Microbiome Data Is Inadmissible. PLoS Comput Biol 10, e1003531 (2014).
+
+5.  Silverman JD, Washburne AD, Mukherjee S, David LA. A phylogenetic transform enhances analysis of compositional microbiota data. eLife. 2017 Feb 15;6:e21887.
+
+# Import data
+
+```{r}
+#| echo: false
+asv_table <- read.delim(file = "r-intro-docs/asv-table.txt")
+metadata <- read.delim(file = "r-intro-docs/metadata.txt")
+```
+
+## Set up preliminary environment
+
+```{r}
+library(tidyverse)
+library(compositions)
+```
+
+# Evidence of compositionality (diagnostic)
+
+Do we need to transform our data? We can use the estimate covariance matrix
+
+Prep data frame
+
+```{r}
+# dim(asv_table)
+# head(asv_table)
+
+# Random subset 1000 rows
+asv_df <- asv_table |> 
+  sample_n(1000) |> 
+  column_to_rownames(var = "FeatureID") |> 
+  select(-Taxon)
+  
+# dim(asv_df)
+```
+
+`%*%` = matrix multiplication sign in R; used here to multiply OTU/ASV data matrix to itself to estimate covariance.
+
+```{r}
+covariance <- as.matrix(asv_df) %*% t(asv_df)
+det_output <- det(covariance)
+det_output
+```
+
+The determinant of the covariance matrix (what we just calculated) is equivalent to the product of the proportion of variance explained by every PCA axis. If the determinant is 0, that means there is an axis which explains 0 variance that we can't separate from the other axes. Therefore, data need to be transformed to be suitable for PCA.
+
+# Data transformations
+
+Another approach to PCA ordination w/Compositional Data: Log-Ratio Transformations
+
+-   **Log-ratio** - combat issues with variance and distribution, all variables will be transformed to be relative to the abundance of an arbitrary focal taxon. Divide all the count data by the abundance of a focal taxa and take the natural log. So why do this? This is one way we can transform our amplicon data to be more appropriate/more suitable for many statistical approaches.
+
+-   **ilr** - isometric log ratio
+
+-   **clr** - centered log ratio, values will be centered around the geometric average
+
+## Isometric
+
+```{r}
+gorda_ilr <- data.frame(compositions::ilr(t(asv_df)))
+cov_ilr <- as.matrix(gorda_ilr) %*% t(gorda_ilr)
+det_ilr <- det(cov_ilr)
+det_ilr
+```
+
+`prcomp()` - Principle Component Analysis. Input is a data matrix and results are an R class "prcomp".
+
+Explore the covariance after doing the transformation.
+```{r}
+ilr_pca <- prcomp(gorda_ilr)
+class(ilr_pca)
+ilr_pca$sdev 
+```
+
+_follow up reading on prcomp_
+
+
+```{r}
+# Visual representation - screeplot
+lograt_variances <- as.data.frame(ilr_pca$sdev^2/sum(ilr_pca$sdev^2)) %>% #Extract axes
+  # Format to plot
+  select(PercVar = 'ilr_pca$sdev^2/sum(ilr_pca$sdev^2)') %>% 
+  rownames_to_column(var = "PCaxis") %>% 
+  data.frame
+```
+
+```{r}
+# Plot screeplot
+ggplot(lograt_variances, aes(x = as.numeric(PCaxis), y = PercVar)) + 
+  geom_bar(stat = "identity", fill = "grey", color = "black") +
+  theme_minimal() +
+  theme(axis.title = element_text(color = "black", face = "bold", size = 10),
+        axis.text.y = element_text(color = "black", face = "bold"),
+        axis.text.x = element_blank()) +
+  labs(x = "PC axis", y = "% Variance", title = "Log-Ratio PCA Screeplot")
+```
+
+## Center log ratio
+
+```{r}
+gorda_clr <- data.frame(compositions::clr(t(asv_df)))
+cov_clr <- as.matrix(gorda_clr) %*% t(gorda_clr)
+det_clr <- det(cov_clr)
+det_clr
+```
+
+```{r}
+clr_pca <- prcomp(gorda_clr)
+
+clr_variances <- as.data.frame(clr_pca$sdev^2/sum(clr_pca$sdev^2)) %>% #Extract axes
+  # Format to plot
+  select(PercVar = 'clr_pca$sdev^2/sum(clr_pca$sdev^2)') %>% 
+  rownames_to_column(var = "PCaxis") %>% 
+  data.frame
+
+# Plot screeplot
+ggplot(clr_variances, aes(x = as.numeric(PCaxis), y = PercVar)) + 
+  geom_bar(stat = "identity", fill = "grey", color = "black") +
+  theme_minimal() +
+  theme(axis.title = element_text(color = "black", face = "bold", size = 10),
+        axis.text.y = element_text(color = "black", face = "bold"),
+        axis.text.x = element_blank()) +
+  labs(x = "PC axis", y = "% Variance", title = "Log-Ratio PCA Screeplot")
+```
+## PCA
+
+Lets pick one. My favorite is always the clr. 
+```{r}
+class(clr_pca)
+```
+
+```{r}
+# Visualize the PCA
+# clr_pca$
+clr_pca$x #View PC values
+```
+
+```{r}
+pca_clr_df <- data.frame(clr_pca$x) %>% 
+  rownames_to_column(var = "SAMPLE") %>%
+  left_join(metadata)
+
+# head(pca_clr_df)
+```
+
+
+Make PCA plot
+```{r}
+# Plot PCA
+ggplot(pca_clr_df) +
+  geom_point(aes(x = PC1, y = PC2, fill = VENT), size = 4, shape = 21, color = "black") +
+  ylab(paste0('PC2 ', round(lograt_variances[2,2]*100,2),'%')) + #Extract y axis value from variance
+  xlab(paste0('PC1 ', round(lograt_variances[1,2]*100,2),'%')) + #Extract x axis value from variance
+  scale_fill_brewer(palette = 'Dark2') +
+  ggtitle('Centered Log-Ratio PCA Ordination') +
+  coord_fixed(ratio = 1) +
+  theme_bw()
+```
+
+
+# PCoA
+
+PCoA is doing a PCA on a distance matrix constructed from the data. We then need a distance matrix. Different distance metrics emphasize separate attributes/factors in microbial community comparison.
+
+## Distance matrix
+
+If we want to prioritize differences in presence/absence between samples - use Jaccard. This can be estimated from untransformed count data, and does a pretty good job considering rare taxa. Another is unweighted Unifrac that includes phylogenetic relatedness (see last week's lesson).
+
+```{r}
+library(vegan)
+library(ape)
+```
+
+```{r}
+jac_dmat <- vegdist(t(asv_df),method="jaccard") # Jaccard dist metric
+pcoa_jac <- ape::pcoa(jac_dmat) #perform PCoA
+```
+
+
+We can use the screeplot to determine if we are going in the right direction.
+```{r}
+jac_variances <- data.frame(pcoa_jac$values$Relative_eig) %>% 
+  select(PercVar = 'pcoa_jac.values.Relative_eig') %>% 
+  rownames_to_column(var = "PCaxis") %>% 
+  data.frame
+```
+
+```{r}
+ggplot(jac_variances, aes(x = as.numeric(PCaxis), y = PercVar)) + 
+  geom_bar(stat = "identity", fill = "grey", color = "black") +
+  theme_minimal() +
+  theme(axis.title = element_text(color = "black", face = "bold", size = 10),
+        axis.text.y = element_text(color = "black", face = "bold"),
+        axis.text.x = element_blank()) +
+  labs(x = "PC axis", y = "% Variance", title = "Log-Ratio PCoA Screeplot")
+
+```
+```{r}
+# Extract variances from pcoa, from jaccard calculated dist. metric
+## where samples fall among axes
+pcoa_jac_df <- data.frame(pcoa_jac$vectors) %>% 
+  rownames_to_column(var = "TimeofDay") %>% 
+  separate(TimeofDay, into = c("excess", "TimeofDay"), sep = "_") %>% 
+  select(-excess) %>% 
+  data.frame
+head(pcoa_jac_df)
+
+# Select eigen values from dataframe, round to 4 places. These will be the axes for the 3-D plot
+# Extract variances from previously generated dataframe, round and multiply by 100 for plotting
+eigenvalues<-round(jac_variances[,2], digits = 4)*100
+
+# Plotly - 3-D
+# plotly::plot_ly(pcoa_jac_df, type='scatter3d', mode='markers',
+#         x=~Axis.2,y=~Axis.3,z=~Axis.1,colors=~brewer.pal(6,'Set1'),color=~TimeofDay)%>%
+#   layout(font=list(size=18),
+#          title='PCoA Jaccard Distance',
+#          scene=list(xaxis=list(title=paste0('Co 2 ',eigenvalues[2],'%'),
+#                                showticklabels=FALSE,zerolinecolor='black'),
+#                     yaxis=list(title=paste0('Co 3 ',eigenvalues[3],'%'),
+#                                showticklabels=FALSE,zerolinecolor='black'),
+#                     zaxis=list(title=paste0('Co 1 ',eigenvalues[1],'%'),
+#                                showticklabels=FALSE,zerolinecolor='black')))
+```
+
+## Euclidean
+
+Performing the log-ratio transformation makes the data all occupy a similar dynamic range, so we can use magnitude-sensitive distances like Euclidean distance. 
+
+*Euclidean*, recommended for analysis of the difference in compositions. e.g., when we are working to understand changes in relative abundance. Because it depends on the composition, we must input transformed data.
+
+```{r}
+# ?dist()
+euc_dmat <- dist(asv_df, method = "euclidean") 
+```
+
+Conduct ordination w/distance matrix = PCoA
+
+```{r}
+pcoa_euc<-ape::pcoa(euc_dmat)
+```
+
+
+Repeat screeplot check. Extract variances from pcoa, from jaccard calculated dist. metric
+```{r}
+euc_variances <- data.frame(pcoa_euc$values$Relative_eig) %>% 
+  select(PercVar = 'pcoa_euc.values.Relative_eig') %>% 
+  rownames_to_column(var = "PCaxis") %>% 
+  data.frame
+# head(euc_variances)
+
+# Screeplot check
+ggplot(euc_variances, aes(x = as.numeric(PCaxis), y = PercVar)) + 
+  geom_bar(stat = "identity", fill = "grey", color = "black") +
+  theme_minimal() +
+  theme(axis.title = element_text(color = "black", face = "bold", size = 10),
+        axis.text.y = element_text(color = "black", face = "bold"),
+        axis.text.x = element_blank()) +
+  labs(x = "PC axis", y = "% Variance", title = "Euclidean\nLog-Ratio PCoA Screeplot")
+```
+
+> Compare what the previous scree plot looked like. 
+
+Is there a difference in the ordinate output when we use a different metric?
+
+
+To compare with the euclidean distance ordination representing differences in relative composition. Further note: If your ordination has data which align in a 'T' or '+' shape perpendicular to the axes this is often diagnostic of covariance attributed to the higher dimensions which are not plotted.
+
+_What happens if I have a screeplot that requires 3D, but I can't do it?_
+
+Although our statistical ordinations appear to require at least 3 dimensions to communicate the data. However, we don't always have the budget for a 3D plot. So we may want to impose the condition on an ordination technique that the answer MUST go in 2D. We turn to NMDS here. 
+
+## NMDS
+```{r}
+set.seed(1984)
+```
+
+So we can compare the relative composition based distance metric to the presence/absence based distance metric
+
+```{r}
+library(vegan)
+# ?metaMDS()
+```
+
+*NMDS*: force data into a desired number of dimensions, works to preserve all pairwise distances between points.
+
+Start with Euclidean distance again. But then transform with NMDS.
+
+```{r}
+euc_dmat <- compositions::dist(asv_df, method = "euclidean") # From above
+euc_nmds <- vegan:: metaMDS(euc_dmat, k = 2, autotransform = FALSE)
+```
+
+Repeat with the Jaccard transformation
+```{r}
+jac_dmat <- vegan:: vegdist(t(asv_df), method = "jaccard") # From above
+jac_nmds<- vegan::metaMDS(jac_dmat, k = 2, autotransform = FALSE)
+```
+
+Take a look at stress - overall this value is not extremely informative, but know that the closer stress is to 1 the less representative of your actual data the NMDS is.
+
+```{r}
+euc_nmds$stress 
+jac_nmds$stress
+```
+
+
+Additionally, the axes for NMDS are totally arbitrary, so axis scaling does not matter and data can be rotated/reflected about axes and the NMDS is still the same euc_nmds$points #Extract points from NMDS
+
+```{r}
+euc_frame <- data.frame(euc_nmds$points) %>% 
+  rownames_to_column(var = "TimeofDay") %>% 
+  separate(TimeofDay, into = c("excess", "TimeofDay"), sep = "_") %>% 
+  select(-excess) %>% 
+  data.frame
+ 
+## Plotting euclidean distance NMDS
+ggplot(euc_frame,aes(x = MDS1, y = MDS2, fill = TimeofDay)) +
+  geom_point(size = 4, shape = 21, color = "black", aes(fill = TimeofDay)) +
+  scale_fill_brewer(palette = "Dark2") +
+  theme_bw() +
+  labs(x = "NMDS 1", y = "NMDS 2", title = "Euclidean Distance NMDS")
+```
+

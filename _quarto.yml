@@ -40,10 +40,10 @@ website:
         contents:
           - basic-plots.qmd
           - customize-plots.qmd
-#      - section: "7. Analysis of complete datasets"
-#        contents:
-#          - lab-microbiology.qmd # growth curve
-#          - lab-oceanographic.qmd # depth profiles - nutrient
+      - section: "7. Data analysis"
+        contents:
+          - clustering.qmd
+          - correlation_linearregression.qmd
 #          - lab-qualitativetable.qmd
 #      - section: "8. What's next?"
 #        contents:

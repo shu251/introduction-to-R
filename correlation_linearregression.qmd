@@ -1,0 +1,203 @@
+---
+title: "Correlation & Linear regression"
+editor: visual
+---
+
+# Why?
+
+1.  Explore association between two variables, assign a strength to this relationship.
+
+2.  Are variables changing or shifting in the same direction as one another (positive) or in opposition (negative)?
+
+3.  Be careful of assuming causal relationships. Causation != correlation.
+
+4.  Acknowledge what is not measured or observed
+
+# Data import & R environment
+
+```{r}
+library(tidyverse)
+```
+
+# Linear regression
+
+When we have two continuous variables we can consider a linear regression. The amount of change in variable A that is associated with change in variable B is considered the "covariance of variables" (i.e., how do 2 variables shift or change together?). A simple linear regression should include an independent variable and a dependent variable. Where a Pearson correlation is the linear relationship between two variables. Data needs to be normally distributed.
+
+*r* = 0 would indicate no relationship exists, specifically no linear relationship exists. As the value of *r* increases to \|1\|, the relationship is stronger.
+
+## With example data
+
+Let's explore how to run base code for linear regressions in R.
+
+```{r}
+# install.packages("palmerpenguins")
+library(palmerpenguins)
+data(package = "palmerpenguins") # Get information on it
+```
+
+Explore some relationships that might exist in this data
+
+```{r}
+penguins %>% 
+  group_by(species) %>% 
+  summarize(across(where(is.numeric), mean, na.rm = TRUE)) %>% 
+  head
+```
+
+```{r}
+penguins %>% 
+  ggplot(aes(x = body_mass_g, y = flipper_length_mm)) +
+    geom_point()
+```
+
+Re-plot, but show species.
+
+```{r}
+
+```
+
+Are our variable normally distributed?
+
+```{r}
+# hist(penguins$flipper_length_mm)
+# hist(penguins$body_mass_g)
+```
+
+Are things correlated?
+
+```{r}
+cor.test(penguins$body_mass_g, penguins$flipper_length_mm, method = "pearson")
+```
+
+p-value: probability the true correlation is not equal to 0. There is a correlation of some kind.
+
+With 95% confidence, the correlation value is between 0.84 and 0.89. We estimate it to be 0.87
+
+```{r}
+cor.test(penguins$body_mass_g, penguins$flipper_length_mm, method = "spearman")
+```
+
+Again, a strong correlation is shown. p-value is significant (low) and rho is closer to 1, so there appears to be a strong correlation to explore.
+
+## Regressions in R
+
+Another method to compare between two sets of variables in our data. When we see a strong correlation (from above), we can use the linear model function to explore this relationship further.
+
+```{r}
+?lm()
+```
+
+`lm(response ~ terms, data = df)`
+
+How well does `terms` explain `response` in our data(df)?
+
+Could also be viewed as `lm(y ~ x, data = df)`. How well does `x` explain `y`?
+
+For different sizes of penguins, how well does their body mass (in grams) explain the flipper length observed (in mm)?
+
+```{r}
+regression_output <- lm(flipper_length_mm ~ body_mass_g, data = penguins)
+
+# View results:
+summary(regression_output)
+```
+
+Explanation: *Residuals*: distance of each point from model output or prediction
+
+*Coeffienct*: definitions of our relationship - where `Estimate` reports the slop and intercept of the linear regression (y = mx + b). Therefore:
+
+*flipper length = (0.0152 x body mass) + 136.7*
+
+### Diagnose linear model output
+
+We can explore the results visually. The output from `plot()` provides a lot of plots to diagnose our lm output.
+
+```{r}
+plot(regression_output)
+```
+
+Fitted vs. residuals - does the linearity assumption hold? When the red line is close to the dashed line, the mean residual at each point is close to 0. When we look across the x-axis, if the trends are similarly spread out, we can check of homoskedasticity as true. We will see extreme outliers at the ends of the plots here as well.
+
+*In our penguin dataset, there are violations of the linearity assumption.*
+
+Residulas vs. Leverage - this will help us determine the influential data points for the model.
+
+*TO DO*
+
+-   Add interaction terms
+
+-   Show use of `broom`
+
+# Spearman Rank
+
+*Spearman correlations* are better for evaluating associations that are nonlinear, but are continuously decreasing or increasing (monotonic). THEN by introducing the "rank", the analysis shifts into being linear. By changing the scale to produce a ranking of the data or coefficients, Spearman is better suited to deal with outliers, we can input non-normal data, and is used for ordinations.
+
+```{r}
+#| echo: false
+asv_table <- read.delim(file = "r-intro-docs/asv-table.txt")
+metadata <- read.delim(file = "r-intro-docs/metadata.txt")
+```
+
+Explore the data
+
+```{r}
+hist((asv_table |> 
+  select_if(is.numeric) |> 
+  gather(cols, value))$value)
+```
+
+```{r}
+library(compositions)
+```
+
+```{r}
+colnames(asv_table)
+# Select only ASV IDs and sample names from Gorda Ridge. Transform the data.
+pre_df <- asv_table |> 
+  select(FeatureID, starts_with("GordaRidge")) |> 
+  column_to_rownames(var = "FeatureID")
+# class(pre_df)
+head(pre_df)
+# glimpse(pre_df)
+# rownames(pre_df)
+```
+
+
+Perform center log ratio analysis
+```{r}
+# ?clr()
+gorda_clr <- as.data.frame(compositions::clr((pre_df)))
+
+# glimpse(gorda_clr)
+
+# median(gorda_clr$GordaRidge_BSW081_sterivex_2019)
+```
+
+Compute spearman correlation
+```{r}
+spear_gorda <- cor(t(gorda_clr), method = "spearman")
+```
+
+### Process Spearman correlation results
+```{r}
+spear_gorda_df <- as.data.frame(spear_gorda) |> 
+  rownames_to_column(var = "PAIR_A") |> 
+    pivot_longer(cols = c(-PAIR_A), names_to = "PAIR_B", values_to = "VALUE")
+
+head(spear_gorda_df)
+
+hist(spear_gorda_df$VALUE)
+```
+
+```{r}
+filtered_spear_cor <- spear_gorda_df %>% 
+  filter((VALUE > 0.75 | VALUE < -0.75)) %>% 
+  filter(!(PAIR_A == PAIR_B))
+glimpse(filtered_spear_cor)
+```
+
+#### Add in taxonomic information
+```{r}
+# head(asv_table)
+```
+

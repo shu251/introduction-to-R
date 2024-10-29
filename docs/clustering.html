@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.353">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Intro to R - Cluster analysis</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./correlation_linearregression.html" rel="next">
+<link href="./customize-plots.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./clustering.html">7. Data analysis</a></li><li class="breadcrumb-item"><a href="./clustering.html">Cluster analysis</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Intro to R</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
+ <span class="menu-text">1. To do ahead of time</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./install.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Installing R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./code-of-conduct.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Code of conduct</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./benchmarks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Benchmarks</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+ <span class="menu-text">2. Introduction</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./file-location.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">File structure</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./r-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">What is ‘R’?</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./rstudio-orientation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">RStudio</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+ <span class="menu-text">3. Coding in R</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./basic-syntax.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Basic syntax</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data-types.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data classes &amp; data frames</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./packages-libraries.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R packages</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+ <span class="menu-text">4. Manipulations of data</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./importing-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data import</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./exporting-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Export data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tidyverse-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tidyverse</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
+ <span class="menu-text">5. Data wrangling</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./StarWars.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Star Wars data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./growthcurve.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Growth curve</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./asvdata.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ASV data</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false">
+ <span class="menu-text">6. Data visualization</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./basic-plots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Basic plots</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./customize-plots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Customize plots</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true">
+ <span class="menu-text">7. Data analysis</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./clustering.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Cluster analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./correlation_linearregression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Correlation &amp; Linear regression</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#why" id="toc-why" class="nav-link active" data-scroll-target="#why">Why?</a>
+  <ul class="collapse">
+  <li><a href="#ordinations" id="toc-ordinations" class="nav-link" data-scroll-target="#ordinations">Ordinations</a></li>
+  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background">Background</a></li>
+  </ul></li>
+  <li><a href="#import-data" id="toc-import-data" class="nav-link" data-scroll-target="#import-data">Import data</a>
+  <ul class="collapse">
+  <li><a href="#set-up-preliminary-environment" id="toc-set-up-preliminary-environment" class="nav-link" data-scroll-target="#set-up-preliminary-environment">Set up preliminary environment</a></li>
+  </ul></li>
+  <li><a href="#evidence-of-compositionality-diagnostic" id="toc-evidence-of-compositionality-diagnostic" class="nav-link" data-scroll-target="#evidence-of-compositionality-diagnostic">Evidence of compositionality (diagnostic)</a></li>
+  <li><a href="#data-transformations" id="toc-data-transformations" class="nav-link" data-scroll-target="#data-transformations">Data transformations</a>
+  <ul class="collapse">
+  <li><a href="#isometric" id="toc-isometric" class="nav-link" data-scroll-target="#isometric">Isometric</a></li>
+  <li><a href="#center-log-ratio" id="toc-center-log-ratio" class="nav-link" data-scroll-target="#center-log-ratio">Center log ratio</a></li>
+  <li><a href="#pca" id="toc-pca" class="nav-link" data-scroll-target="#pca">PCA</a></li>
+  </ul></li>
+  <li><a href="#pcoa" id="toc-pcoa" class="nav-link" data-scroll-target="#pcoa">PCoA</a>
+  <ul class="collapse">
+  <li><a href="#distance-matrix" id="toc-distance-matrix" class="nav-link" data-scroll-target="#distance-matrix">Distance matrix</a></li>
+  <li><a href="#euclidean" id="toc-euclidean" class="nav-link" data-scroll-target="#euclidean">Euclidean</a></li>
+  <li><a href="#nmds" id="toc-nmds" class="nav-link" data-scroll-target="#nmds">NMDS</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Cluster analysis</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="why" class="level1">
+<h1>Why?</h1>
+<ol type="1">
+<li><p>Too many dimensions</p></li>
+<li><p>Need to sort and group</p></li>
+<li><p>Test a hypothesis | Explore hypotheses</p></li>
+</ol>
+<section id="ordinations" class="level2">
+<h2 class="anchored" data-anchor-id="ordinations">Ordinations</h2>
+<p><em>Ordinations</em> - taking complex data and working to present it in 2-3 dimensions, we are placing a new coordinate system (fitting) in place. Principle Component Analysis (PCA) works to generate this coordinate system that is most appropriate for your data. Evaluated based on the eigen decomposition from sample covariance matrix. (Eigenvectors = principle axes)</p>
+</section>
+<section id="background" class="level2">
+<h2 class="anchored" data-anchor-id="background">Background</h2>
+<p><strong>References / recommended reading:</strong></p>
+<ol type="1">
+<li><p>THIS TUTORIAL: Coenen AR, Hu SK, Luo E, Muratore D, Weitz JS. A Primer for Microbiome Time-Series Analysis. Front Genet. 2020 Apr 21;11:310.</p></li>
+<li><p>Gloor, G. B., Macklaim, J. M., Pawlowsky-Glahn, V. &amp; Egozcue, J. J. Microbiome Datasets Are Compositional: And This Is Not Optional. Front. Microbiol. 8, 57–6 (2017).</p></li>
+<li><p>Weiss, S. et al.&nbsp;Normalization and microbial differential abundance strategies depend upon data characteristics. Microbiome 5, 1–18 (2017).</p></li>
+<li><p>McMurdie, P. J. &amp; Holmes, S. Waste Not, Want Not: Why Rarefying Microbiome Data Is Inadmissible. PLoS Comput Biol 10, e1003531 (2014).</p></li>
+<li><p>Silverman JD, Washburne AD, Mukherjee S, David LA. A phylogenetic transform enhances analysis of compositional microbiota data. eLife. 2017 Feb 15;6:e21887.</p></li>
+</ol>
+</section>
+</section>
+<section id="import-data" class="level1">
+<h1>Import data</h1>
+<section id="set-up-preliminary-environment" class="level2">
+<h2 class="anchored" data-anchor-id="set-up-preliminary-environment">Set up preliminary environment</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'ggplot2' was built under R version 4.2.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'tidyr' was built under R version 4.2.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'readr' was built under R version 4.2.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'dplyr' was built under R version 4.2.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'stringr' was built under R version 4.2.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.1     ✔ tibble    3.2.1
+✔ lubridate 1.9.3     ✔ tidyr     1.3.1
+✔ purrr     1.0.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(compositions)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'compositions' was built under R version 4.2.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Welcome to compositions, a package for compositional data analysis.
+Find an intro with "? compositions"
+
+
+Attaching package: 'compositions'
+
+The following objects are masked from 'package:stats':
+
+    anova, cor, cov, dist, var
+
+The following object is masked from 'package:graphics':
+
+    segments
+
+The following objects are masked from 'package:base':
+
+    %*%, norm, scale, scale.default</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="evidence-of-compositionality-diagnostic" class="level1">
+<h1>Evidence of compositionality (diagnostic)</h1>
+<p>Do we need to transform our data? We can use the estimate covariance matrix</p>
+<p>Prep data frame</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># dim(asv_table)</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># head(asv_table)</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Random subset 1000 rows</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>asv_df <span class="ot">&lt;-</span> asv_table <span class="sc">|&gt;</span> </span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_n</span>(<span class="dv">1000</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_to_rownames</span>(<span class="at">var =</span> <span class="st">"FeatureID"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>Taxon)</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="co"># dim(asv_df)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><code>%*%</code> = matrix multiplication sign in R; used here to multiply OTU/ASV data matrix to itself to estimate covariance.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>covariance <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(asv_df) <span class="sc">%*%</span> <span class="fu">t</span>(asv_df)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>det_output <span class="ot">&lt;-</span> <span class="fu">det</span>(covariance)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>det_output</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0</code></pre>
+</div>
+</div>
+<p>The determinant of the covariance matrix (what we just calculated) is equivalent to the product of the proportion of variance explained by every PCA axis. If the determinant is 0, that means there is an axis which explains 0 variance that we can’t separate from the other axes. Therefore, data need to be transformed to be suitable for PCA.</p>
+</section>
+<section id="data-transformations" class="level1">
+<h1>Data transformations</h1>
+<p>Another approach to PCA ordination w/Compositional Data: Log-Ratio Transformations</p>
+<ul>
+<li><p><strong>Log-ratio</strong> - combat issues with variance and distribution, all variables will be transformed to be relative to the abundance of an arbitrary focal taxon. Divide all the count data by the abundance of a focal taxa and take the natural log. So why do this? This is one way we can transform our amplicon data to be more appropriate/more suitable for many statistical approaches.</p></li>
+<li><p><strong>ilr</strong> - isometric log ratio</p></li>
+<li><p><strong>clr</strong> - centered log ratio, values will be centered around the geometric average</p></li>
+</ul>
+<section id="isometric" class="level2">
+<h2 class="anchored" data-anchor-id="isometric">Isometric</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>gorda_ilr <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(compositions<span class="sc">::</span><span class="fu">ilr</span>(<span class="fu">t</span>(asv_df)))</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>cov_ilr <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(gorda_ilr) <span class="sc">%*%</span> <span class="fu">t</span>(gorda_ilr)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>det_ilr <span class="ot">&lt;-</span> <span class="fu">det</span>(cov_ilr)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>det_ilr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3.865625e+40</code></pre>
+</div>
+</div>
+<p><code>prcomp()</code> - Principle Component Analysis. Input is a data matrix and results are an R class “prcomp”.</p>
+<p>Explore the covariance after doing the transformation.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>ilr_pca <span class="ot">&lt;-</span> <span class="fu">prcomp</span>(gorda_ilr)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(ilr_pca)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "prcomp"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>ilr_pca<span class="sc">$</span>sdev </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 4.943846e+00 4.598564e+00 4.109057e+00 3.786362e+00 3.491110e+00
+ [6] 3.403491e+00 3.330047e+00 3.148878e+00 3.065696e+00 3.008236e+00
+[11] 2.991925e+00 2.881199e+00 2.785096e+00 2.739541e+00 2.602067e+00
+[16] 2.191981e+00 2.084322e+00 2.494195e-15</code></pre>
+</div>
+</div>
+<p><em>follow up reading on prcomp</em></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visual representation - screeplot</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>lograt_variances <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(ilr_pca<span class="sc">$</span>sdev<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span><span class="fu">sum</span>(ilr_pca<span class="sc">$</span>sdev<span class="sc">^</span><span class="dv">2</span>)) <span class="sc">%&gt;%</span> <span class="co">#Extract axes</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Format to plot</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="at">PercVar =</span> <span class="st">'ilr_pca$sdev^2/sum(ilr_pca$sdev^2)'</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>(<span class="at">var =</span> <span class="st">"PCaxis"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>  data.frame</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot screeplot</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(lograt_variances, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.numeric</span>(PCaxis), <span class="at">y =</span> PercVar)) <span class="sc">+</span> </span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">fill =</span> <span class="st">"grey"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">10</span>),</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_blank</span>()) <span class="sc">+</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"PC axis"</span>, <span class="at">y =</span> <span class="st">"% Variance"</span>, <span class="at">title =</span> <span class="st">"Log-Ratio PCA Screeplot"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="clustering_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="center-log-ratio" class="level2">
+<h2 class="anchored" data-anchor-id="center-log-ratio">Center log ratio</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>gorda_clr <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(compositions<span class="sc">::</span><span class="fu">clr</span>(<span class="fu">t</span>(asv_df)))</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>cov_clr <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(gorda_clr) <span class="sc">%*%</span> <span class="fu">t</span>(gorda_clr)</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>det_clr <span class="ot">&lt;-</span> <span class="fu">det</span>(cov_clr)</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>det_clr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3.865625e+40</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>clr_pca <span class="ot">&lt;-</span> <span class="fu">prcomp</span>(gorda_clr)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>clr_variances <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(clr_pca<span class="sc">$</span>sdev<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span><span class="fu">sum</span>(clr_pca<span class="sc">$</span>sdev<span class="sc">^</span><span class="dv">2</span>)) <span class="sc">%&gt;%</span> <span class="co">#Extract axes</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Format to plot</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="at">PercVar =</span> <span class="st">'clr_pca$sdev^2/sum(clr_pca$sdev^2)'</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>(<span class="at">var =</span> <span class="st">"PCaxis"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>  data.frame</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot screeplot</span></span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(clr_variances, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.numeric</span>(PCaxis), <span class="at">y =</span> PercVar)) <span class="sc">+</span> </span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">fill =</span> <span class="st">"grey"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">10</span>),</span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_blank</span>()) <span class="sc">+</span></span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"PC axis"</span>, <span class="at">y =</span> <span class="st">"% Variance"</span>, <span class="at">title =</span> <span class="st">"Log-Ratio PCA Screeplot"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="clustering_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="pca" class="level2">
+<h2 class="anchored" data-anchor-id="pca">PCA</h2>
+<p>Lets pick one. My favorite is always the clr.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(clr_pca)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "prcomp"</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize the PCA</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="co"># clr_pca$</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>clr_pca<span class="sc">$</span>x <span class="co">#View PC values</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                                PC1       PC2          PC3
+GordaRidge_Vent039_SUPRS1_2019          -7.34755619  2.038825  -3.55611685
+GordaRidge_Vent040_SUPRS2_2019          -9.78346635  2.460521  -0.77136671
+GordaRidge_BSW081_sterivex_2019          2.07962514 -4.778558 -10.76437040
+GordaRidge_BSW056_sterivex_2019_REPb     2.22737694 -1.902767   0.10108314
+GordaRidge_Vent088_SUPRS3_2019           3.87605353  3.451755   1.36495536
+GordaRidge_Plume001_sterivex_2019_REPa   6.06296965  9.489873   2.78762744
+GordaRidge_Plume001_sterivex_2019_REPb   3.75146642  5.235226  -0.32599025
+GordaRidge_Plume036_sterivex_2019_REPb   0.99001560 -0.296212  -3.59219046
+GordaRidge_Plume096_sterivex_2019        2.97967776 -6.241404  -4.18477088
+GordaRidge_Vent105_SUPRS9_2019           0.07257623 -5.988742   2.35039473
+GordaRidge_Vent041_SUPRS3_2019         -12.14860389  3.521967  -0.16983279
+GordaRidge_Vent086_SUPRS1_2019           3.64951152  3.100322  -0.10068334
+GordaRidge_Vent107_SUPRS11_2019          1.06017235  3.156332   0.01368227
+GordaRidge_Vent009_SUPRS1_2019           0.52621293 -3.979897   1.42542017
+GordaRidge_Vent011_SUPRS3_2019          -2.87690809 -5.211351   8.50704556
+GordaRidge_Vent106_SUPRS10_2019          2.76565484 -1.177457   0.16723692
+GordaRidge_Vent010_SUPRS2_2019           0.65328013 -5.800180   6.11206388
+GordaRidge_Vent087_SUPRS2_2019           1.46194145  2.921749   0.63581220
+                                              PC4        PC5         PC6
+GordaRidge_Vent039_SUPRS1_2019          0.3964546 -2.2023886  2.02626438
+GordaRidge_Vent040_SUPRS2_2019         -0.3044724 -1.0262251  0.63462447
+GordaRidge_BSW081_sterivex_2019        -1.3502500  1.5029580  0.09305439
+GordaRidge_BSW056_sterivex_2019_REPb   -5.6220145 -0.2051466  3.25144437
+GordaRidge_Vent088_SUPRS3_2019          5.1157454  0.5323643 -2.14997075
+GordaRidge_Plume001_sterivex_2019_REPa -6.9670423 -2.2679318  1.23433787
+GordaRidge_Plume001_sterivex_2019_REPb -3.4624252 -2.3323100  1.03280187
+GordaRidge_Plume036_sterivex_2019_REPb  2.4892839 -6.8135809 -0.73780267
+GordaRidge_Plume096_sterivex_2019      -3.3515187  3.6447424 -0.62117444
+GordaRidge_Vent105_SUPRS9_2019          3.7606049 -7.2144285  1.66918307
+GordaRidge_Vent041_SUPRS3_2019         -1.8105847  3.3349188 -0.59369830
+GordaRidge_Vent086_SUPRS1_2019          7.1864815  6.0848226  8.37502417
+GordaRidge_Vent107_SUPRS11_2019         3.0574716  1.3391157 -9.09467698
+GordaRidge_Vent009_SUPRS1_2019          0.4150761 -1.7996890  0.01737771
+GordaRidge_Vent011_SUPRS3_2019         -1.7174662  2.3221287  0.71074433
+GordaRidge_Vent106_SUPRS10_2019        -1.8033439  4.1655997 -3.90266846
+GordaRidge_Vent010_SUPRS2_2019         -0.5901349  0.5158007 -0.78328821
+GordaRidge_Vent087_SUPRS2_2019          4.5581348  0.4192496 -1.16157683
+                                              PC7        PC8        PC9
+GordaRidge_Vent039_SUPRS1_2019         -0.6496601  1.2116813  1.0316595
+GordaRidge_Vent040_SUPRS2_2019         -0.8123972 -3.9730101  2.3368197
+GordaRidge_BSW081_sterivex_2019         1.6495161 -1.2982620  1.8034577
+GordaRidge_BSW056_sterivex_2019_REPb   -9.7037835 -2.3041612 -4.1565779
+GordaRidge_Vent088_SUPRS3_2019          0.8954461 -4.8253730 -6.9645840
+GordaRidge_Plume001_sterivex_2019_REPa  3.8530669  1.1980786  1.3538730
+GordaRidge_Plume001_sterivex_2019_REPb  1.2552959  0.5515430  0.4533167
+GordaRidge_Plume036_sterivex_2019_REPb -2.9588041 -0.1674855  2.9099127
+GordaRidge_Plume096_sterivex_2019       4.9698549 -1.4472277 -1.5997091
+GordaRidge_Vent105_SUPRS9_2019          3.4796731  4.0959930 -2.5632325
+GordaRidge_Vent041_SUPRS3_2019          2.1123551  3.2190234 -4.7821407
+GordaRidge_Vent086_SUPRS1_2019         -1.4275844  3.4147165  1.8797009
+GordaRidge_Vent107_SUPRS11_2019        -3.7286760  2.8564454  2.1853732
+GordaRidge_Vent009_SUPRS1_2019         -0.3800148  1.5659092 -0.4321429
+GordaRidge_Vent011_SUPRS3_2019          0.8654687 -3.5576759  5.4628419
+GordaRidge_Vent106_SUPRS10_2019        -1.3328842  4.3215328  1.0346954
+GordaRidge_Vent010_SUPRS2_2019         -0.2395470  1.0767421 -1.0489931
+GordaRidge_Vent087_SUPRS2_2019          2.1526746 -5.9384699  1.0957297
+                                              PC10       PC11          PC12
+GordaRidge_Vent039_SUPRS1_2019          0.01535337 -1.1634965  0.2235986343
+GordaRidge_Vent040_SUPRS2_2019         -1.95647032 -0.9940588 -1.9643917302
+GordaRidge_BSW081_sterivex_2019         5.75409064 -1.8446211  4.2643158379
+GordaRidge_BSW056_sterivex_2019_REPb    1.20936967 -1.2942677 -2.4569071568
+GordaRidge_Vent088_SUPRS3_2019         -0.77754544 -0.3950154  3.1214387806
+GordaRidge_Plume001_sterivex_2019_REPa  1.08282457  0.8275677  0.2959269921
+GordaRidge_Plume001_sterivex_2019_REPb  0.64783048 -0.5440563  0.0002457426
+GordaRidge_Plume036_sterivex_2019_REPb -5.33213279  5.0047730  2.7424122868
+GordaRidge_Plume096_sterivex_2019      -3.89174671  4.2046086 -5.8869335105
+GordaRidge_Vent105_SUPRS9_2019          1.71076984 -4.0672039 -3.3636827701
+GordaRidge_Vent041_SUPRS3_2019          0.58113298  1.7661330  1.4729487287
+GordaRidge_Vent086_SUPRS1_2019         -0.01214043  1.6306516 -0.8921549723
+GordaRidge_Vent107_SUPRS11_2019         4.48645464  2.0366114 -4.1584271089
+GordaRidge_Vent009_SUPRS1_2019          0.17666623  0.4603721  0.4429477192
+GordaRidge_Vent011_SUPRS3_2019          1.28502969 -0.8285966  0.6749658369
+GordaRidge_Vent106_SUPRS10_2019        -6.51068832 -6.6851995  2.4088082159
+GordaRidge_Vent010_SUPRS2_2019          1.48331167  4.6210628  4.5566181824
+GordaRidge_Vent087_SUPRS2_2019          0.04789023 -2.7352643 -1.4817297087
+                                              PC13       PC14         PC15
+GordaRidge_Vent039_SUPRS1_2019         -5.68665638  2.1787230  6.535366012
+GordaRidge_Vent040_SUPRS2_2019         -3.38188958 -3.5948384 -5.932214804
+GordaRidge_BSW081_sterivex_2019         0.98044495 -1.2518574 -1.268814385
+GordaRidge_BSW056_sterivex_2019_REPb    1.48196913  0.9411710  0.006596466
+GordaRidge_Vent088_SUPRS3_2019         -1.40741855 -4.5512525  2.119703180
+GordaRidge_Plume001_sterivex_2019_REPa -0.07556898 -0.9599484 -0.656486651
+GordaRidge_Plume001_sterivex_2019_REPb -0.46728117  0.6884792  0.311408619
+GordaRidge_Plume036_sterivex_2019_REPb  4.12943434 -0.2828451  0.385460907
+GordaRidge_Plume096_sterivex_2019      -0.99076484 -0.1619406  1.125446552
+GordaRidge_Vent105_SUPRS9_2019          1.33330724 -1.2855604 -1.280996955
+GordaRidge_Vent041_SUPRS3_2019          5.21314977  1.2292350 -0.215399263
+GordaRidge_Vent086_SUPRS1_2019          0.16636207 -0.9491026 -0.851348000
+GordaRidge_Vent107_SUPRS11_2019        -0.34427500 -1.1525529  0.376080682
+GordaRidge_Vent009_SUPRS1_2019         -1.00498005  0.7772886  0.483868271
+GordaRidge_Vent011_SUPRS3_2019          3.09214727 -2.8832234  3.824122932
+GordaRidge_Vent106_SUPRS10_2019        -0.40549871  0.1852621 -0.699787996
+GordaRidge_Vent010_SUPRS2_2019         -4.58670531  3.3457571 -3.172279201
+GordaRidge_Vent087_SUPRS2_2019          1.95422379  7.7272056 -1.090726366
+                                              PC16         PC17          PC18
+GordaRidge_Vent039_SUPRS1_2019          1.63642664 -0.248209627 -8.612543e-16
+GordaRidge_Vent040_SUPRS2_2019         -0.53825194 -0.152872328  4.749165e-16
+GordaRidge_BSW081_sterivex_2019         0.43835951 -0.306146844 -5.943560e-15
+GordaRidge_BSW056_sterivex_2019_REPb    0.99398728 -0.229467133 -2.705265e-15
+GordaRidge_Vent088_SUPRS3_2019          0.06397473 -0.006958601  2.531431e-15
+GordaRidge_Plume001_sterivex_2019_REPa  2.37638326 -3.383837370 -5.453178e-16
+GordaRidge_Plume001_sterivex_2019_REPb -4.43748953  6.013834409  1.233533e-15
+GordaRidge_Plume036_sterivex_2019_REPb  0.92873652  0.198739865  2.320120e-15
+GordaRidge_Plume096_sterivex_2019       0.40614102  0.299002057  4.050938e-16
+GordaRidge_Vent105_SUPRS9_2019          1.83102522  0.745362073 -4.900992e-15
+GordaRidge_Vent041_SUPRS3_2019         -0.27152441  0.099293810 -8.566571e-15
+GordaRidge_Vent086_SUPRS1_2019          0.05361615  0.033228290  4.273961e-15
+GordaRidge_Vent107_SUPRS11_2019         0.32989488  0.180694750  6.544603e-16
+GordaRidge_Vent009_SUPRS1_2019         -6.63692746 -4.731513818  1.486228e-15
+GordaRidge_Vent011_SUPRS3_2019          0.11488334  0.717191197  3.125682e-15
+GordaRidge_Vent106_SUPRS10_2019         0.60879738  0.078514800  3.747906e-15
+GordaRidge_Vent010_SUPRS2_2019          1.75224203  1.378743505  1.244700e-15
+GordaRidge_Vent087_SUPRS2_2019          0.34972537 -0.685599035  3.061172e-15</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>pca_clr_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(clr_pca<span class="sc">$</span>x) <span class="sc">%&gt;%</span> </span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>(<span class="at">var =</span> <span class="st">"SAMPLE"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(metadata)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Joining with `by = join_by(SAMPLE)`</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># head(pca_clr_df)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Make PCA plot</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot PCA</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(pca_clr_df) <span class="sc">+</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> PC1, <span class="at">y =</span> PC2, <span class="at">fill =</span> VENT), <span class="at">size =</span> <span class="dv">4</span>, <span class="at">shape =</span> <span class="dv">21</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="fu">paste0</span>(<span class="st">'PC2 '</span>, <span class="fu">round</span>(lograt_variances[<span class="dv">2</span>,<span class="dv">2</span>]<span class="sc">*</span><span class="dv">100</span>,<span class="dv">2</span>),<span class="st">'%'</span>)) <span class="sc">+</span> <span class="co">#Extract y axis value from variance</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="fu">paste0</span>(<span class="st">'PC1 '</span>, <span class="fu">round</span>(lograt_variances[<span class="dv">1</span>,<span class="dv">2</span>]<span class="sc">*</span><span class="dv">100</span>,<span class="dv">2</span>),<span class="st">'%'</span>)) <span class="sc">+</span> <span class="co">#Extract x axis value from variance</span></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">'Dark2'</span>) <span class="sc">+</span></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">'Centered Log-Ratio PCA Ordination'</span>) <span class="sc">+</span></span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>(<span class="at">ratio =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in RColorBrewer::brewer.pal(n, pal): n too large, allowed maximum for palette Dark2 is 8
+Returning the palette you asked for with that many colors</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="clustering_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+</section>
+<section id="pcoa" class="level1">
+<h1>PCoA</h1>
+<p>PCoA is doing a PCA on a distance matrix constructed from the data. We then need a distance matrix. Different distance metrics emphasize separate attributes/factors in microbial community comparison.</p>
+<section id="distance-matrix" class="level2">
+<h2 class="anchored" data-anchor-id="distance-matrix">Distance matrix</h2>
+<p>If we want to prioritize differences in presence/absence between samples - use Jaccard. This can be estimated from untransformed count data, and does a pretty good job considering rare taxa. Another is unweighted Unifrac that includes phylogenetic relatedness (see last week’s lesson).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vegan)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: permute</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: lattice</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'lattice' was built under R version 4.2.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>This is vegan 2.6-4</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ape)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'ape' was built under R version 4.2.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'ape'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:compositions':
+
+    balance</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:dplyr':
+
+    where</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>jac_dmat <span class="ot">&lt;-</span> <span class="fu">vegdist</span>(<span class="fu">t</span>(asv_df),<span class="at">method=</span><span class="st">"jaccard"</span>) <span class="co"># Jaccard dist metric</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>pcoa_jac <span class="ot">&lt;-</span> ape<span class="sc">::</span><span class="fu">pcoa</span>(jac_dmat) <span class="co">#perform PCoA</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We can use the screeplot to determine if we are going in the right direction.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>jac_variances <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(pcoa_jac<span class="sc">$</span>values<span class="sc">$</span>Relative_eig) <span class="sc">%&gt;%</span> </span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="at">PercVar =</span> <span class="st">'pcoa_jac.values.Relative_eig'</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>(<span class="at">var =</span> <span class="st">"PCaxis"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>  data.frame</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(jac_variances, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.numeric</span>(PCaxis), <span class="at">y =</span> PercVar)) <span class="sc">+</span> </span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">fill =</span> <span class="st">"grey"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">10</span>),</span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_blank</span>()) <span class="sc">+</span></span>
+<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"PC axis"</span>, <span class="at">y =</span> <span class="st">"% Variance"</span>, <span class="at">title =</span> <span class="st">"Log-Ratio PCoA Screeplot"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="clustering_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract variances from pcoa, from jaccard calculated dist. metric</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="do">## where samples fall among axes</span></span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>pcoa_jac_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(pcoa_jac<span class="sc">$</span>vectors) <span class="sc">%&gt;%</span> </span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>(<span class="at">var =</span> <span class="st">"TimeofDay"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(TimeofDay, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"excess"</span>, <span class="st">"TimeofDay"</span>), <span class="at">sep =</span> <span class="st">"_"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>excess) <span class="sc">%&gt;%</span> </span>
+<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a>  data.frame</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Expected 2 pieces. Additional pieces discarded in 18 rows [1, 2, 3, 4, 5, 6, 7,
+8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18].</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(pcoa_jac_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  TimeofDay      Axis.1     Axis.2       Axis.3       Axis.4       Axis.5
+1   Vent039 -0.52492059 -0.1536045  0.113692139  0.006667513  0.035742950
+2   Vent040 -0.49181112 -0.1149200  0.004884159  0.032189909 -0.003526562
+3    BSW081  0.10853811  0.1189259  0.558800724 -0.011911022 -0.167748866
+4    BSW056  0.08748897  0.1387744 -0.028790312  0.098258306 -0.136630115
+5   Vent088  0.18004918 -0.1603624 -0.144524285 -0.350573747 -0.084914185
+6  Plume001  0.26376205 -0.3999651 -0.018146584  0.305121582  0.081106838
+       Axis.6       Axis.7       Axis.8       Axis.9      Axis.10     Axis.11
+1 -0.01544891 -0.004433228  0.030720115 -0.019271666 -0.009234801  0.02814906
+2 -0.01142033 -0.028762993  0.004692959  0.016340663  0.018732244  0.01726439
+3 -0.12971769 -0.011689359 -0.053553937 -0.108859507 -0.229209617 -0.22837279
+4  0.06725256 -0.169650936  0.471033793 -0.083252615  0.209224798 -0.12967351
+5 -0.02045929 -0.023329116 -0.009141787 -0.116632751 -0.001468349  0.02776290
+6 -0.07787861 -0.035930561 -0.045017348  0.004991304 -0.015618458  0.02484168
+       Axis.12      Axis.13      Axis.14      Axis.15      Axis.16
+1 -0.051129436  0.002442582  0.272374647 -0.112912506  0.098760100
+2  0.007737317  0.003573194 -0.015728268  0.040455692 -0.198302261
+3 -0.005367321 -0.012944735 -0.024387416  0.002830477 -0.009529942
+4  0.087833422  0.020801847  0.005782566 -0.008530959  0.018583874
+5  0.022429947 -0.366930423  0.066602133  0.053671973 -0.020411635
+6 -0.000847262  0.003692100  0.008723253  0.062197523  0.204779322
+        Axis.17
+1  0.0911223335
+2 -0.2296423696
+3 -0.0126394766
+4 -0.0064544406
+5 -0.0009404165
+6 -0.1561933078</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select eigen values from dataframe, round to 4 places. These will be the axes for the 3-D plot</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract variances from previously generated dataframe, round and multiply by 100 for plotting</span></span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>eigenvalues<span class="ot">&lt;-</span><span class="fu">round</span>(jac_variances[,<span class="dv">2</span>], <span class="at">digits =</span> <span class="dv">4</span>)<span class="sc">*</span><span class="dv">100</span></span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotly - 3-D</span></span>
+<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a><span class="co"># plotly::plot_ly(pcoa_jac_df, type='scatter3d', mode='markers',</span></span>
+<span id="cb51-7"><a href="#cb51-7" aria-hidden="true" tabindex="-1"></a><span class="co">#         x=~Axis.2,y=~Axis.3,z=~Axis.1,colors=~brewer.pal(6,'Set1'),color=~TimeofDay)%&gt;%</span></span>
+<span id="cb51-8"><a href="#cb51-8" aria-hidden="true" tabindex="-1"></a><span class="co">#   layout(font=list(size=18),</span></span>
+<span id="cb51-9"><a href="#cb51-9" aria-hidden="true" tabindex="-1"></a><span class="co">#          title='PCoA Jaccard Distance',</span></span>
+<span id="cb51-10"><a href="#cb51-10" aria-hidden="true" tabindex="-1"></a><span class="co">#          scene=list(xaxis=list(title=paste0('Co 2 ',eigenvalues[2],'%'),</span></span>
+<span id="cb51-11"><a href="#cb51-11" aria-hidden="true" tabindex="-1"></a><span class="co">#                                showticklabels=FALSE,zerolinecolor='black'),</span></span>
+<span id="cb51-12"><a href="#cb51-12" aria-hidden="true" tabindex="-1"></a><span class="co">#                     yaxis=list(title=paste0('Co 3 ',eigenvalues[3],'%'),</span></span>
+<span id="cb51-13"><a href="#cb51-13" aria-hidden="true" tabindex="-1"></a><span class="co">#                                showticklabels=FALSE,zerolinecolor='black'),</span></span>
+<span id="cb51-14"><a href="#cb51-14" aria-hidden="true" tabindex="-1"></a><span class="co">#                     zaxis=list(title=paste0('Co 1 ',eigenvalues[1],'%'),</span></span>
+<span id="cb51-15"><a href="#cb51-15" aria-hidden="true" tabindex="-1"></a><span class="co">#                                showticklabels=FALSE,zerolinecolor='black')))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="euclidean" class="level2">
+<h2 class="anchored" data-anchor-id="euclidean">Euclidean</h2>
+<p>Performing the log-ratio transformation makes the data all occupy a similar dynamic range, so we can use magnitude-sensitive distances like Euclidean distance.</p>
+<p><em>Euclidean</em>, recommended for analysis of the difference in compositions. e.g., when we are working to understand changes in relative abundance. Because it depends on the composition, we must input transformed data.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ?dist()</span></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>euc_dmat <span class="ot">&lt;-</span> <span class="fu">dist</span>(asv_df, <span class="at">method =</span> <span class="st">"euclidean"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Conduct ordination w/distance matrix = PCoA</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>pcoa_euc<span class="ot">&lt;-</span>ape<span class="sc">::</span><span class="fu">pcoa</span>(euc_dmat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Repeat screeplot check. Extract variances from pcoa, from jaccard calculated dist. metric</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>euc_variances <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(pcoa_euc<span class="sc">$</span>values<span class="sc">$</span>Relative_eig) <span class="sc">%&gt;%</span> </span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="at">PercVar =</span> <span class="st">'pcoa_euc.values.Relative_eig'</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>(<span class="at">var =</span> <span class="st">"PCaxis"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a>  data.frame</span>
+<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a><span class="co"># head(euc_variances)</span></span>
+<span id="cb54-6"><a href="#cb54-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb54-7"><a href="#cb54-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Screeplot check</span></span>
+<span id="cb54-8"><a href="#cb54-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(euc_variances, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.numeric</span>(PCaxis), <span class="at">y =</span> PercVar)) <span class="sc">+</span> </span>
+<span id="cb54-9"><a href="#cb54-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">fill =</span> <span class="st">"grey"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb54-10"><a href="#cb54-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb54-11"><a href="#cb54-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">10</span>),</span>
+<span id="cb54-12"><a href="#cb54-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb54-13"><a href="#cb54-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_blank</span>()) <span class="sc">+</span></span>
+<span id="cb54-14"><a href="#cb54-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"PC axis"</span>, <span class="at">y =</span> <span class="st">"% Variance"</span>, <span class="at">title =</span> <span class="st">"Euclidean</span><span class="sc">\n</span><span class="st">Log-Ratio PCoA Screeplot"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="clustering_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<blockquote class="blockquote">
+<p>Compare what the previous scree plot looked like.</p>
+</blockquote>
+<p>Is there a difference in the ordinate output when we use a different metric?</p>
+<p>To compare with the euclidean distance ordination representing differences in relative composition. Further note: If your ordination has data which align in a ‘T’ or ‘+’ shape perpendicular to the axes this is often diagnostic of covariance attributed to the higher dimensions which are not plotted.</p>
+<p><em>What happens if I have a screeplot that requires 3D, but I can’t do it?</em></p>
+<p>Although our statistical ordinations appear to require at least 3 dimensions to communicate the data. However, we don’t always have the budget for a 3D plot. So we may want to impose the condition on an ordination technique that the answer MUST go in 2D. We turn to NMDS here.</p>
+</section>
+<section id="nmds" class="level2">
+<h2 class="anchored" data-anchor-id="nmds">NMDS</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1984</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>So we can compare the relative composition based distance metric to the presence/absence based distance metric</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vegan)</span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="co"># ?metaMDS()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><em>NMDS</em>: force data into a desired number of dimensions, works to preserve all pairwise distances between points.</p>
+<p>Start with Euclidean distance again. But then transform with NMDS.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>euc_dmat <span class="ot">&lt;-</span> compositions<span class="sc">::</span><span class="fu">dist</span>(asv_df, <span class="at">method =</span> <span class="st">"euclidean"</span>) <span class="co"># From above</span></span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>euc_nmds <span class="ot">&lt;-</span> vegan<span class="sc">::</span> <span class="fu">metaMDS</span>(euc_dmat, <span class="at">k =</span> <span class="dv">2</span>, <span class="at">autotransform =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Run 0 stress 0.009747927 
+Run 1 stress 0.01553882 
+Run 2 stress 0.01498708 
+Run 3 stress 0.01047867 
+Run 4 stress 0.009667551 
+... New best solution
+... Procrustes: rmse 0.02230998  max resid 0.4556172 
+Run 5 stress 0.007991186 
+... New best solution
+... Procrustes: rmse 0.02068838  max resid 0.4748071 
+Run 6 stress 0.01499294 
+Run 7 stress 0.008234147 
+... Procrustes: rmse 0.01596071  max resid 0.3520825 
+Run 8 stress 0.008304165 
+... Procrustes: rmse 0.01585915  max resid 0.4096863 
+Run 9 stress 0.007761174 
+... New best solution
+... Procrustes: rmse 0.009837237  max resid 0.1957055 
+Run 10 stress 0.01366587 
+Run 11 stress 0.009694091 
+Run 12 stress 0.01781326 
+Run 13 stress 0.01155348 
+Run 14 stress 0.01554772 
+Run 15 stress 0.01406257 
+Run 16 stress 0.01053438 
+Run 17 stress 0.01775998 
+Run 18 stress 0.01497913 
+Run 19 stress 0.01514318 
+Run 20 stress 0.01490975 
+*** Best solution was not repeated -- monoMDS stopping criteria:
+    20: no. of iterations &gt;= maxit</code></pre>
+</div>
+</div>
+<p>Repeat with the Jaccard transformation</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>jac_dmat <span class="ot">&lt;-</span> vegan<span class="sc">::</span> <span class="fu">vegdist</span>(<span class="fu">t</span>(asv_df), <span class="at">method =</span> <span class="st">"jaccard"</span>) <span class="co"># From above</span></span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>jac_nmds<span class="ot">&lt;-</span> vegan<span class="sc">::</span><span class="fu">metaMDS</span>(jac_dmat, <span class="at">k =</span> <span class="dv">2</span>, <span class="at">autotransform =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Run 0 stress 0.1523259 
+Run 1 stress 0.1800741 
+Run 2 stress 0.2037203 
+Run 3 stress 0.1731681 
+Run 4 stress 0.1731681 
+Run 5 stress 0.1858211 
+Run 6 stress 0.1831991 
+Run 7 stress 0.1800741 
+Run 8 stress 0.2039983 
+Run 9 stress 0.2240731 
+Run 10 stress 0.1523259 
+... Procrustes: rmse 2.538897e-05  max resid 5.65177e-05 
+... Similar to previous best
+Run 11 stress 0.1739264 
+Run 12 stress 0.1950497 
+Run 13 stress 0.1708581 
+Run 14 stress 0.1523259 
+... New best solution
+... Procrustes: rmse 1.044647e-05  max resid 2.556225e-05 
+... Similar to previous best
+Run 15 stress 0.1523259 
+... Procrustes: rmse 3.454584e-05  max resid 8.426709e-05 
+... Similar to previous best
+Run 16 stress 0.1695962 
+Run 17 stress 0.1708582 
+Run 18 stress 0.1708584 
+Run 19 stress 0.2317667 
+Run 20 stress 0.1695962 
+*** Best solution repeated 2 times</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in postMDS(out$points, dis, plot = max(0, plot - 1), ...): skipping
+half-change scaling: too few points below threshold</code></pre>
+</div>
+</div>
+<p>Take a look at stress - overall this value is not extremely informative, but know that the closer stress is to 1 the less representative of your actual data the NMDS is.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>euc_nmds<span class="sc">$</span>stress </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.007761174</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>jac_nmds<span class="sc">$</span>stress</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.1523259</code></pre>
+</div>
+</div>
+<p>Additionally, the axes for NMDS are totally arbitrary, so axis scaling does not matter and data can be rotated/reflected about axes and the NMDS is still the same euc_nmds$points #Extract points from NMDS</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>euc_frame <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(euc_nmds<span class="sc">$</span>points) <span class="sc">%&gt;%</span> </span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>(<span class="at">var =</span> <span class="st">"TimeofDay"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(TimeofDay, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"excess"</span>, <span class="st">"TimeofDay"</span>), <span class="at">sep =</span> <span class="st">"_"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb66-4"><a href="#cb66-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>excess) <span class="sc">%&gt;%</span> </span>
+<span id="cb66-5"><a href="#cb66-5" aria-hidden="true" tabindex="-1"></a>  data.frame</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 1000 rows [1, 2, 3, 4, 5,
+6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, ...].</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Plotting euclidean distance NMDS</span></span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(euc_frame,<span class="fu">aes</span>(<span class="at">x =</span> MDS1, <span class="at">y =</span> MDS2, <span class="at">fill =</span> TimeofDay)) <span class="sc">+</span></span>
+<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>, <span class="at">shape =</span> <span class="dv">21</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="fu">aes</span>(<span class="at">fill =</span> TimeofDay)) <span class="sc">+</span></span>
+<span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Dark2"</span>) <span class="sc">+</span></span>
+<span id="cb68-5"><a href="#cb68-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb68-6"><a href="#cb68-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"NMDS 1"</span>, <span class="at">y =</span> <span class="st">"NMDS 2"</span>, <span class="at">title =</span> <span class="st">"Euclidean Distance NMDS"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="clustering_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./customize-plots.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Customize plots</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./correlation_linearregression.html" class="pagination-link">
+        <span class="nav-page-text">Correlation &amp; Linear regression</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

@@ -15,7 +15,6 @@ asv_table <- read.delim(file = "r-intro-docs/asv-table.txt")
 metadata <- read.delim(file = "r-intro-docs/metadata.txt")
 ```
 
-
 ```{r}
 library(tidyverse)
 # head(metadata)
@@ -45,7 +44,6 @@ What are the average temperatures at the vent, plume, versus background samples?
 asv_long %>% 
 ```
 
-
 ```{r}
 #| eval: false
 #| echo: false
@@ -59,7 +57,6 @@ asv_long %>%
               COUNT = n())
 ```
 
-
 ## Parse taxon names
 
 ```{r}
@@ -67,8 +64,6 @@ asv_long %>%
 
 asv_long %>% 
 ```
-
-
 
 ## Calculate relative abundance
 
@@ -80,11 +75,10 @@ Create a table with sequence counts and ASV counts by supergroup.
 asv_long %>% 
 ```
 
-
 ### Make a bar plot
+
 ```{r}
 #| eval: false
 
 asv_long %>% 
 ```
-
