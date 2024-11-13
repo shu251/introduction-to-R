@@ -504,7 +504,7 @@ The following objects are masked from 'package:base':
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>det_ilr <span class="ot">&lt;-</span> <span class="fu">det</span>(cov_ilr)</span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>det_ilr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 3.865625e+40</code></pre>
+<pre><code>[1] 2.426553e+40</code></pre>
 </div>
 </div>
 <p><code>prcomp()</code> - Principle Component Analysis. Input is a data matrix and results are an R class “prcomp”.</p>
@@ -517,10 +517,10 @@ The following objects are masked from 'package:base':
 </div>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>ilr_pca<span class="sc">$</span>sdev </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 4.943846e+00 4.598564e+00 4.109057e+00 3.786362e+00 3.491110e+00
- [6] 3.403491e+00 3.330047e+00 3.148878e+00 3.065696e+00 3.008236e+00
-[11] 2.991925e+00 2.881199e+00 2.785096e+00 2.739541e+00 2.602067e+00
-[16] 2.191981e+00 2.084322e+00 2.494195e-15</code></pre>
+<pre><code> [1] 5.178359e+00 4.451509e+00 4.126228e+00 3.737649e+00 3.415436e+00
+ [6] 3.367891e+00 3.237619e+00 3.204526e+00 3.121084e+00 3.036606e+00
+[11] 2.996977e+00 2.899159e+00 2.780506e+00 2.618325e+00 2.560523e+00
+[16] 2.146984e+00 1.862622e+00 2.388152e-15</code></pre>
 </div>
 </div>
 <p><em>follow up reading on prcomp</em></p>
@@ -554,7 +554,7 @@ The following objects are masked from 'package:base':
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>det_clr <span class="ot">&lt;-</span> <span class="fu">det</span>(cov_clr)</span>
 <span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>det_clr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 3.865625e+40</code></pre>
+<pre><code>[1] 2.426553e+40</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -593,120 +593,120 @@ The following objects are masked from 'package:base':
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="co"># clr_pca$</span></span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>clr_pca<span class="sc">$</span>x <span class="co">#View PC values</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>                                                PC1       PC2          PC3
-GordaRidge_Vent039_SUPRS1_2019          -7.34755619  2.038825  -3.55611685
-GordaRidge_Vent040_SUPRS2_2019          -9.78346635  2.460521  -0.77136671
-GordaRidge_BSW081_sterivex_2019          2.07962514 -4.778558 -10.76437040
-GordaRidge_BSW056_sterivex_2019_REPb     2.22737694 -1.902767   0.10108314
-GordaRidge_Vent088_SUPRS3_2019           3.87605353  3.451755   1.36495536
-GordaRidge_Plume001_sterivex_2019_REPa   6.06296965  9.489873   2.78762744
-GordaRidge_Plume001_sterivex_2019_REPb   3.75146642  5.235226  -0.32599025
-GordaRidge_Plume036_sterivex_2019_REPb   0.99001560 -0.296212  -3.59219046
-GordaRidge_Plume096_sterivex_2019        2.97967776 -6.241404  -4.18477088
-GordaRidge_Vent105_SUPRS9_2019           0.07257623 -5.988742   2.35039473
-GordaRidge_Vent041_SUPRS3_2019         -12.14860389  3.521967  -0.16983279
-GordaRidge_Vent086_SUPRS1_2019           3.64951152  3.100322  -0.10068334
-GordaRidge_Vent107_SUPRS11_2019          1.06017235  3.156332   0.01368227
-GordaRidge_Vent009_SUPRS1_2019           0.52621293 -3.979897   1.42542017
-GordaRidge_Vent011_SUPRS3_2019          -2.87690809 -5.211351   8.50704556
-GordaRidge_Vent106_SUPRS10_2019          2.76565484 -1.177457   0.16723692
-GordaRidge_Vent010_SUPRS2_2019           0.65328013 -5.800180   6.11206388
-GordaRidge_Vent087_SUPRS2_2019           1.46194145  2.921749   0.63581220
-                                              PC4        PC5         PC6
-GordaRidge_Vent039_SUPRS1_2019          0.3964546 -2.2023886  2.02626438
-GordaRidge_Vent040_SUPRS2_2019         -0.3044724 -1.0262251  0.63462447
-GordaRidge_BSW081_sterivex_2019        -1.3502500  1.5029580  0.09305439
-GordaRidge_BSW056_sterivex_2019_REPb   -5.6220145 -0.2051466  3.25144437
-GordaRidge_Vent088_SUPRS3_2019          5.1157454  0.5323643 -2.14997075
-GordaRidge_Plume001_sterivex_2019_REPa -6.9670423 -2.2679318  1.23433787
-GordaRidge_Plume001_sterivex_2019_REPb -3.4624252 -2.3323100  1.03280187
-GordaRidge_Plume036_sterivex_2019_REPb  2.4892839 -6.8135809 -0.73780267
-GordaRidge_Plume096_sterivex_2019      -3.3515187  3.6447424 -0.62117444
-GordaRidge_Vent105_SUPRS9_2019          3.7606049 -7.2144285  1.66918307
-GordaRidge_Vent041_SUPRS3_2019         -1.8105847  3.3349188 -0.59369830
-GordaRidge_Vent086_SUPRS1_2019          7.1864815  6.0848226  8.37502417
-GordaRidge_Vent107_SUPRS11_2019         3.0574716  1.3391157 -9.09467698
-GordaRidge_Vent009_SUPRS1_2019          0.4150761 -1.7996890  0.01737771
-GordaRidge_Vent011_SUPRS3_2019         -1.7174662  2.3221287  0.71074433
-GordaRidge_Vent106_SUPRS10_2019        -1.8033439  4.1655997 -3.90266846
-GordaRidge_Vent010_SUPRS2_2019         -0.5901349  0.5158007 -0.78328821
-GordaRidge_Vent087_SUPRS2_2019          4.5581348  0.4192496 -1.16157683
-                                              PC7        PC8        PC9
-GordaRidge_Vent039_SUPRS1_2019         -0.6496601  1.2116813  1.0316595
-GordaRidge_Vent040_SUPRS2_2019         -0.8123972 -3.9730101  2.3368197
-GordaRidge_BSW081_sterivex_2019         1.6495161 -1.2982620  1.8034577
-GordaRidge_BSW056_sterivex_2019_REPb   -9.7037835 -2.3041612 -4.1565779
-GordaRidge_Vent088_SUPRS3_2019          0.8954461 -4.8253730 -6.9645840
-GordaRidge_Plume001_sterivex_2019_REPa  3.8530669  1.1980786  1.3538730
-GordaRidge_Plume001_sterivex_2019_REPb  1.2552959  0.5515430  0.4533167
-GordaRidge_Plume036_sterivex_2019_REPb -2.9588041 -0.1674855  2.9099127
-GordaRidge_Plume096_sterivex_2019       4.9698549 -1.4472277 -1.5997091
-GordaRidge_Vent105_SUPRS9_2019          3.4796731  4.0959930 -2.5632325
-GordaRidge_Vent041_SUPRS3_2019          2.1123551  3.2190234 -4.7821407
-GordaRidge_Vent086_SUPRS1_2019         -1.4275844  3.4147165  1.8797009
-GordaRidge_Vent107_SUPRS11_2019        -3.7286760  2.8564454  2.1853732
-GordaRidge_Vent009_SUPRS1_2019         -0.3800148  1.5659092 -0.4321429
-GordaRidge_Vent011_SUPRS3_2019          0.8654687 -3.5576759  5.4628419
-GordaRidge_Vent106_SUPRS10_2019        -1.3328842  4.3215328  1.0346954
-GordaRidge_Vent010_SUPRS2_2019         -0.2395470  1.0767421 -1.0489931
-GordaRidge_Vent087_SUPRS2_2019          2.1526746 -5.9384699  1.0957297
-                                              PC10       PC11          PC12
-GordaRidge_Vent039_SUPRS1_2019          0.01535337 -1.1634965  0.2235986343
-GordaRidge_Vent040_SUPRS2_2019         -1.95647032 -0.9940588 -1.9643917302
-GordaRidge_BSW081_sterivex_2019         5.75409064 -1.8446211  4.2643158379
-GordaRidge_BSW056_sterivex_2019_REPb    1.20936967 -1.2942677 -2.4569071568
-GordaRidge_Vent088_SUPRS3_2019         -0.77754544 -0.3950154  3.1214387806
-GordaRidge_Plume001_sterivex_2019_REPa  1.08282457  0.8275677  0.2959269921
-GordaRidge_Plume001_sterivex_2019_REPb  0.64783048 -0.5440563  0.0002457426
-GordaRidge_Plume036_sterivex_2019_REPb -5.33213279  5.0047730  2.7424122868
-GordaRidge_Plume096_sterivex_2019      -3.89174671  4.2046086 -5.8869335105
-GordaRidge_Vent105_SUPRS9_2019          1.71076984 -4.0672039 -3.3636827701
-GordaRidge_Vent041_SUPRS3_2019          0.58113298  1.7661330  1.4729487287
-GordaRidge_Vent086_SUPRS1_2019         -0.01214043  1.6306516 -0.8921549723
-GordaRidge_Vent107_SUPRS11_2019         4.48645464  2.0366114 -4.1584271089
-GordaRidge_Vent009_SUPRS1_2019          0.17666623  0.4603721  0.4429477192
-GordaRidge_Vent011_SUPRS3_2019          1.28502969 -0.8285966  0.6749658369
-GordaRidge_Vent106_SUPRS10_2019        -6.51068832 -6.6851995  2.4088082159
-GordaRidge_Vent010_SUPRS2_2019          1.48331167  4.6210628  4.5566181824
-GordaRidge_Vent087_SUPRS2_2019          0.04789023 -2.7352643 -1.4817297087
-                                              PC13       PC14         PC15
-GordaRidge_Vent039_SUPRS1_2019         -5.68665638  2.1787230  6.535366012
-GordaRidge_Vent040_SUPRS2_2019         -3.38188958 -3.5948384 -5.932214804
-GordaRidge_BSW081_sterivex_2019         0.98044495 -1.2518574 -1.268814385
-GordaRidge_BSW056_sterivex_2019_REPb    1.48196913  0.9411710  0.006596466
-GordaRidge_Vent088_SUPRS3_2019         -1.40741855 -4.5512525  2.119703180
-GordaRidge_Plume001_sterivex_2019_REPa -0.07556898 -0.9599484 -0.656486651
-GordaRidge_Plume001_sterivex_2019_REPb -0.46728117  0.6884792  0.311408619
-GordaRidge_Plume036_sterivex_2019_REPb  4.12943434 -0.2828451  0.385460907
-GordaRidge_Plume096_sterivex_2019      -0.99076484 -0.1619406  1.125446552
-GordaRidge_Vent105_SUPRS9_2019          1.33330724 -1.2855604 -1.280996955
-GordaRidge_Vent041_SUPRS3_2019          5.21314977  1.2292350 -0.215399263
-GordaRidge_Vent086_SUPRS1_2019          0.16636207 -0.9491026 -0.851348000
-GordaRidge_Vent107_SUPRS11_2019        -0.34427500 -1.1525529  0.376080682
-GordaRidge_Vent009_SUPRS1_2019         -1.00498005  0.7772886  0.483868271
-GordaRidge_Vent011_SUPRS3_2019          3.09214727 -2.8832234  3.824122932
-GordaRidge_Vent106_SUPRS10_2019        -0.40549871  0.1852621 -0.699787996
-GordaRidge_Vent010_SUPRS2_2019         -4.58670531  3.3457571 -3.172279201
-GordaRidge_Vent087_SUPRS2_2019          1.95422379  7.7272056 -1.090726366
-                                              PC16         PC17          PC18
-GordaRidge_Vent039_SUPRS1_2019          1.63642664 -0.248209627 -8.612543e-16
-GordaRidge_Vent040_SUPRS2_2019         -0.53825194 -0.152872328  4.749165e-16
-GordaRidge_BSW081_sterivex_2019         0.43835951 -0.306146844 -5.943560e-15
-GordaRidge_BSW056_sterivex_2019_REPb    0.99398728 -0.229467133 -2.705265e-15
-GordaRidge_Vent088_SUPRS3_2019          0.06397473 -0.006958601  2.531431e-15
-GordaRidge_Plume001_sterivex_2019_REPa  2.37638326 -3.383837370 -5.453178e-16
-GordaRidge_Plume001_sterivex_2019_REPb -4.43748953  6.013834409  1.233533e-15
-GordaRidge_Plume036_sterivex_2019_REPb  0.92873652  0.198739865  2.320120e-15
-GordaRidge_Plume096_sterivex_2019       0.40614102  0.299002057  4.050938e-16
-GordaRidge_Vent105_SUPRS9_2019          1.83102522  0.745362073 -4.900992e-15
-GordaRidge_Vent041_SUPRS3_2019         -0.27152441  0.099293810 -8.566571e-15
-GordaRidge_Vent086_SUPRS1_2019          0.05361615  0.033228290  4.273961e-15
-GordaRidge_Vent107_SUPRS11_2019         0.32989488  0.180694750  6.544603e-16
-GordaRidge_Vent009_SUPRS1_2019         -6.63692746 -4.731513818  1.486228e-15
-GordaRidge_Vent011_SUPRS3_2019          0.11488334  0.717191197  3.125682e-15
-GordaRidge_Vent106_SUPRS10_2019         0.60879738  0.078514800  3.747906e-15
-GordaRidge_Vent010_SUPRS2_2019          1.75224203  1.378743505  1.244700e-15
-GordaRidge_Vent087_SUPRS2_2019          0.34972537 -0.685599035  3.061172e-15</code></pre>
+<pre><code>                                               PC1       PC2        PC3
+GordaRidge_Vent039_SUPRS1_2019          -7.8136532  7.494693 -2.8582200
+GordaRidge_Vent040_SUPRS2_2019          -9.1363140  4.538102  0.3794693
+GordaRidge_BSW081_sterivex_2019          1.6009412  1.545660 -7.0441090
+GordaRidge_BSW056_sterivex_2019_REPb     0.4809999 -5.890110 -0.8983877
+GordaRidge_Vent088_SUPRS3_2019           5.2263501  1.191327  2.6590195
+GordaRidge_Plume001_sterivex_2019_REPa   7.7946359  5.972814  6.6121580
+GordaRidge_Plume001_sterivex_2019_REPb   5.0334438  4.528548  1.8486798
+GordaRidge_Plume036_sterivex_2019_REPb   2.2261855  1.496157 -8.1632903
+GordaRidge_Plume096_sterivex_2019        1.0336953 -6.241536 -1.4581866
+GordaRidge_Vent105_SUPRS9_2019          -0.2470926 -3.422314 -5.4194807
+GordaRidge_Vent041_SUPRS3_2019         -11.2811708  1.871824  4.4183622
+GordaRidge_Vent086_SUPRS1_2019           4.5859168  1.494836 -1.1330836
+GordaRidge_Vent107_SUPRS11_2019          2.1292156  0.118059  3.9059303
+GordaRidge_Vent009_SUPRS1_2019          -0.3035928 -2.064704 -2.5717286
+GordaRidge_Vent011_SUPRS3_2019          -4.1701019 -6.917408  5.0390290
+GordaRidge_Vent106_SUPRS10_2019          2.6372677 -3.654706  2.6437269
+GordaRidge_Vent010_SUPRS2_2019          -2.3235680 -5.455979  1.7994360
+GordaRidge_Vent087_SUPRS2_2019           2.5268413  3.394736  0.2406755
+                                              PC4        PC5        PC6
+GordaRidge_Vent039_SUPRS1_2019          0.5853997 -1.8599013  0.8335125
+GordaRidge_Vent040_SUPRS2_2019          0.9513623  0.9762615 -0.7453047
+GordaRidge_BSW081_sterivex_2019        -0.5990361 -4.8957990  9.2979107
+GordaRidge_BSW056_sterivex_2019_REPb   -3.8027815 -3.4603966 -3.9973122
+GordaRidge_Vent088_SUPRS3_2019          3.1452520 -1.7983552 -0.9985789
+GordaRidge_Plume001_sterivex_2019_REPa -5.9821424  0.5643154 -0.6252184
+GordaRidge_Plume001_sterivex_2019_REPb -3.7657968 -0.2333092  0.6694650
+GordaRidge_Plume036_sterivex_2019_REPb -1.1361132 10.5142376 -1.8330749
+GordaRidge_Plume096_sterivex_2019       2.0373430 -0.2214074  0.5018464
+GordaRidge_Vent105_SUPRS9_2019         -6.2391838 -3.7399956 -5.5263953
+GordaRidge_Vent041_SUPRS3_2019         -0.7753195 -1.0841440 -2.3449245
+GordaRidge_Vent086_SUPRS1_2019         10.0067007 -2.6197402 -4.9560969
+GordaRidge_Vent107_SUPRS11_2019        -0.6898155  1.1138606  2.5978148
+GordaRidge_Vent009_SUPRS1_2019         -0.1128133 -0.0803269  0.7626128
+GordaRidge_Vent011_SUPRS3_2019          0.3078292  3.6034640  2.8101004
+GordaRidge_Vent106_SUPRS10_2019         1.9887275 -0.5606825  1.6681576
+GordaRidge_Vent010_SUPRS2_2019          0.6994025  2.0001555  2.2287919
+GordaRidge_Vent087_SUPRS2_2019          3.3809852  1.7817633 -0.3433062
+                                               PC7        PC8          PC9
+GordaRidge_Vent039_SUPRS1_2019          0.10984998  0.3696854  0.715605912
+GordaRidge_Vent040_SUPRS2_2019          0.59808106  1.1344267  2.859706232
+GordaRidge_BSW081_sterivex_2019         0.08611798  1.1064133 -0.571670051
+GordaRidge_BSW056_sterivex_2019_REPb    4.50619192  1.7292399  5.920244146
+GordaRidge_Vent088_SUPRS3_2019          1.57717333 -6.7397281 -2.274740941
+GordaRidge_Plume001_sterivex_2019_REPa -0.44204944  4.2474052 -2.591276630
+GordaRidge_Plume001_sterivex_2019_REPb  0.17281861  2.5605504 -0.079034538
+GordaRidge_Plume036_sterivex_2019_REPb  3.02235302 -0.4671150 -1.010926692
+GordaRidge_Plume096_sterivex_2019       1.52238580  0.3511822 -6.053876020
+GordaRidge_Vent105_SUPRS9_2019         -5.70963255 -2.7002895 -0.950053369
+GordaRidge_Vent041_SUPRS3_2019          2.32677353 -1.7147593 -5.064775761
+GordaRidge_Vent086_SUPRS1_2019          0.44824464  5.3025673  1.053929872
+GordaRidge_Vent107_SUPRS11_2019         3.43525619 -5.3713132  5.899991073
+GordaRidge_Vent009_SUPRS1_2019          0.22278117  0.7541454 -0.068182539
+GordaRidge_Vent011_SUPRS3_2019         -4.98424817  3.3040684  1.407308877
+GordaRidge_Vent106_SUPRS10_2019         1.62767517 -1.9783337 -1.492912037
+GordaRidge_Vent010_SUPRS2_2019         -0.41941509  1.7196031  0.003326381
+GordaRidge_Vent087_SUPRS2_2019         -8.10035714 -3.6077484  2.297336084
+                                              PC10       PC11       PC12
+GordaRidge_Vent039_SUPRS1_2019          1.39946675  3.2753120  1.8936698
+GordaRidge_Vent040_SUPRS2_2019          0.14301966  3.0504403  4.4990535
+GordaRidge_BSW081_sterivex_2019        -1.89264463 -2.7457225 -1.8060827
+GordaRidge_BSW056_sterivex_2019_REPb   -3.55087935  3.4437896 -3.8670740
+GordaRidge_Vent088_SUPRS3_2019         -7.12165231  0.5030758  3.9059055
+GordaRidge_Plume001_sterivex_2019_REPa  0.15687793  0.3409309  0.5627682
+GordaRidge_Plume001_sterivex_2019_REPb  0.16114175  0.5779229 -0.2249137
+GordaRidge_Plume036_sterivex_2019_REPb -0.66714902 -1.3706984 -0.9992002
+GordaRidge_Plume096_sterivex_2019       1.53890046  4.2112810  1.4302817
+GordaRidge_Vent105_SUPRS9_2019          2.62814219 -2.9812951  3.0570484
+GordaRidge_Vent041_SUPRS3_2019         -0.69592172 -4.2901449 -5.5715380
+GordaRidge_Vent086_SUPRS1_2019          1.34187733 -4.2906166  0.2306734
+GordaRidge_Vent107_SUPRS11_2019         4.10548120 -4.4581073  1.4173089
+GordaRidge_Vent009_SUPRS1_2019          0.02649703  0.4100601  0.2067263
+GordaRidge_Vent011_SUPRS3_2019         -2.10549955 -2.1273228  1.6182111
+GordaRidge_Vent106_SUPRS10_2019         7.11184493  3.4292522 -1.7346496
+GordaRidge_Vent010_SUPRS2_2019         -1.84599584 -0.2704446  1.1108578
+GordaRidge_Vent087_SUPRS2_2019         -0.73350682  3.2922873 -5.7290464
+                                              PC13        PC14       PC15
+GordaRidge_Vent039_SUPRS1_2019          1.45574041 -1.36430736 -6.8306400
+GordaRidge_Vent040_SUPRS2_2019         -1.81659395  2.01184113  6.3836722
+GordaRidge_BSW081_sterivex_2019        -1.08036086  1.65489767  1.8269364
+GordaRidge_BSW056_sterivex_2019_REPb    0.10883450  1.13767420 -0.6164449
+GordaRidge_Vent088_SUPRS3_2019         -2.27047006  0.56597894 -1.1972686
+GordaRidge_Plume001_sterivex_2019_REPa  0.53032296  0.22273083  0.7574762
+GordaRidge_Plume001_sterivex_2019_REPb -0.01173338 -0.91437182 -0.5373933
+GordaRidge_Plume036_sterivex_2019_REPb -1.34497343  0.93883523 -0.6440523
+GordaRidge_Plume096_sterivex_2019       6.86147323  1.89215460  1.2990508
+GordaRidge_Vent105_SUPRS9_2019         -0.90020743 -0.28145036  0.3948457
+GordaRidge_Vent041_SUPRS3_2019          0.13314711  0.21061565  0.6181466
+GordaRidge_Vent086_SUPRS1_2019          0.05806217  0.04563998 -0.0789418
+GordaRidge_Vent107_SUPRS11_2019         4.34022224 -0.01293642  0.1991291
+GordaRidge_Vent009_SUPRS1_2019          0.28173491 -2.24746909 -0.2760678
+GordaRidge_Vent011_SUPRS3_2019         -0.78939081  4.53450744 -3.2682822
+GordaRidge_Vent106_SUPRS10_2019        -6.77198632  0.68508248 -0.8179652
+GordaRidge_Vent010_SUPRS2_2019         -0.72164897 -8.63300708  1.2616129
+GordaRidge_Vent087_SUPRS2_2019          1.93782767 -0.44641602  1.5261862
+                                             PC16        PC17          PC18
+GordaRidge_Vent039_SUPRS1_2019          1.2832806  0.75016565  4.712845e-15
+GordaRidge_Vent040_SUPRS2_2019         -0.2994072 -0.07895867  2.761361e-15
+GordaRidge_BSW081_sterivex_2019         1.0173041  0.76670779 -1.355986e-14
+GordaRidge_BSW056_sterivex_2019_REPb    0.7825043  0.60023506  2.493538e-15
+GordaRidge_Vent088_SUPRS3_2019         -0.1435484 -0.12737550  2.780838e-15
+GordaRidge_Plume001_sterivex_2019_REPa  4.3131427 -0.62686459 -2.221836e-15
+GordaRidge_Plume001_sterivex_2019_REPb -7.3322085  1.01808193  2.729658e-15
+GordaRidge_Plume036_sterivex_2019_REPb  0.5006400  0.65655982  2.626417e-15
+GordaRidge_Plume096_sterivex_2019      -0.4083416  0.88511402  7.339894e-16
+GordaRidge_Vent105_SUPRS9_2019          0.1197658  0.72729471 -6.217338e-15
+GordaRidge_Vent041_SUPRS3_2019         -0.4930825 -0.15274411  4.177932e-15
+GordaRidge_Vent086_SUPRS1_2019          0.1550844  0.33355042 -3.119402e-15
+GordaRidge_Vent107_SUPRS11_2019         0.3250068  0.03251975  3.126441e-15
+GordaRidge_Vent009_SUPRS1_2019         -0.8332094 -7.06865122  1.195868e-15
+GordaRidge_Vent011_SUPRS3_2019         -0.4407791 -0.05969055  3.612404e-15
+GordaRidge_Vent106_SUPRS10_2019         0.2927570  0.26516134 -1.216574e-14
+GordaRidge_Vent010_SUPRS2_2019          0.8456788  2.02347829  4.365593e-15
+GordaRidge_Vent087_SUPRS2_2019          0.3154124  0.05541588  5.188293e-15</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -815,34 +815,27 @@ Attaching package: 'ape'</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(pcoa_jac_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  TimeofDay      Axis.1     Axis.2       Axis.3       Axis.4       Axis.5
-1   Vent039 -0.52492059 -0.1536045  0.113692139  0.006667513  0.035742950
-2   Vent040 -0.49181112 -0.1149200  0.004884159  0.032189909 -0.003526562
-3    BSW081  0.10853811  0.1189259  0.558800724 -0.011911022 -0.167748866
-4    BSW056  0.08748897  0.1387744 -0.028790312  0.098258306 -0.136630115
-5   Vent088  0.18004918 -0.1603624 -0.144524285 -0.350573747 -0.084914185
-6  Plume001  0.26376205 -0.3999651 -0.018146584  0.305121582  0.081106838
-       Axis.6       Axis.7       Axis.8       Axis.9      Axis.10     Axis.11
-1 -0.01544891 -0.004433228  0.030720115 -0.019271666 -0.009234801  0.02814906
-2 -0.01142033 -0.028762993  0.004692959  0.016340663  0.018732244  0.01726439
-3 -0.12971769 -0.011689359 -0.053553937 -0.108859507 -0.229209617 -0.22837279
-4  0.06725256 -0.169650936  0.471033793 -0.083252615  0.209224798 -0.12967351
-5 -0.02045929 -0.023329116 -0.009141787 -0.116632751 -0.001468349  0.02776290
-6 -0.07787861 -0.035930561 -0.045017348  0.004991304 -0.015618458  0.02484168
-       Axis.12      Axis.13      Axis.14      Axis.15      Axis.16
-1 -0.051129436  0.002442582  0.272374647 -0.112912506  0.098760100
-2  0.007737317  0.003573194 -0.015728268  0.040455692 -0.198302261
-3 -0.005367321 -0.012944735 -0.024387416  0.002830477 -0.009529942
-4  0.087833422  0.020801847  0.005782566 -0.008530959  0.018583874
-5  0.022429947 -0.366930423  0.066602133  0.053671973 -0.020411635
-6 -0.000847262  0.003692100  0.008723253  0.062197523  0.204779322
-        Axis.17
-1  0.0911223335
-2 -0.2296423696
-3 -0.0126394766
-4 -0.0064544406
-5 -0.0009404165
-6 -0.1561933078</code></pre>
+<pre><code>  TimeofDay       Axis.1      Axis.2       Axis.3       Axis.4       Axis.5
+1   Vent039 -0.511333960  0.24510098  0.002724799 -0.014780337  0.001248485
+2   Vent040 -0.471925533  0.12993493  0.102824667  0.003851581 -0.018398321
+3    BSW081  0.009154644  0.09012354 -0.526259280 -0.307777122  0.315467056
+4    BSW056  0.063135741 -0.28182252 -0.035892201 -0.032751972 -0.056781429
+5   Vent088  0.249164360  0.11271888  0.148602132  0.061580537  0.127690807
+6  Plume001  0.273580285  0.31896957  0.052082558 -0.173870964 -0.235917650
+       Axis.6       Axis.7        Axis.8      Axis.9      Axis.10     Axis.11
+1  0.00575785 -0.002950044 -0.1035403386 -0.02064122 -0.043766331 -0.03282459
+2 -0.02912210  0.031274317 -0.0408526685 -0.01139825  0.007774317  0.01496053
+3 -0.07343554 -0.161919327  0.0008682262  0.02164156  0.037738741  0.04190189
+4 -0.02412939  0.075845547 -0.1979221811  0.09264871  0.261368972 -0.34640665
+5  0.04972538 -0.007616491 -0.1670897130  0.05159573 -0.074337976  0.11709158
+6 -0.08461598  0.012419863  0.0722941976 -0.11208131 -0.061826255 -0.08292078
+       Axis.12     Axis.13     Axis.14     Axis.15      Axis.16      Axis.17
+1 -0.028074522 -0.03010100  0.17510883  0.21945956  0.109465415  0.075283311
+2 -0.004368510  0.05237571 -0.05666681 -0.03448782 -0.124018240 -0.258128825
+3  0.006443506  0.01841906 -0.03519646 -0.02368154 -0.010810246 -0.005225330
+4  0.068221228  0.06867835 -0.02625598  0.04011823 -0.005187598  0.003907832
+5  0.406026310 -0.01269803  0.04131232  0.01937920 -0.020588905 -0.007539995
+6  0.005454713 -0.16190160 -0.22238807  0.12523584  0.015402771 -0.009846016</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select eigen values from dataframe, round to 4 places. These will be the axes for the 3-D plot</span></span>
 <span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract variances from previously generated dataframe, round and multiply by 100 for plotting</span></span>
@@ -917,35 +910,36 @@ Attaching package: 'ape'</code></pre>
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>euc_dmat <span class="ot">&lt;-</span> compositions<span class="sc">::</span><span class="fu">dist</span>(asv_df, <span class="at">method =</span> <span class="st">"euclidean"</span>) <span class="co"># From above</span></span>
 <span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>euc_nmds <span class="ot">&lt;-</span> vegan<span class="sc">::</span> <span class="fu">metaMDS</span>(euc_dmat, <span class="at">k =</span> <span class="dv">2</span>, <span class="at">autotransform =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Run 0 stress 0.009747927 
-Run 1 stress 0.01553882 
-Run 2 stress 0.01498708 
-Run 3 stress 0.01047867 
-Run 4 stress 0.009667551 
+<pre><code>Run 0 stress 0.03176447 
+Run 1 stress 0.0317942 
+... Procrustes: rmse 0.01591051  max resid 0.2519757 
+Run 2 stress 0.03271511 
+Run 3 stress 0.03191601 
+... Procrustes: rmse 0.01869626  max resid 0.3884156 
+Run 4 stress 0.03261754 
+Run 5 stress 0.03334667 
+Run 6 stress 0.0355446 
+Run 7 stress 0.0332108 
+Run 8 stress 0.03165351 
 ... New best solution
-... Procrustes: rmse 0.02230998  max resid 0.4556172 
-Run 5 stress 0.007991186 
+... Procrustes: rmse 0.0197889  max resid 0.4094653 
+Run 9 stress 0.0307389 
 ... New best solution
-... Procrustes: rmse 0.02068838  max resid 0.4748071 
-Run 6 stress 0.01499294 
-Run 7 stress 0.008234147 
-... Procrustes: rmse 0.01596071  max resid 0.3520825 
-Run 8 stress 0.008304165 
-... Procrustes: rmse 0.01585915  max resid 0.4096863 
-Run 9 stress 0.007761174 
+... Procrustes: rmse 0.01601655  max resid 0.3265687 
+Run 10 stress 0.03206538 
+Run 11 stress 0.03114016 
+... Procrustes: rmse 0.01832106  max resid 0.3892465 
+Run 12 stress 0.03297826 
+Run 13 stress 0.02989012 
 ... New best solution
-... Procrustes: rmse 0.009837237  max resid 0.1957055 
-Run 10 stress 0.01366587 
-Run 11 stress 0.009694091 
-Run 12 stress 0.01781326 
-Run 13 stress 0.01155348 
-Run 14 stress 0.01554772 
-Run 15 stress 0.01406257 
-Run 16 stress 0.01053438 
-Run 17 stress 0.01775998 
-Run 18 stress 0.01497913 
-Run 19 stress 0.01514318 
-Run 20 stress 0.01490975 
+... Procrustes: rmse 0.02733152  max resid 0.548664 
+Run 14 stress 0.03282565 
+Run 15 stress 0.03122517 
+Run 16 stress 0.03259375 
+Run 17 stress 0.03179146 
+Run 18 stress 0.03220929 
+Run 19 stress 0.03184396 
+Run 20 stress 0.03285802 
 *** Best solution was not repeated -- monoMDS stopping criteria:
     20: no. of iterations &gt;= maxit</code></pre>
 </div>
@@ -955,69 +949,65 @@ Run 20 stress 0.01490975
 <div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>jac_dmat <span class="ot">&lt;-</span> vegan<span class="sc">::</span> <span class="fu">vegdist</span>(<span class="fu">t</span>(asv_df), <span class="at">method =</span> <span class="st">"jaccard"</span>) <span class="co"># From above</span></span>
 <span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>jac_nmds<span class="ot">&lt;-</span> vegan<span class="sc">::</span><span class="fu">metaMDS</span>(jac_dmat, <span class="at">k =</span> <span class="dv">2</span>, <span class="at">autotransform =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Run 0 stress 0.1523259 
-Run 1 stress 0.1800741 
-Run 2 stress 0.2037203 
-Run 3 stress 0.1731681 
-Run 4 stress 0.1731681 
-Run 5 stress 0.1858211 
-Run 6 stress 0.1831991 
-Run 7 stress 0.1800741 
-Run 8 stress 0.2039983 
-Run 9 stress 0.2240731 
-Run 10 stress 0.1523259 
-... Procrustes: rmse 2.538897e-05  max resid 5.65177e-05 
-... Similar to previous best
-Run 11 stress 0.1739264 
-Run 12 stress 0.1950497 
-Run 13 stress 0.1708581 
-Run 14 stress 0.1523259 
+<pre><code>Run 0 stress 0.1423445 
+Run 1 stress 0.1919306 
+Run 2 stress 0.1373766 
 ... New best solution
-... Procrustes: rmse 1.044647e-05  max resid 2.556225e-05 
+... Procrustes: rmse 0.04095258  max resid 0.1313601 
+Run 3 stress 0.1811173 
+Run 4 stress 0.1375691 
+... Procrustes: rmse 0.01209244  max resid 0.03782542 
+Run 5 stress 0.1828614 
+Run 6 stress 0.1939918 
+Run 7 stress 0.1933375 
+Run 8 stress 0.2179407 
+Run 9 stress 0.1734027 
+Run 10 stress 0.1811173 
+Run 11 stress 0.1607189 
+Run 12 stress 0.1373766 
+... New best solution
+... Procrustes: rmse 1.788908e-05  max resid 4.848831e-05 
 ... Similar to previous best
-Run 15 stress 0.1523259 
-... Procrustes: rmse 3.454584e-05  max resid 8.426709e-05 
-... Similar to previous best
-Run 16 stress 0.1695962 
-Run 17 stress 0.1708582 
-Run 18 stress 0.1708584 
-Run 19 stress 0.2317667 
-Run 20 stress 0.1695962 
-*** Best solution repeated 2 times</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in postMDS(out$points, dis, plot = max(0, plot - 1), ...): skipping
-half-change scaling: too few points below threshold</code></pre>
+Run 13 stress 0.1423445 
+Run 14 stress 0.1610092 
+Run 15 stress 0.1375691 
+... Procrustes: rmse 0.01208686  max resid 0.03781589 
+Run 16 stress 0.1827459 
+Run 17 stress 0.180109 
+Run 18 stress 0.1676982 
+Run 19 stress 0.1424365 
+Run 20 stress 0.2052544 
+*** Best solution repeated 1 times</code></pre>
 </div>
 </div>
 <p>Take a look at stress - overall this value is not extremely informative, but know that the closer stress is to 1 the less representative of your actual data the NMDS is.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>euc_nmds<span class="sc">$</span>stress </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>euc_nmds<span class="sc">$</span>stress </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.007761174</code></pre>
+<pre><code>[1] 0.02989012</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>jac_nmds<span class="sc">$</span>stress</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>jac_nmds<span class="sc">$</span>stress</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.1523259</code></pre>
+<pre><code>[1] 0.1373766</code></pre>
 </div>
 </div>
 <p>Additionally, the axes for NMDS are totally arbitrary, so axis scaling does not matter and data can be rotated/reflected about axes and the NMDS is still the same euc_nmds$points #Extract points from NMDS</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>euc_frame <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(euc_nmds<span class="sc">$</span>points) <span class="sc">%&gt;%</span> </span>
-<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>(<span class="at">var =</span> <span class="st">"TimeofDay"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(TimeofDay, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"excess"</span>, <span class="st">"TimeofDay"</span>), <span class="at">sep =</span> <span class="st">"_"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb66-4"><a href="#cb66-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>excess) <span class="sc">%&gt;%</span> </span>
-<span id="cb66-5"><a href="#cb66-5" aria-hidden="true" tabindex="-1"></a>  data.frame</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>euc_frame <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(euc_nmds<span class="sc">$</span>points) <span class="sc">%&gt;%</span> </span>
+<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>(<span class="at">var =</span> <span class="st">"TimeofDay"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(TimeofDay, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"excess"</span>, <span class="st">"TimeofDay"</span>), <span class="at">sep =</span> <span class="st">"_"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb65-4"><a href="#cb65-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>excess) <span class="sc">%&gt;%</span> </span>
+<span id="cb65-5"><a href="#cb65-5" aria-hidden="true" tabindex="-1"></a>  data.frame</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Expected 2 pieces. Missing pieces filled with `NA` in 1000 rows [1, 2, 3, 4, 5,
 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, ...].</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Plotting euclidean distance NMDS</span></span>
-<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(euc_frame,<span class="fu">aes</span>(<span class="at">x =</span> MDS1, <span class="at">y =</span> MDS2, <span class="at">fill =</span> TimeofDay)) <span class="sc">+</span></span>
-<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>, <span class="at">shape =</span> <span class="dv">21</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="fu">aes</span>(<span class="at">fill =</span> TimeofDay)) <span class="sc">+</span></span>
-<span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Dark2"</span>) <span class="sc">+</span></span>
-<span id="cb68-5"><a href="#cb68-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb68-6"><a href="#cb68-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"NMDS 1"</span>, <span class="at">y =</span> <span class="st">"NMDS 2"</span>, <span class="at">title =</span> <span class="st">"Euclidean Distance NMDS"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Plotting euclidean distance NMDS</span></span>
+<span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(euc_frame,<span class="fu">aes</span>(<span class="at">x =</span> MDS1, <span class="at">y =</span> MDS2, <span class="at">fill =</span> TimeofDay)) <span class="sc">+</span></span>
+<span id="cb67-3"><a href="#cb67-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>, <span class="at">shape =</span> <span class="dv">21</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="fu">aes</span>(<span class="at">fill =</span> TimeofDay)) <span class="sc">+</span></span>
+<span id="cb67-4"><a href="#cb67-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Dark2"</span>) <span class="sc">+</span></span>
+<span id="cb67-5"><a href="#cb67-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb67-6"><a href="#cb67-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"NMDS 1"</span>, <span class="at">y =</span> <span class="st">"NMDS 2"</span>, <span class="at">title =</span> <span class="st">"Euclidean Distance NMDS"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="clustering_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid" width="672"></p>
 </div>
